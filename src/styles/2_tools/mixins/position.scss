@@ -3,8 +3,8 @@
 /// @group mixins
 /// @param $position - Position property
 @mixin position($position: absolute) {
-	position: $position;
-	@content;
+  position: $position;
+  @content;
 }
 
 /// Add styling to an element for it to completely
@@ -14,8 +14,8 @@
 /// @name absolute-cover
 /// @group mixins
 @mixin absolute-cover() {
-	bottom: 0;
-	left: 0;
-	right: 0;
-	top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
 }

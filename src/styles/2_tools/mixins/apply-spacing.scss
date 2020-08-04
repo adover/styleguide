@@ -1,13 +1,13 @@
-@import '../../1_settings/_config';
-@import '../../2_tools/functions/map-deep-keys';
-@import '../../2_tools/mixins/media-query';
+@import "../../1_settings/_config";
+@import "../../2_tools/functions/map-deep-keys";
+@import "../../2_tools/mixins/media-query";
 
 @function spacings-from-config($size, $axis, $negative: false) {
-	@if $negative {
-		@return -#{map-deep-get($config, spacings, $size, $axis)};
-	}
+  @if $negative {
+    @return -#{map-deep-get($config, spacings, $size, $axis)};
+  }
 
-	@return map-deep-get($config, spacings, $size, $axis);
+  @return map-deep-get($config, spacings, $size, $axis);
 }
 
 /// Apply the standardised sitewide spacing to an element.
@@ -19,111 +19,97 @@
 /// @param selector - Which selector to use. Will be forced to margin if $offset is true
 /// @param $offset - Used to force an item to the edge of an already spaced element
 /// @param $scale - Used to apply 'default' size scaling at screen sizes less than tablet-portrait
-@mixin apply-spacing($axis: false, $size: default, $square: false, $selector: padding, $offset: false, $scale: true) {
-	@if not index(map-deep-keys($config, spacings), $size) {
-		@error '[Mixin: Apply Spacing] Size #{$size} not found in [$config, spacings]';
+@mixin apply-spacing(
+  $axis: false,
+  $size: default,
+  $square: false,
+  $selector: padding,
+  $offset: false,
+  $scale: true
+) {
+  @if not index(map-deep-keys($config, spacings), $size) {
+    @error '[Mixin: Apply Spacing] Size #{$size} not found in [$config, spacings]';
 
-		@if $size == 'small' {
-			@warn '[Mixin: Apply Spacing] If you wrote small, you probably mean \'default\'';
-		}
-	}
+    @if $size == "small" {
+      @warn '[Mixin: Apply Spacing] If you wrote small, you probably mean \'default\'';
+    }
+  }
 
-	@if not index(map-deep-keys($config, spacings), $size) {
-		@error '[Mixin: Apply Spacing] Size #{$size} not found in [$config, spacings]';
-	}
+  @if not index(map-deep-keys($config, spacings), $size) {
+    @error '[Mixin: Apply Spacing] Size #{$size} not found in [$config, spacings]';
+  }
 
-	@if not index(margin padding, $selector) {
-		@error '[Mixin: Apply Spacing] Selector must be either margin or padding';
-	}
+  @if not index(margin padding, $selector) {
+    @error '[Mixin: Apply Spacing] Selector must be either margin or padding';
+  }
 
-	// Force the selector to margin if offset is true
-	$selector: if($offset, margin, $selector);
+  // Force the selector to margin if offset is true
+  $selector: if($offset, margin, $selector);
 
-	@if ($axis == false) or ($axis == horizontal) {
-		@if $scale == true {
-			#{$selector}-left: spacings-from-config(default, h, $offset);
-			#{$selector}-right: spacings-from-config(default, h, $offset);
-		}
+  @if ($axis == false) or ($axis == horizontal) {
+    @if $scale == true {
+      #{$selector}-left: spacings-from-config(default, h, $offset);
+      #{$selector}-right: spacings-from-config(default, h, $offset);
+    } @else {
+      #{$selector}-left: spacings-from-config($size, h, $offset);
+      #{$selector}-right: spacings-from-config($size, h, $offset);
+    }
 
- @else {
-			#{$selector}-left: spacings-from-config($size, h, $offset);
-			#{$selector}-right: spacings-from-config($size, h, $offset);
-		}
+    @if $size == medium or $size == large {
+      @include media-query($size: tablet-portrait) {
+        #{$selector}-left: spacings-from-config($size, h, $offset);
+        #{$selector}-right: spacings-from-config($size, h, $offset);
+      }
+    }
+  }
 
-		@if $size == medium or $size == large {
-			@include media-query($size: tablet-portrait) {
-				#{$selector}-left: spacings-from-config($size, h, $offset);
-				#{$selector}-right: spacings-from-config($size, h, $offset);
-			}
-		}
-	}
+  @if ($axis == false) or ($axis == vertical) {
+    // If $square is true we will just use the horizontal values
+    $as-square: if($square, h, v);
 
-	@if ($axis == false) or ($axis == vertical) {
-		// If $square is true we will just use the horizontal values
-		$as-square: if($square, h, v);
+    @if $scale == true {
+      #{$selector}-top: spacings-from-config(default, v, $offset);
+      #{$selector}-bottom: spacings-from-config(default, v, $offset);
+    } @else {
+      #{$selector}-bottom: spacings-from-config($size, v, $offset);
+      #{$selector}-top: spacings-from-config($size, v, $offset);
+    }
 
-		@if $scale == true {
-			#{$selector}-top: spacings-from-config(default, v, $offset);
-			#{$selector}-bottom: spacings-from-config(default, v, $offset);
-		}
-
- @else {
-			#{$selector}-bottom: spacings-from-config($size, v, $offset);
-			#{$selector}-top: spacings-from-config($size, v, $offset);
-		}
-
-		@if $size == medium or $size == large {
-			@include media-query($size: tablet-portrait) {
-				#{$selector}-bottom: spacings-from-config($size, v, $offset);
-				#{$selector}-top: spacings-from-config($size, v, $offset);
-			}
-		}
-	}
+    @if $size == medium or $size == large {
+      @include media-query($size: tablet-portrait) {
+        #{$selector}-bottom: spacings-from-config($size, v, $offset);
+        #{$selector}-top: spacings-from-config($size, v, $offset);
+      }
+    }
+  }
 }
 
 /// Useful for situations where you need negative margins
 /// @name apply-spacing-offset
 /// @group mixins
 @mixin apply-spacing-offset($axis: false, $size: default, $square: false) {
-	@if not index(map-deep-keys($config, spacings), $size) {
-		@error '[Mixin: Apply Spacing] Size #{$size} not found in [$config, spacings]';
-	}
+  @if not index(map-deep-keys($config, spacings), $size) {
+    @error '[Mixin: Apply Spacing] Size #{$size} not found in [$config, spacings]';
+  }
 
-	@include apply-spacing($axis, $size, $square, $offset: true);
+  @include apply-spacing($axis, $size, $square, $offset: true);
 }
 
 /// TODO
 /// @name section-margin
 /// @group mixins
 @mixin section-margin($size, $side: false) {
-	$which: if($side, $side, bottom);
+  $which: if($side, $side, bottom);
 
-	@if not index(map-deep-keys($config, spacings), $size) {
-		@error '[Mixin: Apply Spacing] Size #{$size} not found in $spacings map';
-	}
+  @if not index(map-deep-keys($config, spacings), $size) {
+    @error '[Mixin: Apply Spacing] Size #{$size} not found in $spacings map';
+  }
 
-	margin-#{$which}: map-deep-get($config, spacings, default, v);
+  margin-#{$which}: map-deep-get($config, spacings, default, v);
 
-	@if $size == medium or $size == large {
-		@include media-query($size: tablet-portrait) {
-			margin-#{$which}: map-deep-get($config, spacings, $size, v);
-		}
-	}
+  @if $size == medium or $size == large {
+    @include media-query($size: tablet-portrait) {
+      margin-#{$which}: map-deep-get($config, spacings, $size, v);
+    }
+  }
 }
-// /// TODO: Create one method to combine all margins
-// /// @name side-margin
-// /// @group mixins
-// @mixin side-margin($size, $removeHorizontal: false) {
-
-// 	@if not index(map-deep-keys($config, spacings), $size) {
-// 		@error '[Mixin: Apply Spacing] Size #{$size} not found in $spacings map';
-// 	}
-
-// 	margin-left: map-deep-get($config, spacings, $size, v);
-// 	margin-right: map-deep-get($config, spacings, $size, v);
-
-// 	@if $removeHorizontal {
-// 		margin-top: 0;
-// 		margin-bottom: 0;
-// 	}
-// }

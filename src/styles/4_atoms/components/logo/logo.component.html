@@ -1,9 +1,0 @@
-<ng-container *ngIf="link; then linkImage; else logoImage"></ng-container>
-<ng-template #linkTemplate>
-  <a href="{{ link }}" title="{{ altText }}">
-    <ng-container *ngTemplateOutlet="logoImage"></ng-container>
-  </a>
-</ng-template>
-<ng-template #logoImage>
-  <img src="/logos/cd_logo_h.svg" alt="{{ altText }}" />
-</ng-template>

@@ -1,7 +1,0 @@
-@import '../../../4_atoms/logo';
-
-:host {
-	display: inline-block;
-
-	@include logo-init();
-}

@@ -1,7 +1,0 @@
-@import '../../feature-list';
-
-:host {
-	text-align: center;
-
-	@include feature-list-item();
-}

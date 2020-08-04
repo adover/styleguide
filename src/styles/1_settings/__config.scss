@@ -1,12 +1,12 @@
-@import 'borders';
-@import 'breakpoints';
-@import 'colors';
-@import 'radii';
-@import 'spacing';
-@import 'shadows';
-@import 'transitions';
-@import '../2_tools/functions/build-transition';
-@import '../2_tools/functions/map-deep-get';
+@import "borders";
+@import "breakpoints";
+@import "colors";
+@import "radii";
+@import "spacing";
+@import "shadows";
+@import "transitions";
+@import "../2_tools/functions/build-transition";
+@import "../2_tools/functions/map-deep-get";
 
 // TODO: Dump main site configuration here
 // This is intended to reduce the amount
@@ -17,215 +17,201 @@
 $body-background-color: map-get($colors, alabaster);
 
 $config: (
-	page: (
-		max-width: map-get($breakpoints, large),
-		medium-width: 1220px,
-		narrow-width: 576px,
-	),
-	alerts: (
-		error: (
-			accent-color: map-get($colors, shiraz),
-			background-color: white,
-			border: 'all',
-			icon: alert,
-		),
-		info: (
-			accent-color: map-get($colors, havelock-blue),
-			background-color: white,
-			border: 'all',
-			icon: user-information,
-		),
-		success: (
-			accent-color: map-get($colors, sushi),
-			background-color: white,
-			border: 'all',
-			icon: tick-sign,
-		),
-		warning: (
-			accent-color: map-get($colors, tango),
-			background-color: white,
-			border: 'all',
-			icon: alert,
-		),
-	),
-	colors: (
-		background: (
-			light: map-get($colors, alabaster),
-			highlight: map-get($colors, porcelain),
-			mid: map-get($colors, shuttle-gray),
-			dark: map-get($colors, limed-spruce),
-			light-green: map-get($colors, frost),
-			green: map-get($colors, fun-green),
-		),
-		heading: (
-			default: map-get($colors, limed-spruce),
-			dark: map-get($colors, limed-spruce),
-			light: map-get($colors, porcelain),
-			green: map-get($colors, fun-green),
-		),
-		icon: (
-			dark: map-get($colors, limed-spruce),
-			light: white,
-			green: map-get($colors, fun-green),
-		),
-		link: (
-			primary: map-get($colors, limed-spruce),
-			secondary: map-get($colors, fun-green),
-		),
-		paragraph: (
-			light: map-get($colors, porcelain),
-			medium: map-get($colors, shuttle-gray),
-			dark: map-get($colors, limed-spruce),
-			green: map-get($colors, fun-green),
-			special: map-get($colors, shiraz),
-		),
-		brand: (
-			green: map-get($colors, fun-green),
-		),
-		text: (
-			note: map-get($colors, ford-cortina-blue),
-		),
-	),
-	borders: (
-		default: 1px solid map-get($colors, silver-sand),
-		divider: 1px solid map-get($colors, porcelain),
-		list: 1px solid map-get($colors, limed-spruce),
-		nav: map-get($borders, w4) solid map-get($colors, fun-green),
-		stamp: $spacing-4 solid transparent,
-		validation: 1px solid map-get($colors, shiraz),
-	),
-	breakpoints: (
-		button-break: tablet-portrait,
-		layout-break: tablet,
-	),
-	icons: (
-		size: (
-			default: $spacing-8,
-			small: $spacing-6,
-			large: $spacing-12,
-			extra-small: $spacing-4,
-		),
-	),
-	images: (
-		size: (
-			product: (
-				stamp: (
-					mobile: 85px,
-					desktop: 170px,
-				),
-				detail: (
-					mobile: auto,
-					desktop: 425px,
-				),
-			),
-		),
-	),
-	modal: (
-		width: (
-			medium: 32rem,
-			large: 43rem,
-			default: 19rem,
-			full: 110rem,
-		),
-		height: (
-			large: 80vh,
-			full: 95vh,
-		)
-	),
-	overlay: (
-		dark: $default-shadow-color-faded,
-		light: rgba(white, 0.5),
-	),
-	radii: (
-		default: $radius-default,
-		md: $radius-md,
-		lg: $radius-lg,
-		circle: $radius-half,
-	),
-	spacings: (
-		none: (
-			h: 0,
-			v: 0,
-		),
-		buttons: (
-			default: (
-				h: $spacing-5,
-				v: $spacing-2,
-			),
-			large: (
-				h: $spacing-6,
-				v: $spacing-3,
-			),
-			small: (
-				h: $spacing-3,
-				v: $spacing-2,
-			),
-		),
-		inputs: (
-			h: $spacing-3,
-			v: $spacing-2,
-		),
-		default: (
-			h: $spacing-4,
-			v: $spacing-3,
-		),
-		medium: (
-			h: $spacing-8,
-			v: $spacing-6,
-		),
-		large: (
-			h: $spacing-16,
-			v: $spacing-12,
-		),
-	),
-	sizes: (
-		base: (
-			paragraph: 1rem,
-		),
-		paragraph: (
-			smallest: 0.75rem,
-			small: 0.875rem,
-			large: 1.15rem,
-		),
-		form-element: (
-			min: 10rem,
-			max: 22rem,
-		),
-	),
-	shadows: $shadows,
-	transitions: (
-		all: (
-			build-transition(short, ease-out, all),
-		),
-		hover: (
-			over: build-transition(short, ease-in, background-color),
-			out: build-transition(short, ease-out, background-color),
-		),
-		hoverRise: (
-			over: build-transition(short, ease-in, transform),
-			out: build-transition(short, ease-out, transform),
-		),
-		fade: (
-			in: build-transition(default, ease-out, opacity),
-			out: build-transition(default, ease-out, opacity),
-		),
-		slide: (
-			in: build-transition(medium, 'in-quart', transform),
-			out: build-transition(medium, 'out-quart', transform),
-		),
-		smallSlide: (
-			in: build-transition(default, 'in-quart', transform),
-			out: build-transition(default, 'out-quart', transform),
-		),
-	),
-	type: (
-		heading: unquote("'Fresh sans', 'Fresh', Arial, Helvetica, sans-serif"),
-		special: unquote("'Fresh sans', 'Fresh', Arial, Helvetica, sans-serif"),
-		body: unquote("'Open Sans', Arial, Helvetica, sans-serif"),
-		scale: (
-			mobile: 1.125,
-			tablet: 1.165,
-			desktop: 1.201,
-		),
-	),
+  page: (
+    max-width: map-get($breakpoints, large),
+    medium-width: 1220px,
+    narrow-width: 576px,
+  ),
+  alerts: (
+    error: (
+      accent-color: map-get($colors, shiraz),
+      background-color: white,
+      border: "all",
+      icon: alert,
+    ),
+    info: (
+      accent-color: map-get($colors, havelock-blue),
+      background-color: white,
+      border: "all",
+      icon: user-information,
+    ),
+    success: (
+      accent-color: map-get($colors, sushi),
+      background-color: white,
+      border: "all",
+      icon: tick-sign,
+    ),
+    warning: (
+      accent-color: map-get($colors, tango),
+      background-color: white,
+      border: "all",
+      icon: alert,
+    ),
+  ),
+  colors: (
+    background: (
+      light: map-get($colors, alabaster),
+      highlight: map-get($colors, porcelain),
+      mid: map-get($colors, shuttle-gray),
+      dark: map-get($colors, limed-spruce),
+      light-green: map-get($colors, frost),
+      green: map-get($colors, fun-green),
+    ),
+    heading: (
+      default: map-get($colors, limed-spruce),
+      dark: map-get($colors, limed-spruce),
+      light: map-get($colors, porcelain),
+      green: map-get($colors, fun-green),
+    ),
+    icon: (
+      dark: map-get($colors, limed-spruce),
+      light: white,
+      green: map-get($colors, fun-green),
+    ),
+    link: (
+      primary: map-get($colors, limed-spruce),
+      secondary: map-get($colors, fun-green),
+    ),
+    paragraph: (
+      light: map-get($colors, porcelain),
+      medium: map-get($colors, shuttle-gray),
+      dark: map-get($colors, limed-spruce),
+      green: map-get($colors, fun-green),
+      special: map-get($colors, shiraz),
+    ),
+    brand: (
+      green: map-get($colors, fun-green),
+    ),
+    text: (
+      note: map-get($colors, ford-cortina-blue),
+    ),
+  ),
+  borders: (
+    default: 1px solid map-get($colors, silver-sand),
+    divider: 1px solid map-get($colors, porcelain),
+    list: 1px solid map-get($colors, limed-spruce),
+    nav: map-get($borders, w4) solid map-get($colors, fun-green),
+    stamp: $spacing-4 solid transparent,
+    validation: 1px solid map-get($colors, shiraz),
+  ),
+  breakpoints: (
+    button-break: tablet-portrait,
+    layout-break: tablet,
+  ),
+  icons: (
+    size: (
+      default: $spacing-8,
+      small: $spacing-6,
+      large: $spacing-12,
+      extra-small: $spacing-4,
+    ),
+  ),
+  modal: (
+    width: (
+      medium: 32rem,
+      large: 43rem,
+      default: 19rem,
+      full: 110rem,
+    ),
+    height: (
+      large: 80vh,
+      full: 95vh,
+    ),
+  ),
+  overlay: (
+    dark: $default-shadow-color-faded,
+    light: rgba(white, 0.5),
+  ),
+  radii: (
+    default: $radius-default,
+    md: $radius-md,
+    lg: $radius-lg,
+    circle: $radius-half,
+  ),
+  spacings: (
+    none: (
+      h: 0,
+      v: 0,
+    ),
+    buttons: (
+      default: (
+        h: $spacing-5,
+        v: $spacing-2,
+      ),
+      large: (
+        h: $spacing-6,
+        v: $spacing-3,
+      ),
+      small: (
+        h: $spacing-3,
+        v: $spacing-2,
+      ),
+    ),
+    inputs: (
+      h: $spacing-3,
+      v: $spacing-2,
+    ),
+    default: (
+      h: $spacing-4,
+      v: $spacing-3,
+    ),
+    medium: (
+      h: $spacing-8,
+      v: $spacing-6,
+    ),
+    large: (
+      h: $spacing-16,
+      v: $spacing-12,
+    ),
+  ),
+  sizes: (
+    base: (
+      paragraph: 1rem,
+    ),
+    paragraph: (
+      smallest: 0.75rem,
+      small: 0.875rem,
+      large: 1.15rem,
+    ),
+    form-element: (
+      min: 10rem,
+      max: 22rem,
+    ),
+  ),
+  shadows: $shadows,
+  transitions: (
+    all: (
+      build-transition(short, ease-out, all),
+    ),
+    hover: (
+      over: build-transition(short, ease-in, background-color),
+      out: build-transition(short, ease-out, background-color),
+    ),
+    hoverRise: (
+      over: build-transition(short, ease-in, transform),
+      out: build-transition(short, ease-out, transform),
+    ),
+    fade: (
+      in: build-transition(default, ease-out, opacity),
+      out: build-transition(default, ease-out, opacity),
+    ),
+    slide: (
+      in: build-transition(medium, "in-quart", transform),
+      out: build-transition(medium, "out-quart", transform),
+    ),
+    smallSlide: (
+      in: build-transition(default, "in-quart", transform),
+      out: build-transition(default, "out-quart", transform),
+    ),
+  ),
+  type: (
+    heading: unquote("'Open Sans', Arial, Helvetica, sans-serif"),
+    special: unquote("'Open Sans', Arial, Helvetica, sans-serif"),
+    body: unquote("'Open Sans', Arial, Helvetica, sans-serif"),
+    scale: (
+      mobile: 1.125,
+      tablet: 1.165,
+      desktop: 1.201,
+    ),
+  ),
 );

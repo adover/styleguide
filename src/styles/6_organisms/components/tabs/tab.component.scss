@@ -1,7 +1,0 @@
-@import '../../tabs';
-
-:host {
-	@include tab-panel-item();
-
-	display: block;
-}
