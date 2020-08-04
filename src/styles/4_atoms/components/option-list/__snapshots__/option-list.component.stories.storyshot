@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms|Option List With Events 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component>
+    <cdx-option-list
+      ng-reflect-list-items="[object Object],[object Object"
+      role="listbox"
+    >
+      
+      <ul
+        role="list"
+      >
+        
+        <cdx-option-list-item
+          class="list-group-item"
+        >
+          <li
+            ng-reflect-ng-class="[object Object]"
+          >
+              
+          </li>
+        </cdx-option-list-item>
+        <cdx-option-list-item
+          class="list-group-item"
+        >
+          <li
+            ng-reflect-ng-class="[object Object]"
+          >
+              
+          </li>
+        </cdx-option-list-item>
+        <cdx-option-list-item
+          class="list-group-item"
+        >
+          <li
+            ng-reflect-ng-class="[object Object]"
+          >
+              
+          </li>
+        </cdx-option-list-item>
+        <cdx-option-list-item
+          class="list-group-item"
+        >
+          <li
+            ng-reflect-ng-class="[object Object]"
+          >
+              
+          </li>
+        </cdx-option-list-item>
+        <cdx-option-list-item
+          class="list-group-item"
+        >
+          <li
+            ng-reflect-ng-class="[object Object]"
+          >
+              
+          </li>
+        </cdx-option-list-item>
+        <cdx-option-list-item
+          class="list-group-item"
+          ng-reflect-no-padding="true"
+        >
+          <li
+            class="noPadding"
+            ng-reflect-ng-class="[object Object]"
+          />
+        </cdx-option-list-item>
+      </ul>
+    </cdx-option-list>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

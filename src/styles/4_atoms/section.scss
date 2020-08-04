@@ -1,0 +1,43 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/media-query';
+@import './link';
+
+$section-grey-background: map-get($colors, porcelain);
+$section-dark-grey-background: map-get($colors, limed-spruce);
+$section-green-background: map-get($colors, fun-green);
+
+$section-max-width: map-deep-get($config, page, max-width);
+
+/// TODO
+/// @name section-init
+/// @group atoms
+@mixin section-init($padding-size: default, $background-color: false) {
+	width: 100%;
+
+	@if $background-color {
+		@include section-colors($background-color: $background-color);
+	}
+
+	@include apply-spacing($axis: false, $size: $padding-size);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/// TODO
+/// @name section-colors
+/// @group atoms
+@mixin section-colors($background-color: transparent) {
+	background-color: $background-color;
+}
+
+/// TODO
+/// @name section-reset
+/// @group atoms
+@mixin section-reset() {
+	background-color: transparent;
+	padding: auto;
+}

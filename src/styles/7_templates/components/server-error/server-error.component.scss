@@ -1,0 +1,16 @@
+@import '../../../2_tools/mixins/apply-spacing';
+
+:host {
+	h1 {
+		font-size: 10rem;
+	}
+
+	@include apply-spacing($size: large);
+
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+}

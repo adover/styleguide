@@ -1,0 +1,130 @@
+@import '../1_settings/spacing';
+@import '../1_settings/radii';
+@import 'section';
+
+$tab-size: 4;
+$pre-background: map-get($colors, shark);
+$pre-default-color: map-get($colors, porcelain);
+$pre-padding: $spacing-4;
+$pre-radius: $radius-default;
+
+$code-padding: $spacing-1;
+
+$syntax-highlighting: (
+	comment: map-get($colors, shuttle-gray),
+	punctuation: white,
+	property: map-get($colors, silver-sand),
+	value: map-get($colors, we-peep),
+	selector: map-get($colors, sushi),
+	operator: map-get($colors, frost),
+	class: map-get($colors, school-bus-yellow),
+	keyword: map-get($colors, sushi),
+	regex: map-get($colors, tango),
+);
+
+/// TODO
+/// @name pre
+/// @group atoms
+pre,
+code {
+	@include section-margin($size: large);
+
+	background: $pre-background;
+	border-radius: $pre-radius;
+	color: $pre-default-color;
+	line-height: 1.5;
+	overflow: auto;
+	tab-size: $tab-size;
+	text-align: left;
+	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+}
+
+:not(pre) > code {
+	padding: $code-padding;
+	white-space: normal;
+}
+
+pre {
+	padding: $pre-padding;
+}
+
+// <pre> highlighting using a variation of the Okaida theme
+.token {
+	&.comment,
+	&.prolog,
+	&.doctype,
+	&.cdata {
+		color: map-get($syntax-highlighting, comment);
+	}
+
+	&.punctuation {
+		color: map-get($syntax-highlighting, punctuation);
+	}
+
+	&.property,
+	&.tag,
+	&.constant,
+	&.symbol,
+	&.deleted {
+		color: map-get($syntax-highlighting, property);
+	}
+
+	&.boolean,
+	&.number {
+		color: map-get($syntax-highlighting, value);
+	}
+
+	&.selector,
+	&.attr-name,
+	&.string,
+	&.char,
+	&.builtin,
+	&.inserted {
+		color: map-get($syntax-highlighting, selector);
+	}
+
+	&.operator,
+	&.entity,
+	&.url,
+	&.string .language-css &,
+	&.string .style &,
+	&.variable {
+		color: map-get($syntax-highlighting, operator);
+	}
+
+	&.atrule,
+	&.attr-value,
+	&.function,
+	&.class-name {
+		color: map-get($syntax-highlighting, class);
+	}
+
+	&.keyword {
+		color: map-get($syntax-highlighting, keyword);
+	}
+
+	&.regex,
+	&.important {
+		color: map-get($syntax-highlighting, regex);
+	}
+
+	&.important,
+	&.bold {
+		font-weight: 700;
+	}
+
+	&.italic {
+		font-style: italic;
+	}
+
+	&.entity {
+		cursor: help;
+	}
+}
+
+.namespace {
+	opacity: 0.7;
+}

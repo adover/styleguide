@@ -1,0 +1,67 @@
+@import '../1_settings/_config';
+@import '../2_tools/functions/map-deep-get';
+
+.gigya-reset * {
+	color: map-deep-get($config, colors, paragraph, dark) !important;
+	font-family: map-deep-get($config, type, body) !important;
+}
+
+.gigya-password-strength-bubble {
+	&.gig-balloon-left {
+		.gig-balloon {
+			left: +3px !important;
+		}
+	}
+
+	.gig-balloon-frame {
+		background-color: white !important;
+		border: map-deep-get($config, borders, default) !important;
+		border-radius: map-deep-get($config, radii, default) !important;
+		padding: 15px 20px !important;
+
+		.gigya-passwordStrength-bar {
+			height: 3px !important;
+		}
+
+		.gigya-passwordStrength-text {
+			text-align: left !important;
+		}
+
+		span {
+			&.gigya-passwordStrength-text {
+				font-size: map-deep-get($config, sizes, paragraph, small) !important;
+			}
+		}
+
+		.gigya-passwordStrength-text-requirements {
+			font-size: map-deep-get($config, sizes, paragraph, smallest) !important;
+			text-align: left !important;
+		}
+
+		.gigya-passwordStrength-strong,
+		.gigya-passwordStrength-very_strong {
+			.gigya-passwordStrength-scoreText {
+				color: map-deep-get($config, colors, paragraph, green) !important;
+			}
+
+			.gigya-passwordStrength-bar-strong,
+			.gigya-passwordStrength-bar-very_strong {
+				background-color: map-deep-get($config, colors, paragraph, green) !important;
+			}
+		}
+
+		.gigya-passwordStrength-too_weak {
+			.gigya-passwordStrength-scoreText {
+				color: map-deep-get($config, colors, paragraph, special) !important;
+			}
+
+			.gigya-passwordStrength-bar-too_weak {
+				background-color: map-deep-get($config, colors, paragraph, special) !important;
+			}
+		}
+	}
+
+	tr td {
+		padding: 0 !important;
+	}
+}

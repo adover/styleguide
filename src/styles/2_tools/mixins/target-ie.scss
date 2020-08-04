@@ -1,0 +1,26 @@
+/// IE Specific style mixin
+/// @name target-ie
+/// @group mixins
+@mixin target-ie() {
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+/// Set styles which aren't picked up by IE
+/// @name not-ie
+/// @group mixins
+@mixin not-ie() {
+	@supports not (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+/// Set styles which are picked up by edge
+/// @name target-edge
+/// @group mixins
+@mixin target-edge {
+	@supports (-ms-ime-align: auto) {
+		@content;
+	}
+}

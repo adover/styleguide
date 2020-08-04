@@ -1,0 +1,112 @@
+@import '../1_settings/spacing';
+@import '../1_settings/svg';
+@import '../2_tools/mixins/center';
+@import '../2_tools/functions/svg';
+@import '../2_tools/mixins/list-reset';
+@import '../2_tools/mixins/media-query';
+@import '../2_tools/mixins/pseudo';
+@import '../4_atoms/button';
+@import '../4_atoms/link';
+
+$list-margin: $spacing-4;
+$list-number-size: $spacing-6;
+$list-block-margin-bottom: $spacing-2;
+
+body {
+	counter-reset: list-counter;
+}
+
+/// TODO
+/// @name list-init
+/// @group atoms
+@mixin list-init($reset: false, $margin-bottom: true, $inline: false, $list-item-margin-bottom: true) {
+	@if $reset {
+		@include list-reset();
+	}
+
+	@if $margin-bottom {
+		margin-bottom: $list-margin;
+	}
+
+	& > li {
+		@if $inline {
+			@include list-item-inline();
+		}
+
+ @else {
+			display: list-item;
+
+			@if $list-item-margin-bottom {
+				margin-bottom: $list-block-margin-bottom;
+			}
+
+ @else {
+				margin-bottom: 0;
+			}
+
+			& > ul {
+				margin-bottom: 0;
+
+				@include media-query($size: tablet) {
+					margin-left: $list-margin;
+				}
+			}
+		}
+	}
+}
+
+/// TODO
+/// @name list-item-inline
+/// @group atoms
+@mixin list-item-inline($left-margin: $list-margin, $display-type: inline) {
+	display: inline-block;
+	margin-bottom: 0;
+	vertical-align: middle;
+
+	& + & {
+		margin-left: $left-margin;
+	}
+}
+
+/// TODO
+/// @name list-item-selectable
+/// @group atoms
+@mixin list-item-selectable() {
+	font-size: map-deep-get($config, sizes, paragraph, smallest);
+	margin: 0;
+	padding: map-deep-get($config, spacings, inputs, v) map-deep-get($config, spacings, inputs, h);
+
+	&:hover {
+		background-color: map-get($colors, selago);
+		cursor: pointer;
+	}
+}
+
+/// TODO
+/// @name number-list-init
+/// @group atoms
+@mixin number-list-init() {
+	@include list-reset();
+}
+
+/// TODO
+/// @name number-list-item
+/// @group atoms
+@mixin number-list-item() {
+	@include list-item-inline($left-margin: 0);
+
+	height: $list-number-size;
+	margin-left: $spacing-1;
+	margin-right: $spacing-1;
+	min-width: $list-number-size;
+	position: relative;
+}
+
+/// TODO
+/// @name number-list-item-selected
+/// @group atoms
+@mixin number-list-item-selected() {
+	a {
+		@include link-dark();
+	}
+}

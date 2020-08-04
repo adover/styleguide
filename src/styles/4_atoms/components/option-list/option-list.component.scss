@@ -1,0 +1,7 @@
+@import '../../list';
+
+:host {
+	ul {
+		@include list-init($reset: true, $margin-bottom: false);
+	}
+}

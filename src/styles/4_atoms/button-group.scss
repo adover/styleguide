@@ -1,0 +1,71 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/display-flex';
+@import '../4_atoms/button';
+
+/// @group atoms
+@mixin button-group-init() {
+	@include display-flex($align: stretch, $justify: flex-end);
+
+	& > button,
+	& > a,
+	& > span {
+		border-radius: 0;
+		flex: 1;
+		margin-right: 1px;
+
+		@content;
+
+		&:first-child {
+			border-bottom-left-radius: map-deep-get($button, radii, default);
+			border-top-left-radius: map-deep-get($button, radii, default);
+		}
+
+		&:last-child {
+			border-bottom-right-radius: map-deep-get($button, radii, default);
+			border-top-right-radius: map-deep-get($button, radii, default);
+			margin-right: 0;
+		}
+	}
+}
+
+/// LEGACY Button group styling for
+/// @name button-group
+@mixin button-group($count: 3, $justify: flex-end) {
+	@include display-flex($align: stretch, $justify: $justify);
+
+	& > * {
+		@include button-init();
+
+		border-radius: 0;
+		flex: 1 0 0;
+		margin-right: 1px;
+
+		@content;
+
+		&:first-child {
+			border-bottom-left-radius: map-deep-get($button, radii, default);
+			border-top-left-radius: map-deep-get($button, radii, default);
+		}
+
+		&:last-child {
+			border-bottom-right-radius: map-deep-get($button, radii, default);
+			border-top-right-radius: map-deep-get($button, radii, default);
+			margin-right: 0;
+		}
+	}
+}
+
+/// Standard layout for multiple buttons on mobile
+/// @name mobile-button-group
+/// @group atoms
+@mixin mobile-button-group($margin: true) {
+	@include media-query($size: map-deep-get($config, breakpoints, button-break), $max: true) {
+		@include display-flex($direction: column);
+
+		@if $margin {
+			& > * {
+				@include section-margin($size: default);
+			}
+		}
+	}
+}

@@ -1,0 +1,145 @@
+@import '../1_settings/_config';
+@import '../1_settings/colors';
+@import '../1_settings/spacing';
+@import '../1_settings/transitions';
+@import '../2_tools/functions/map-deep-get';
+@import '../2_tools/functions/build-transition';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/position';
+@import '../2_tools/mixins/target-ie';
+@import '../4_atoms/section';
+
+$trolleyTotals-hover-background-color: map-get($colors, fun-green);
+$trolleyTotals-saving-text-hover-color: white;
+$trolleyTotals-saving-text-size: map-deep-get($config, sizes, paragraph, small);
+
+$trolleyTotals-margin: -#{$spacing-3} $spacing-2 -#{$spacing-3} 0;
+
+// TODO: Needs some fixes
+
+/// TODO
+/// @name trolley-totals
+/// @group molecules
+@mixin trolley-totals() {
+	@include display-flex(row, initial, flex-end, $flex: 1);
+	@include position(relative);
+
+	@include target-ie() {
+		flex: 0 0 225px;
+	}
+
+	margin: $trolleyTotals-margin;
+	overflow: hidden;
+
+	&:before {
+		@include pseudo() {
+			@include absolute-cover();
+
+			background-color: $trolleyTotals-hover-background-color;
+			transform: translateY(100%);
+			transition: map-deep-get($config, transitions, smallSlide, out);
+			transition-delay: map-get($transitionSpeed, short);
+		}
+	}
+
+	&:hover {
+		&:before {
+			@include pseudo() {
+				transform: translateY(0);
+				transition: map-deep-get($config, transitions, smallSlide, in);
+			}
+		}
+
+		span {
+			color: white;
+			transition-delay: 0;
+		}
+
+		span.savings-text {
+			color: $trolleyTotals-saving-text-hover-color;
+		}
+	}
+
+	& > a {
+		@include display-flex(row, center, initial, $flex: 1);
+		@include link-remove-hover-underline();
+		@include apply-spacing();
+
+		position: relative;
+		width: 100%;
+	}
+
+	span {
+		transition: build-transition(default, default, color);
+		transition-delay: map-get($transitionSpeed, short);
+		white-space: nowrap;
+
+		&:not(.hidden) {
+			display: block;
+		}
+
+		&.savings-text {
+			color: map-deep-get($config, colors, paragraph, special);
+			font-size: $trolleyTotals-saving-text-size;
+		}
+	}
+}
+
+/// TODO
+/// @name trolley-totals-icon
+/// @group molecules
+@mixin trolley-totals-icon($hover: false) {
+	@if not $hover {
+		overflow: hidden;
+		position: relative;
+		margin-right: $spacing-4;
+		flex: 0 0 36px;
+
+		img {
+			opacity: 1;
+			transform: translateX(0);
+			transition: map-deep-get($config, transitions, smallSlide, out);
+			transition-delay: map-get($transitionSpeed, default);
+			transition-property: transform, opacity;
+		}
+
+		&:before {
+			@include pseudo() {
+				@include absolute-cover();
+
+				background-image: url($assetPath+'/SearchBar/icon-cart-white.png');
+				background-size: 36px 28px;
+				opacity: 0;
+				transform: translateX(100%);
+				transition: map-deep-get($config, transitions, smallSlide, out);
+				transition-delay: 0;
+				transition-property: transform, opacity;
+			}
+		}
+	}
+
+ @else {
+		img {
+			opacity: 0;
+			transform: translateX(-100%);
+			transition: map-deep-get($config, transitions, smallSlide, in);
+			transition-delay: 0;
+			transition-property: transform, opacity;
+		}
+
+		&:before {
+			@include pseudo() {
+				opacity: 1;
+				transform: translateX(0);
+				transition: map-deep-get($config, transitions, smallSlide, in);
+				transition-delay: map-get($transitionSpeed, default);
+				transition-property: transform, opacity;
+			}
+		}
+	}
+}
+
+.trolley-totals {
+	@include trolley-totals();
+}

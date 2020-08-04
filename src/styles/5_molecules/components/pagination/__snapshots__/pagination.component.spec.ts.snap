@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationComponent when rotation and ellipses are false 1`] = `
+<cdx-pagination
+  __ngContext__={[Function LRootView]}
+  collectionSize={[Function Number]}
+  currentPage={[Function Number]}
+  ellipses="false"
+  maxSize={[Function Number]}
+  pageChange={[Function EventEmitter]}
+  pageCount="0"
+  pageSize={[Function Number]}
+  pages={[Function Array]}
+  role={[Function String]}
+  rotate="false"
+>
+  <ul
+    aria-label="pagination"
+    class="pagination"
+  >
+    <li
+      class="prev disabled"
+    >
+      <a
+        aria-label="Previous"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-left"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-left"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+    
+    <li
+      class="next disabled"
+    >
+      <a
+        aria-label="Next"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-right"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-right"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+  </ul>
+</cdx-pagination>
+`;
+
+exports[`PaginationComponent when rotation and ellipses are true 1`] = `
+<cdx-pagination
+  __ngContext__={[Function LRootView]}
+  collectionSize={[Function Number]}
+  currentPage={[Function Number]}
+  ellipses={[Function Boolean]}
+  maxSize={[Function Number]}
+  pageChange={[Function EventEmitter]}
+  pageCount="0"
+  pageSize={[Function Number]}
+  pages={[Function Array]}
+  role={[Function String]}
+  rotate="false"
+>
+  <ul
+    aria-label="pagination"
+    class="pagination"
+  >
+    <li
+      class="prev"
+    >
+      <a
+        aria-label="Previous"
+        href=""
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-left"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-left"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+    
+    <li
+      class="next disabled"
+    >
+      <a
+        aria-label="Next"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-right"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-right"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+  </ul>
+</cdx-pagination>
+`;
+
+exports[`PaginationComponent when rotation is false and ellipses is true 1`] = `
+<cdx-pagination
+  __ngContext__={[Function LRootView]}
+  collectionSize={[Function Number]}
+  currentPage={[Function Number]}
+  ellipses={[Function Boolean]}
+  maxSize={[Function Number]}
+  pageChange={[Function EventEmitter]}
+  pageCount="0"
+  pageSize={[Function Number]}
+  pages={[Function Array]}
+  role={[Function String]}
+  rotate="false"
+>
+  <ul
+    aria-label="pagination"
+    class="pagination"
+  >
+    <li
+      class="prev disabled"
+    >
+      <a
+        aria-label="Previous"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-left"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-left"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+    
+    <li
+      class="next disabled"
+    >
+      <a
+        aria-label="Next"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-right"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-right"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+  </ul>
+</cdx-pagination>
+`;
+
+exports[`PaginationComponent when rotation true and ellipses is false 1`] = `
+<cdx-pagination
+  __ngContext__={[Function LRootView]}
+  collectionSize={[Function Number]}
+  currentPage={[Function Number]}
+  ellipses="false"
+  maxSize={[Function Number]}
+  pageChange={[Function EventEmitter]}
+  pageCount="0"
+  pageSize={[Function Number]}
+  pages={[Function Array]}
+  role={[Function String]}
+  rotate={[Function Boolean]}
+>
+  <ul
+    aria-label="pagination"
+    class="pagination"
+  >
+    <li
+      class="prev disabled"
+    >
+      <a
+        aria-label="Previous"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-left"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-left"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+    
+    <li
+      class="next disabled"
+    >
+      <a
+        aria-label="Next"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-right"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-right"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+  </ul>
+</cdx-pagination>
+`;
+
+exports[`PaginationComponent when rotation true and ellipses is false 2`] = `
+<cdx-pagination
+  __ngContext__={[Function LRootView]}
+  collectionSize={[Function Number]}
+  currentPage={[Function Number]}
+  ellipses="false"
+  maxSize={[Function Number]}
+  pageChange={[Function EventEmitter]}
+  pageCount="0"
+  pageSize={[Function Number]}
+  pages={[Function Array]}
+  role={[Function String]}
+  rotate={[Function Boolean]}
+>
+  <ul
+    aria-label="pagination"
+    class="pagination"
+  >
+    <li
+      class="prev disabled"
+    >
+      <a
+        aria-label="Previous"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-left"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-left"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+    
+    <li
+      class="next disabled"
+    >
+      <a
+        aria-label="Next"
+        href=""
+        tabindex="-1"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="chevron-right"
+          size="extra-small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#chevron-right"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+    </li>
+  </ul>
+</cdx-pagination>
+`;

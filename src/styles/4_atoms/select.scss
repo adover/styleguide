@@ -1,0 +1,97 @@
+@import '../1_settings/colors';
+@import '../1_settings/radii';
+@import '../1_settings/spacing';
+@import '../1_settings/svg';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/center';
+@import './input';
+$select-background-color: white;
+$select-down-arrow-size: $spacing-3;
+$select-down-arrow-right: $spacing-3;
+$select-down-arrow: svg(shark, 'chevron-down');
+$select-padding-right: $spacing-8;
+/// TODO
+/// @name select-init
+/// @group atoms
+@mixin select-init() {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $select-background-color;
+    border: $input-border;
+    border-radius: $input-border-radius;
+    cursor: pointer;
+    padding: $input-padding;
+    padding-right: $select-padding-right;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+/// TODO
+/// @name select-container
+/// @group atoms
+@mixin select-container($margin-bottom: true, $color: shark, $constrain-width: true) {
+    @include input-container($margin-bottom) {
+        font-size: $input-font-size;
+        position: relative;
+
+        @if $constrain-width {
+            max-width: $input-max-width;
+        }
+
+        @include select-icon($color);
+    }
+}
+
+/// TODO
+/// @name select-icon
+/// @group atoms
+@mixin select-icon($color) {
+    @include input-button('&:after') {
+        background-image: svg($fill-color: $color, $path: 'chevron-down');
+        background-size: 100%;
+        content: '';
+        height: $select-down-arrow-size;
+        pointer-events: none;
+        right: $select-down-arrow-right;
+        width: $select-down-arrow-size;
+
+        @include vertical-center();
+    }
+}
+
+/// TODO
+/// @name select-outline
+/// @group atoms
+@mixin select-outline() {
+    background-color: transparent;
+    border-color: white;
+    color: currentColor;
+}
+
+/// TODO
+/// @name select-flat
+/// @group atoms
+@mixin select-flat($color: false) {
+    background-color: transparent;
+    border: none;
+    color: if($color, $color, currentColor);
+    font-weight: inherit;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+/// TODO
+/// @name select-tile
+/// @group atoms
+@mixin select-tile($selected: false, $vertical: false) {
+    background: if($selected, map-deep-get($config, colors, background, light-green), white);
+    border: map-deep-get($config, borders, default);
+    border-radius: map-deep-get($config, radii, default);
+    font-size: map-deep-get($config, sizes, paragraph, small);
+    margin: 0;
+    padding: if($vertical, $spacing-4, $spacing-6 $spacing-1);
+    text-align: center;
+}

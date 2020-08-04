@@ -1,0 +1,117 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/media-query';
+
+$color-red: map-get($colors, shiraz);
+$base-paragraph-size: map-deep-get($config, sizes, base, paragraph);
+$paragraph-font: map-deep-get($config, type, body);
+
+$paragraph-max-width: 42rem; // The maximum width for readability: 672px
+
+$paragraph-margin-bottom-mobile: apply-scale(mobile);
+$paragraph-margin-bottom-tablet: apply-scale(tablet);
+$paragraph-margin-bottom-desktop: apply-scale(desktop);
+
+$paragraph-main-margin-mobile: $spacing-4;
+$paragraph-main-margin-tablet: $spacing-8;
+$paragraph-main-margin-desktop: $spacing-16;
+
+$paragraph-attention-color: map-get($colors, shiraz);
+$paragraph-subtext-color: map-get($colors, regent-gray);
+
+/// @group atoms
+
+/// TODO
+/// @name paragraph-init
+/// @Todo Remove legacy
+@mixin paragraph-init($size: false, $margins: true, $constrain-width: false) {
+	font-family: $paragraph-font;
+	line-height: 1.5;
+
+	@if $size == 'large' {
+		font-size: map-deep-get($config, sizes, paragraph, large);
+	}
+
+ @else if $size == 'small' {
+		font-size: map-deep-get($config, sizes, paragraph, small);
+	}
+
+ @else if $size == 'smallest' {
+		font-size: map-deep-get($config, sizes, paragraph, smallest);
+	}
+
+ @else {
+		font-size: $base-paragraph-size;
+	}
+
+	@if $constrain-width {
+		max-width: $paragraph-max-width;
+	}
+
+	@if $margins {
+		@include media-query($size: mobile) {
+			margin-bottom: $paragraph-margin-bottom-mobile;
+		}
+
+		@include media-query($size: tablet) {
+			margin-bottom: $paragraph-margin-bottom-tablet;
+		}
+
+		@include media-query($size: desktop) {
+			margin-bottom: $paragraph-margin-bottom-desktop;
+		}
+	}
+
+ @else {
+		margin-bottom: 0;
+	}
+}
+
+/// A main paragraph which can be used as an introduction to sections
+/// @name paragraph-main
+@mixin paragraph-main() {
+	@include paragraph-constrain-width();
+
+	font-size: map-deep-get($config, sizes, paragraph, large);
+	margin-bottom: map-deep-get($config, spacings, default, v);
+	margin-top: map-deep-get($config, spacings, default, v);
+	text-align: center;
+}
+
+/// TODO
+/// @name paragraph-text-align
+@mixin paragraph-text-align($align: left) {
+	text-align: $align;
+}
+
+/// TODO
+/// @name paragraph-constrain-width
+@mixin paragraph-constrain-width() {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $paragraph-max-width !important;
+}
+
+/// TODO
+/// @name Paragraph-attention-text
+@mixin paragraph-attention-text() {
+	color: $paragraph-attention-color;
+}
+
+/// TODO
+/// @name paragraph-sub-text
+@mixin paragraph-sub-text() {
+	color: $paragraph-subtext-color;
+}
+
+/// TODO
+/// @name paragraph-overflowing
+@mixin paragraph-overflowing($width: 100%) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: $width;
+}
+
+@mixin paragraph-strike() {
+	text-decoration: line-through;
+}

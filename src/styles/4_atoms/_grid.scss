@@ -1,0 +1,72 @@
+@import '../1_settings/breakpoints';
+@import '../1_settings/layouts';
+@import '../1_settings/spacing';
+@import '../2_tools/functions/map-deep-get';
+@import '../2_tools/mixins/target-ie';
+
+$grid-default: 12;
+$grid-default-gap: $spacing-4;
+$grid-default-gap-large: $spacing-16;
+
+$grid: (
+	max-rows: 12,
+	column-gap: $spacing-4,
+	row-gap: $spacing-4,
+);
+
+@mixin grid-init(
+	$columns: $grid-default,
+	$grid-gap: $grid-default-gap,
+	$grid-row-gap: $grid-default-gap,
+	$justify: center
+) {
+	display: grid;
+	justify-content: $justify;
+
+	@include target-ie() {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: $justify;
+	}
+
+	@if type-of($columns) == 'number' {
+		@include grid-repeat($columns);
+	}
+
+ @else {
+		-ms-grid-columns: $columns;
+		grid-template-columns: $columns;
+	}
+
+	@if $grid-gap == large {
+		grid-column-gap: $grid-default-gap-large;
+		grid-row-gap: $grid-default-gap-large;
+	}
+
+ @else {
+		grid-column-gap: $grid-gap;
+		grid-row-gap: if($grid-row-gap, $grid-row-gap, $grid-gap);
+	}
+}
+
+@mixin grid-offset($span: 12, $axis: column) {
+	grid-#{$axis}-gap: $span;
+}
+
+@mixin grid-repeat($columns: 12, $min-width: 0, $max-width: false) {
+	$min-max: if($max-width, minmax($min-width, $max-width), minmax($min-width, (100% / #{$columns})));
+
+	-ms-grid-columns: unquote('(#{(100% / #{$columns})})[#{$columns}]');
+	grid-template-columns: repeat($columns, $min-max);
+}
+
+@mixin grid-container-basis($grid-count: 1, $grid-width: 0, $grid-gap: 0) {
+	@if $grid-count > 1 {
+		flex-basis: calc(#{$grid-count * $grid-width} + #{$grid-count - 1 * $grid-gap});
+	}
+}
+
+@mixin grid-column($span: 12) {
+	grid-column: span $span;
+	-ms-grid-column-span: $span;
+}

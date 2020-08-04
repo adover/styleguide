@@ -1,0 +1,26 @@
+@import '../1_settings/_config';
+@import '../1_settings/svg';
+@import '../2_tools/functions/build-animation';
+@import '../2_tools/mixins/center';
+@import '../2_tools/mixins/position';
+
+$loading-spinner: (
+	width: $svg-size,
+	height: $svg-size,
+	right: $spacing-4,
+);
+
+@mixin loading-init($vertical-center: true) {
+	$centered: if($vertical-center == true, fadeInUp--centred, fadeInUp);
+
+	animation: build-animation(
+		if($vertical-center == true, fadeInUp--centred, fadeInUp),
+		$speed: default,
+		$ease: ease-out,
+		$direction: forwards
+	);
+	animation-delay: map-get($transitionSpeed, short);
+	height: map-get($loading-spinner, height);
+	opacity: 0;
+	width: map-get($loading-spinner, width);
+}

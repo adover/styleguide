@@ -1,0 +1,46 @@
+@import '../../../1_settings/_config';
+@import '../../../4_atoms/icon';
+@import '../../alert';
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.warning-content,
+	.warning-icon {
+		display: inline-block !important;
+		vertical-align: middle;
+	}
+}
+
+.warning {
+	@include alert-init();
+
+	margin-top: $spacing-4;
+	max-width: 1005px;
+
+	&[data-visible='false'] {
+		display: none !important;
+	}
+
+	&--canDismiss {
+		@include alert-can-close();
+	}
+
+	.warning-icon {
+		@include icon-init();
+
+		fill: map-deep-get($config, alerts, warning, accent-color);
+		flex: 0 0 $svg-size;
+		margin-right: map-get($alert-icon, margin-right);
+
+		@include media-query($size: tablet-portrait) {
+			margin-left: -#{map-get($alert-icon, margin-right)};
+		}
+	}
+
+	&-closeBtn {
+		@include alert-close();
+	}
+
+	&-label {
+		@include alert-label();
+	}
+}

@@ -1,0 +1,42 @@
+@import '../1_settings/spacing';
+@import '../1_settings/svg';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/center';
+@import '../2_tools/mixins/list-reset';
+@import '../4_atoms/link';
+@import '../4_atoms/list';
+@import '../4_atoms/paragraph';
+/// @group molecules
+
+$breadcrumb-separator-size: $spacing-3;
+$breadcrumb-separator-color: 'regent-gray';
+
+/// TODO
+/// @name breadcrumb
+@mixin breadcrumb() {
+	@include list-init($reset: true, $margin-bottom: false);
+	@include section-margin($size: default);
+
+	font-size: map-deep-get($config, sizes, paragraph, small);
+}
+
+/// TODO
+/// @name breadcrumb-separator
+@mixin breadcrumb-separator() {
+	background-image: svg($breadcrumb-separator-color, $path: 'chevron-right');
+	background-size: 100%;
+	height: $breadcrumb-separator-size;
+	width: $breadcrumb-separator-size;
+}
+
+/// TODO
+/// @name breadcrumb-item
+@mixin breadcrumb-item($current: false) {
+	@if not $current {
+		@include list-item-inline($left-margin: 0);
+
+		a {
+			@include link-init();
+		}
+	}
+}

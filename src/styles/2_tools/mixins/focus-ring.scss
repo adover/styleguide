@@ -1,0 +1,29 @@
+@import '../../1_settings/radii';
+@import '../../1_settings/shadows';
+@import '../../1_settings/transitions';
+@import '../functions/build-transition';
+
+/// TODO
+/// @name focus-ring
+/// @group mixins
+@mixin focus-ring() {
+	border-radius: map-get($radii, lg);
+	outline: none;
+	transition: build-transition(default, ease-out, box-shadow);
+
+	&:focus {
+		box-shadow: $shadow-focus;
+		outline: none;
+	}
+}
+
+/// TODO
+/// @name focus-internal
+/// @group mixins
+@mixin focus-inset() {
+	transition: build-transition(default, ease-out, box-shadow);
+
+	&:focus {
+		box-shadow: $shadow-focus-inset;
+	}
+}

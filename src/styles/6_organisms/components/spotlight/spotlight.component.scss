@@ -1,0 +1,27 @@
+@import '../../../1_settings/_config';
+@import '../../../4_atoms/grid';
+
+/// WIP
+:host,
+.spotlight {
+	@include grid-init();
+
+	grid-column-gap: map-get($grid, column-gap);
+	grid-row-gap: map-get($grid, row-gap);
+
+	&::ng-deep {
+		.card {
+			@include grid-column($span: 12);
+
+			@include media-query($size: mobile) {
+				@include grid-column($span: 6);
+			}
+
+			@include media-query($size: tablet) {
+				@include grid-column($span: 4);
+			}
+		}
+	}
+}
+
+// TODO: Spotlight Configurations

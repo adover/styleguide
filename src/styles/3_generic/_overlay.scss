@@ -1,0 +1,30 @@
+@import '../1_settings/_config';
+
+$overlays: (
+	transparent: transparent,
+	opaque: $default-shadow-color-faded,
+);
+
+.cdk-overlay-container {
+	z-index: 100000;
+}
+
+.overlay {
+	@each $type, $value in $overlays {
+		&--#{$type} {
+			background-color: $value;
+		}
+	}
+
+	&-panel {
+		max-width: calc(100% - (2 * #{map-deep-get($config, spacings, default, h)}));
+
+		& > * {
+			width: 100%;
+		}
+	}
+}
+
+.cdk-overlay-pane.onboarding-modal {
+	position: static;
+}

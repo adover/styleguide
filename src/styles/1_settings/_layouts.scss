@@ -1,0 +1,136 @@
+@import '../1_settings/breakpoints';
+@import '../2_tools/functions/map-deep-get';
+@import '../2_tools/mixins/display-flex';
+@import '../4_atoms/paragraph';
+@import '../4_atoms/section';
+
+/// Defines the standard layout for a page. Add this to the host element of your page
+/// @name page-layout
+/// @group settings
+@mixin page-layout($width: max-width) {
+	display: block;
+	margin: 0 auto;
+	max-width: map-deep-get($config, page, $width);
+	overflow: hidden;
+	position: relative;
+}
+
+/// TODO: These should be deprecated at some point. It's more over complicated than it needs to be
+
+$left-nav-width: 240px;
+// $max-content-width: $paragraph-max-width;
+$max-content-width: none;
+// $max-content-width: 42rem;
+// $max-wide-width: 50rem;
+// $max-wide-width: 80rem; // TODO: Remove once legacy is done with
+$max-wide-width: none; // TODO: Remove once legacy is done with
+$max-medium-width: 36rem;
+$max-narrow-width: 22rem;
+
+$layout-configs: (
+	main: (
+		fluid-left-nav: (
+			left-nav: $left-nav-width,
+		),
+		fixed-hidden-left-nav: (
+			left-nav: false,
+			max-content-width: $max-wide-width,
+		),
+	),
+	sub: (
+		narrow-page: (
+			max-content-width: $max-narrow-width,
+		),
+		medium-page: (
+			max-content-width: $max-medium-width,
+		),
+		large-page: (
+			max-content-width: $max-content-width,
+		),
+		content-page: (
+			max-content-width: $max-content-width,
+			justify-content: center,
+		),
+		tabular-page: (
+			max-content-width: $max-wide-width,
+			justify-content: center,
+		),
+		listing-page-card: (
+			columns: (
+				mobile: 2,
+				tablet-portrait: 2,
+				tablet: 3,
+				desktop: 4,
+				large: 5,
+				xlarge: 5,
+			),
+		),
+		listing-page-horizontal: (
+			columns: false,
+		),
+	),
+);
+
+/// Settings: Layout
+@mixin layout($left-div: '.left-navigation-gutter', $main-div: '#content', $configuration: false) {
+	@include media-query($size: mobile) {
+		@include display-flex(row, initial, left, $flex: 1);
+
+		#{unquote($left-div)} {
+			@include left-navigation();
+		}
+	}
+
+	#{unquote($main-div)} {
+		@include media-query($size: mobile) {
+			@include display-flex(row, initial, left, $flex: 1);
+		}
+	}
+}
+
+@mixin layout-narrow() {
+	@include layout-content-container($configuration: narrow-page);
+}
+
+@mixin layout-medium {
+	@include layout-content-container($configuration: medium-page);
+}
+
+@mixin layout-large {
+	@include layout-content-container($configuration: large-page);
+}
+
+/// Settings: Layout-content-container
+@mixin layout-content-container($configuration: false) {
+	@if not $configuration {
+		@error '[Mixin: Layout Content Container] Size can only be small or large, but you entered #{$size}';
+	}
+	$max-width: map-deep-get($layout-configs, 'sub', $configuration, 'max-content-width');
+	$justify-content: map-deep-get($layout-configs, 'sub', $configuration, 'justify-content');
+
+	@if $max-width {
+		max-width: $max-width;
+		width: 100%;
+	}
+
+	@if $justify-content {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/// Settings: Main-content
+@mixin main-content() {
+	flex: 1;
+}
+
+/// Settings: Left-navigation
+@mixin left-navigation() {
+	@include apply-spacing($axis: false, $size: default);
+
+	@include media-query($size: mobile) {
+		@include apply-spacing($axis: false, $size: default);
+
+		flex: 0 0 $left-nav-width;
+	}
+}

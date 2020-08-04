@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			.btn {
+				align-items: center;
+				border: 1px solid transparent;
+				cursor: pointer;
+				font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+				height: auto;
+				position: relative;
+				text-align: center;
+				transition: 300ms ease all;
+				user-select: none;
+				vertical-align: middle;
+				font-size: 1rem;
+				padding: 0.5rem 0.75rem;
+				border-radius: 0.25rem;
+			}
+			.btn:hover,
+			.btn:focus {
+				text-decoration: none;
+			}
+			.btn:focus {
+				box-shadow: 0 0 0 4px #e9f2fc;
+				outline: none;
+			}
+			.btn > * {
+				display: inline-block;
+			}
+
+			.btn--flat {
+				background-color: transparent;
+				border-color: transparent;
+				color: #007837;
+			}
+			.btn--flat:focus {
+				box-shadow: inset 0px 0px 2px 0px #007837;
+			}
+			.btn--flat:hover,
+			.btn--flat:focus,
+			.btn--flat:active {
+				background-color: transparent;
+			}
+			.btn--flat:hover,
+			.btn--flat:focus,
+			.btn--flat:active {
+				color: #007837;
+			}
+
+			.olive {
+				display: block;
+				position: fixed;
+				bottom: 0;
+				right: 1rem;
+			}
+			.olive-openButton {
+				padding: 0;
+				background: transparent;
+				position: relative;
+			}
+			.olive-openButton img {
+				z-index: 100;
+				position: relative;
+			}
+			.olive-openButtonCallout {
+				align-items: center;
+				border: 1px solid transparent;
+				cursor: pointer;
+				font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+				height: auto;
+				position: relative;
+				text-align: center;
+				transition: 300ms ease all;
+				user-select: none;
+				vertical-align: middle;
+				font-size: 1rem;
+				padding: 0.5rem 0.75rem;
+				border-radius: 0.25rem;
+				background-color: #39464e;
+				border-color: #39464e;
+				color: white;
+				padding-right: 2rem;
+				position: absolute;
+				right: 2.75rem;
+				top: 0.75rem;
+				white-space: nowrap;
+			}
+			.olive-openButtonCallout:hover,
+			.olive-openButtonCallout:focus {
+				text-decoration: none;
+			}
+			.olive-openButtonCallout:focus {
+				box-shadow: 0 0 0 4px #e9f2fc;
+				outline: none;
+			}
+			.olive-openButtonCallout > * {
+				display: inline-block;
+			}
+			.olive-openButtonCallout:hover,
+			.olive-openButtonCallout:focus,
+			.olive-openButtonCallout:active {
+				background-color: #283137;
+			}
+			.olive-openButtonCallout:hover,
+			.olive-openButtonCallout:focus,
+			.olive-openButtonCallout:active {
+				border-color: #283137;
+			}
+			.olive-openButtonCallout:hover,
+			.olive-openButtonCallout:focus,
+			.olive-openButtonCallout:active {
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="olive">
+			<button
+				aria-label="Open Olive chat window"
+				class="olive-openButton btn btn--flat"
+				id="olive-openButton"
+				style="display: none"
+			>
+				<img
+					src="https://static.countdown.co.nz/assets/images/Olive/olive-roundel.png"
+					width="76"
+					height="77"
+					alt="Olive Roundel"
+				/>
+				<span class="olive-openButtonCallout">Ask Olive</span>
+			</button>
+		</div>
+		<script src="https://shop.countdown.co.nz/bundles/scripts/olivechat?v=xWx-CNGQcxRmIjUNRsIma9zxM_tC854EBmBqIJFYVDM1"></script>
+		<script src="https://chatwidget.woolworths.com.au/bootstrap/chatWidgetBootstrap.js"></script>
+
+		<script async>
+			var OLIVE_ROUNDEL = {
+				init: function() {
+					var openButton = document.getElementById('olive-openButton');
+
+					if (this.canShowOlive()) {
+						openButton.style.display = 'block';
+					}
+
+					openButton.addEventListener('click', this.showChatWidget.bind(this));
+				},
+				canShowOlive: function() {
+					return Boolean(window.OliveChatHelper);
+				},
+				showChatWidget: function() {
+					if (!window.chatWidget || typeof window.chatWidget.onStartChat !== 'function') {
+						setTimeout(
+							function() {
+								this.showChatWidget();
+							}.bind(this),
+							1000
+						);
+
+						return;
+					}
+
+					window.chatWidget.onStartChat({ setFullScreen: this.setFullScreen() });
+				},
+				setFullScreen: function() {
+					return (window.innerWidth || document.documentElement.clientWidth) < 768;
+				},
+			};
+
+			OLIVE_ROUNDEL.init();
+		</script>
+	</body>
+</html>

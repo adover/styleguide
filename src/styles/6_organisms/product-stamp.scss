@@ -1,0 +1,226 @@
+@import '../1_settings/_config';
+@import '../1_settings/shadows';
+@import '../2_tools/functions/svg';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/center';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/media-query';
+@import '../2_tools/mixins/position';
+@import '../4_atoms/button';
+@import '../4_atoms/heading';
+@import '../4_atoms/paragraph';
+@import '../4_atoms/grid';
+
+// TODO: Import horizontal product stamp
+
+$stamp-background-color: white;
+$stamp-padding: default;
+$stamp-shadow: map-get($shadows, small);
+$stamp-hook-font: map-deep-get($config, type, special);
+
+$stamp-breakpoint: mobile;
+
+$stamp-image-width: $spacing-24;
+$stamp-image-max-width: 160px;
+
+$stamp-max-width: 224px;
+$stamp-min-width: 224px;
+
+$stamp-heading-color: map-get($colors, limed-spruce);
+$stamp-savings-text-color: map-deep-get($config, colors, paragraph, special);
+$stamp-sub-text-color: map-get($colors, shuttle-gray);
+$stamp-sub-text-font-size: map-deep-get($config, sizes, paragraph, small);
+
+$stamp-tag-position: $spacing-1;
+$stamp-tag-left: $spacing-4;
+$stamp-tag-top: $spacing-4;
+$stamp-tag-size-mobile: 3rem;
+$stamp-tag-size: 4rem;
+
+$stamp-offer-header-background-color: map-get($colors, school-bus-yellow);
+$stamp-offer-header-color: map-get($colors, outer-space);
+/// @group organisms
+
+/// TODO
+/// @name stamp
+/// @group display
+@mixin stamp() {
+	@include display-flex($direction: column, $justify: space-between);
+
+	@include media-query($size: $stamp-breakpoint) {
+		max-width: $stamp-max-width;
+	}
+
+	flex-basis: $stamp-min-width;
+	flex-shrink: 0;
+	max-width: none;
+	width: 100%;
+}
+
+/// TODO
+/// @name stamp-layout
+@mixin stamp-layout() {
+	@include grid-init($columns: #{$stamp-image-width} 1fr);
+
+	@include media-query($size: $stamp-breakpoint) {
+		@include display-flex($direction: column, $justify: space-between);
+	}
+}
+
+/// TODO
+/// @name stamp-title
+@mixin stamp-title() {
+	@include paragraph-init($size: small, $margins: false);
+
+	color: $stamp-heading-color;
+	margin-bottom: 0;
+	text-transform: capitalize;
+}
+
+/// Product stamp entry content for Pluto: image and title
+/// @name stamp-entry() {
+@mixin stamp-entry() {
+	text-decoration: none;
+	width: 100%;
+
+	@include not-ie() {
+		@include media-query($size: $stamp-breakpoint, $max: true) {
+			@include grid-init($columns: map-deep-get($config, images, size, product, stamp, mobile) 1fr, $grid-row-gap: 0);
+		}
+	}
+
+	@include target-ie() {
+		@include media-query($size: $stamp-breakpoint, $max: true) {
+			@include display-flex();
+		}
+	}
+
+	@include section-margin($size: default);
+
+	figure {
+		grid-row: span 2;
+		margin-left: auto;
+		margin-right: auto;
+		overflow: hidden;
+	}
+
+	@include media-query($size: $stamp-breakpoint) {
+		@include display-flex($direction: column);
+
+		flex-grow: 1 !important;
+	}
+}
+
+/// TODO
+/// @name stamp-tag
+@mixin stamp-tag($next: false) {
+	@include position(absolute) {
+		// TODO: Remove after nextUI is nowUI
+		@if not $next {
+			left: $stamp-tag-position;
+			top: $stamp-tag-position;
+		}
+
+ @else {
+			left: $stamp-tag-left;
+			top: $stamp-tag-top;
+		}
+	}
+}
+
+/// Product metadata formatting (size, cupsize etc)
+/// @name stamp-meta
+@mixin stamp-meta() {
+	font-size: map-deep-get($config, sizes, paragraph, small);
+}
+
+/// TODO
+/// @name stamp-offer-header
+@mixin stamp-offer-header() {
+	background-color: $stamp-offer-header-background-color;
+	color: $stamp-offer-header-color;
+	font-family: $stamp-hook-font;
+	text-align: center;
+}
+
+/// TODO
+/// @name stamp-price
+@mixin stamp-price() {
+	@include heading-sizing(3);
+
+	font-family: $stamp-hook-font;
+	margin-bottom: 0;
+
+	&:hover,
+	&:active {
+		text-decoration: none;
+	}
+}
+
+/// TODO
+/// @name stamp-savings
+@mixin stamp-image() {
+	@include section-margin($size: default);
+
+	/// TODO: Move Stamp Image here when it is safe
+
+	text-align: center;
+
+	picture {
+		display: block;
+		overflow: hidden;
+	}
+
+	img {
+		height: auto !important;
+		margin: 0 auto !important;
+		width: 100% !important;
+	}
+
+	@include media-query($stamp-breakpoint) {
+		img {
+			max-width: $stamp-image-max-width;
+		}
+	}
+}
+
+/// TODO
+/// @name stamp-savings
+@mixin stamp-savings() {
+	color: $stamp-savings-text-color;
+}
+
+/// TODO
+/// @name stamp-sub-text
+@mixin stamp-sub-text() {
+	color: $stamp-sub-text-color;
+	font-size: $stamp-sub-text-font-size;
+}
+
+/// TODO
+/// @name stamp-action
+@mixin stamp-action() {
+	height: $spacing-10;
+	transition: map-deep-get($config, transitions, hoverRise, out);
+	width: $spacing-10;
+
+	&:hover {
+		transition: map-deep-get($config, transitions, hoverRise, over);
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: transparent;
+	}
+
+	&:focus {
+		box-shadow: map-deep-get($shadows, focus-inset);
+	}
+
+	cdx-svg-icon {
+		@include absolute-center();
+
+		position: absolute;
+	}
+}

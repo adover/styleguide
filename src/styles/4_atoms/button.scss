@@ -1,0 +1,477 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/center';
+@import '../4_atoms/link';
+
+$button: (
+	colours: (
+		disabled: (
+			background: map-get($colors, porcelain),
+			background-hover: map-get($colors, porcelain),
+			colour: map-get($colors, shuttle-gray),
+			flat-colour: map-get($colors, regent-gray),
+			colour-hover: map-get($colors, shuttle-gray),
+		),
+		primary: (
+			background: map-get($colors, fun-green),
+			background-hover: map-get($colors, parsley),
+			colour: white,
+			colour-hover: white,
+		),
+		primary-inverse: (
+			background: white,
+			background-hover: white,
+			colour: map-get($colors, fun-green),
+			colour-hover: map-get($colors, parsley),
+		),
+		secondary: (
+			background: map-get($colors, limed-spruce),
+			background-hover: map-get($colors, outer-space),
+			colour: white,
+			colour-hover: white,
+		),
+		secondary-inverse: (
+			background: white,
+			background-hover: white,
+			colour: map-get($colors, limed-spruce),
+			colour-hover: map-get($colors, outer-space),
+		),
+		tertiary: (
+			background: map-get($colors, shuttle-gray),
+			background-hover: map-get($colors, shuttle-gray),
+			colour: white,
+			colour-hover: white,
+		),
+		tertiary-inverse: (
+			background: white,
+			background-hover: white,
+			colour: map-get($colors, shuttle-gray),
+			colour-hover: map-get($colors, shuttle-gray),
+		),
+		warn: (
+			background: map-get($colors, shiraz),
+			background-hover: map-get($colors, shiraz),
+			colour: white,
+			colour-hover: white,
+		),
+	),
+	displays: (
+		inline,
+		block,
+		block-mobile,
+	),
+	icons: (
+		start,
+		end,
+		only,
+	),
+	sizes: (
+		small: (
+			padding: map-deep-get($config, spacings, buttons, default, v) map-deep-get($config, spacings, buttons, default, h),
+			font-size: map-deep-get($config, sizes, paragraph, small),
+		),
+		default: (
+			padding: map-deep-get($config, spacings, buttons, small, v) map-deep-get($config, spacings, buttons, small, h),
+			font-size: map-deep-get($config, sizes, base, paragraph),
+		),
+		large: (
+			padding: map-deep-get($config, spacings, buttons, large, v) map-deep-get($config, spacings, buttons, large, h),
+			font-size: map-deep-get($config, sizes, base, paragraph),
+		),
+	),
+	states: (
+		fill: (
+			border: true,
+			background: true,
+		),
+		outline: (
+			border: true,
+			background: true,
+		),
+		flat: (
+			border: false,
+			background: false,
+		),
+	),
+	radii: (
+		default: $radius-default,
+	),
+);
+
+@mixin button-display($display: inline) {
+	// @if not map-deep-get($button, displays, $display) {
+	// 	@error '[Atoms: Button] $display #{$display} not found in [$button, displays]';
+	// }
+
+	@if ($display == inline) {
+		display: inline-block;
+	}
+
+	@if ($display == block) {
+		display: block;
+		width: 100%;
+	}
+
+	@if ($display == block-mobile) {
+		display: block;
+		width: 100%;
+
+		@include media-query($size: mobile) {
+			display: inline-block;
+			width: auto;
+		}
+	}
+}
+
+/// Definitions for a disabled button
+/// @name button-disabled
+@mixin button-disabled(
+	$cursor: not-allowed,
+	$disabled-background-color: map-deep-get($button, colours, disabled, background),
+	$disabled-color: map-deep-get($button, colours, disabled, colour)
+) {
+	pointer-events: none !important;
+
+	@include button-state($state: fill, $colour: disabled);
+
+	&,
+	&:hover,
+	&:focus,
+	&:active,
+	&.hover,
+	&.focus,
+	&.active {
+		background-color: $disabled-background-color;
+		border-color: transparent;
+		color: $disabled-color;
+		cursor: $cursor;
+	}
+}
+
+@mixin button-icon($position: false) {
+	@if $position not index(map-deep-get($button, icons), $icon) {
+		@error '[Atoms: Button] $icon #{$icon} not found in [$button, icons]';
+	}
+
+	@if ($icon == start) or ($icon == end) {
+		i {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+
+			&:empty {
+				display: none;
+			}
+		}
+	}
+
+	@if ($icon == start) {
+		padding-left: $spacing-12 !important;
+
+		i {
+			left: $spacing-4;
+		}
+	}
+
+	@if ($icon == start) {
+		padding-right: $spacing-12 !important;
+
+		i {
+			right: $spacing-4;
+		}
+	}
+
+	@if ($icon == only) {
+		@if ($background-icon) {
+			background: svg($fill-color: $background-color, $path: $background-icon);
+		}
+
+		background-position: center;
+		background-repeat: no-repeat;
+		width: auto;
+	}
+}
+
+@mixin button-sizing($size: default) {
+	@if not map-deep-get($button, sizes, $size) {
+		@error '[Atoms: Button] $size #{$size} not found in [$button, sizes]';
+	}
+
+	font-size: map-deep-get($button, sizes, $size, font-size);
+	padding: map-deep-get($button, sizes, $size, padding);
+}
+
+/// @group atoms
+/// Main state declaration for all buttons. If you're looking for how the buttons
+/// get configured, it's most likely in here
+/// @name button-state
+@mixin button-state($state: fill, $colour: primary, $hover: true, $with-horizontal-padding: true) {
+	$hover: if($with-horizontal-padding, $hover, false);
+
+	@if $with-horizontal-padding == false {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	@if not map-deep-get($button, colours, $colour) {
+		@error '[Atoms: Button] $colour #{$colour} not found in [$button, colours]';
+	}
+
+	@if not map-deep-get($button, states, $state) {
+		@error '[Atoms: Button] $state #{$state} not found in [$button, states]';
+	}
+
+	@if (map-deep-get($button, states, $state, background) and $state == outline) {
+		background-color: white;
+	}
+
+ @else if (map-deep-get($button, states, $state, background)) {
+		background-color: map-deep-get($button, colours, $colour, background);
+	}
+
+ @else {
+		background-color: transparent;
+	}
+
+	@if ($state == flat) {
+		&:focus {
+			box-shadow: $shadow-focus-inset;
+		}
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: if($hover, map-deep-get($button, colours, $colour, background-hover), transparent);
+	}
+
+	@if (map-deep-get($button, states, $state, border)) {
+		border-color: map-deep-get($button, colours, $colour, background);
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: map-deep-get($button, colours, $colour, background-hover);
+		}
+	}
+
+ @else {
+		border-color: transparent;
+	}
+
+	color: if(
+		$state == outline or $state == flat,
+		map-deep-get($button, colours, $colour, background),
+		map-deep-get($button, colours, $colour, colour)
+	);
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: if(
+			$hover,
+			map-deep-get($button, colours, $colour, colour-hover),
+			map-deep-get($button, colours, $colour, background)
+		);
+	}
+}
+
+@mixin button-radius($radius: true) {
+	border-radius: if($radius, map-deep-get($button, radii, default), none);
+}
+
+/// @group atoms
+/// TODO
+/// @name button
+@mixin button-init($inline: true, $rounded: true, $reset-bg: false, $wrap: false) {
+	align-items: center;
+	border: 1px solid transparent;
+	cursor: pointer;
+	font-family: map-deep-get($config, type, body);
+	height: auto;
+	position: relative;
+	text-align: center;
+	transition: map-get($transitionSpeed, default) unquote(map-get($transitionEase, default)) all;
+	user-select: none;
+	vertical-align: middle;
+	white-space: if($wrap, normal, nowrap);
+
+	@include button-sizing();
+	@include button-radius($radius: $rounded);
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+
+	&:focus {
+		box-shadow: $shadow-focus;
+		outline: none;
+	}
+
+	& > * {
+		display: inline-block;
+	}
+}
+
+///Utility functions
+
+/// TODO
+/// @name button-link
+@mixin button-link($text-align: left) {
+	@include button-primary-flat($hover: false);
+	@include button-align($text-align);
+
+	padding: 0;
+	width: auto;
+}
+
+/// For situations when a button lives inside input
+/// @name button-inside-input
+@mixin button-inside-input($background-icon, $background-color: 'shuttle-gray') {
+	@if ($background-icon) {
+		background: svg($fill-color: $background-color, $path: $background-icon);
+	}
+
+	background-position: center;
+	background-repeat: no-repeat;
+	width: auto;
+}
+
+/// TODO
+/// @name button-align
+@mixin button-align($align: center) {
+	text-align: $align;
+}
+
+/// TODO
+/// @name button-block
+@mixin button-block($margin: false) {
+	display: block;
+	width: 100%;
+
+	@if $margin {
+		@include button-block-margin();
+	}
+}
+
+/// TODO
+/// @name button-block-margin
+@mixin button-block-margin() {
+	@include section-margin($size: default);
+}
+
+/// Because sometimes you want to watch the world burn
+/// @name button-reset
+@mixin button-reset() {
+	&,
+	&:hover,
+	&:focus,
+	&:active,
+	&.hover,
+	&.focus,
+	&.active {
+		background-color: transparent !important;
+		border: none !important;
+		color: $link-secondary-color !important;
+		padding: 0 !important;
+	}
+}
+
+/// TODO
+/// @name button-reset-block
+@mixin button-reset-block() {
+	display: inline-block;
+	margin-bottom: 0;
+	width: auto;
+}
+
+/// Existing mixins to maintain parity with older reskin code
+@mixin button-primary($hover: true) {
+	@include button-state($state: fill, $colour: primary, $hover: $hover);
+}
+
+@mixin button-primary-outline($hover: true) {
+	@include button-state($state: outline, $colour: primary, $hover: $hover);
+}
+
+@mixin button-primary-flat($hover: true, $with-horizontal-padding: true) {
+	@include button-state(
+		$state: flat,
+		$colour: primary,
+		$hover: $hover,
+		$with-horizontal-padding: $with-horizontal-padding
+	);
+}
+
+@mixin button-primary-inverse($hover: true) {
+	@include button-state($state: fill, $colour: primary, $hover: $hover);
+}
+
+@mixin button-primary-flat-inverse($hover: true, $with-horizontal-padding: true) {
+	@include button-state(
+		$state: flat,
+		$colour: primary-inverse,
+		$hover: $hover,
+		$with-horizontal-padding: $with-horizontal-padding
+	);
+}
+
+@mixin button-primary-outline-inverse($hover: true) {
+	@include button-state($state: outline, $colour: primary, $hover: $hover);
+}
+
+@mixin button-secondary($hover: true) {
+	@include button-state($state: fill, $colour: secondary, $hover: $hover);
+}
+
+@mixin button-secondary-outline($hover: true) {
+	@include button-state($state: outline, $colour: secondary, $hover: $hover);
+}
+
+@mixin button-secondary-flat($hover: true) {
+	@include button-state($state: flat, $colour: secondary, $hover: $hover);
+}
+
+@mixin button-secondary-flat-inverse($hover: true, $with-horizontal-padding: true) {
+	@include button-state(
+		$state: flat,
+		$colour: secondary-inverse,
+		$hover: $hover,
+		$with-horizontal-padding: $with-horizontal-padding
+	);
+}
+
+@mixin button-tertiary($hover: true) {
+	@include button-state($state: fill, $colour: tertiary, $hover: $hover);
+}
+
+@mixin button-tertiary-outline($hover: true) {
+	@include button-state($state: outline, $colour: tertiary, $hover: $hover);
+}
+
+@mixin button-tertiary-flat($hover: true) {
+	@include button-state($state: flat, $colour: tertiary, $hover: $hover);
+}
+
+@mixin button-tertiary-flat-inverse($hover: true, $with-horizontal-padding: true) {
+	@include button-state(
+		$state: flat,
+		$colour: tertiary-inverse,
+		$hover: $hover,
+		$with-horizontal-padding: $with-horizontal-padding
+	);
+}
+
+@mixin button-small($align: center) {
+	@include button-sizing($size: small);
+	@include button-align($align);
+}
+
+@mixin button-large($align: center) {
+	@include button-sizing($size: large);
+	@include button-align($align);
+}
+
+@mixin button-warn() {
+	@include button-state($state: fill, $colour: warn, $hover: true);
+}

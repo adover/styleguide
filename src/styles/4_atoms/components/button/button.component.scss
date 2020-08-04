@@ -1,0 +1,193 @@
+@import '../../button';
+@import '../../success-icon';
+@import '../../../2_tools/mixins/apply-spacing';
+@import '../../../2_tools/mixins/center';
+@import '../../../2_tools/mixins/focus-ring';
+@import '../../../2_tools/mixins/media-query';
+@import '../../../2_tools/mixins/position';
+
+/// When hovering on Primary or Secondary buttons
+/// which aren't outlines we need to make sure
+/// the fill of the svg is white, regardless
+@mixin svg-hover {
+	&:hover,
+	&:active,
+	&:focus {
+		::ng-deep cdx-svg-icon svg use {
+			fill: white !important;
+			transition: map-get($transitionSpeed, default) unquote(map-get($transitionEase, default)) fill;
+		}
+	}
+}
+
+:host {
+	@include button-init;
+
+	text-decoration: none !important;
+
+	&[inline='false'] {
+		@include button-block;
+	}
+
+	&[inline='true'] {
+		@include button-display(inline);
+	}
+
+	&:not([fullWidth='true']) {
+		@include media-query($size: mobile) {
+			@include button-reset-block();
+		}
+	}
+
+	&[align='left'] {
+		text-align: left !important;
+	}
+
+	&[fillStyle='primary'] {
+		@include button-primary;
+		@include svg-hover;
+	}
+
+	&[fillStyle='flat'] {
+		@include button-primary-flat($hover: false);
+	}
+
+	&[fillStyle='warn'] {
+		@include button-warn;
+	}
+
+	&[fillStyle='outline'] {
+		@include button-primary-outline;
+	}
+
+	&[fillStyle='primaryFlatInverse'] {
+		@include button-primary-flat-inverse($hover: false);
+	}
+
+	&[fillStyle='secondary'] {
+		@include button-secondary;
+		@include svg-hover;
+	}
+
+	&[fillStyle='secondaryFlat'] {
+		@include button-secondary-flat($hover: false);
+	}
+
+	&[fillStyle='secondaryOutline'] {
+		@include button-secondary-outline;
+		@include svg-hover;
+	}
+
+	&[fillStyle='tertiary'] {
+		@include button-tertiary;
+	}
+
+	&[fillStyle='tertiaryFlat'] {
+		@include button-tertiary-flat($hover: false);
+	}
+
+	&[data-slotstart='true'] {
+		&[data-slotstartsize='extra-small'] {
+			padding-left: $spacing-8;
+		}
+
+		&[data-slotstartsize='small'] {
+			padding-left: $spacing-10;
+		}
+
+		&[data-slotstartsize='default'] {
+			padding-left: $spacing-12;
+		}
+
+		i.button-icon--start {
+			left: $spacing-2;
+		}
+	}
+
+	&[data-slotend='true'] {
+		&[data-slotendsize='extra-small'] {
+			padding-right: $spacing-8;
+		}
+
+		&[data-slotendsize='small'] {
+			padding-right: $spacing-10;
+		}
+
+		&[data-slotendsize='default'] {
+			padding-right: $spacing-12;
+		}
+
+		i.button-icon--end {
+			display: flex;
+			right: $spacing-2;
+		}
+	}
+
+	&[size='large'] {
+		@include button-sizing($size: large);
+	}
+
+	&[size='small'] {
+		@include button-small($align: center);
+	}
+
+	&[size='large'] {
+		@include button-large($align: center);
+	}
+
+	&[fillStyle='link'] {
+		@include button-primary-flat($hover: false);
+		@include button-link;
+		@include focus-inset;
+		@include section-margin($size: default);
+	}
+	
+	// &[marginSize='small'] {
+	// 	@include side-margin($size: default, $removeHorizontal: true);
+	// }
+	// &[marginSize='large'] {
+	// 	@include side-margin($size: large, $removeHorizontal: true);
+	// }
+
+	&:disabled,
+	&[aria-disabled='true'] {
+		@include button-disabled;
+
+		&[fillStyle='flat'],
+		&[fillStyle*='Flat'] {
+			@include button-disabled(
+				$disabled-background-color: transparent,
+				$disabled-color: map-deep-get($button, colours, disabled, flat-colour)
+			);
+		}
+
+		&::ng-deep {
+			svg {
+				use {
+					fill: map-deep-get($button, colours, disabled, colour) !important;
+				}
+			}
+		}
+	}
+
+	&[fullWidth='true'] {
+		@include button-block;
+	}
+
+	.btn--footer {
+		@include button-small;
+
+		border-radius: 0px;
+		border-top: map-deep-get($config, borders, divider);
+	}
+
+	i {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&:empty {
+			display: none;
+		}
+	}
+}

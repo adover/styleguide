@@ -1,0 +1,18 @@
+@import '../../1_settings/spacing';
+
+$svg-size: $spacing-3;
+
+/// TODO
+/// @name icon-inline
+/// @group mixins
+@mixin icon-inline {
+	fill: currentColor;
+	white-space: nowrap;
+
+	& svg {
+		display: inline-block;
+		height: $svg-size;
+		line-height: inherit;
+		width: $svg-size;
+	}
+}

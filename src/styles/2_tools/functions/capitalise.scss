@@ -1,0 +1,8 @@
+/// Utility to capitalise text, useful for calling
+/// functions or building camelCase classes
+/// @name capitalize
+/// @group functions
+/// @group string
+@function capitalize($string) {
+	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}

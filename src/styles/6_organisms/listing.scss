@@ -1,0 +1,46 @@
+@import '../2_tools/functions/map-deep-get';
+@import '../2_tools/functions/strip-unit';
+@import '../2_tools/mixins/media-query';
+@import '../2_tools/mixins/target-ie';
+@import '../4_atoms/grid';
+@import './product-stamp';
+
+$listing-column-width: $stamp-max-width;
+$listing-gap: map-get($grid, column-gap);
+
+/// @group organisms
+
+/// Initialise a listing. A component which contains many list items (like products)
+/// @name listing-init
+/// @group display
+/// @param $grid-width [0] -
+/// @param $min-width [0] -
+/// @param $max-width [0] -
+/// @param $grid-gap [#{$grid-default-gap}] -
+@mixin listing-init($grid-width: 0, $min-width: 0, $max-width: 0, $grid-gap: $grid-default-gap) {
+	@include grid-container-basis(1, $grid-width, $grid-gap);
+	@include grid-init($columns: 1);
+
+	margin: 0 auto;
+
+	@each $layout, $columns in map-deep-get($layout-configs, 'sub', 'listing-page-card', 'columns') {
+		@include media-query($size: $layout) {
+			@include grid-container-basis($columns, $grid-width, $grid-gap);
+			@include grid-repeat($columns, $min-width: $min-width, $max-width: $grid-width);
+
+			@include target-ie() {
+				margin: -#{$grid-gap};
+				padding: $grid-gap 0 0 $grid-gap;
+			}
+
+			& > * {
+				@include target-ie() {
+					margin: 0 $grid-gap $grid-gap 0;
+					// width: calc(
+					//   (100% /#{$columns}) - #{strip-unit($grid-gap * 16) + 'px'}
+					// );
+				}
+			}
+		}
+	}
+}

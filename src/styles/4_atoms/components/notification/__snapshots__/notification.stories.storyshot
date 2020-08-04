@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms|Notification default 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component
+    class="ng-star-inserted"
+  >
+    <div
+      ng-reflect-ng-style="[object Object]"
+      style="position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px; display: flex; align-items: center; overflow: auto;"
+    >
+      <div
+        ng-reflect-ng-style="[object Object]"
+        style="margin: auto; max-height: 100%;"
+      >
+        <div
+          style="width: 250px; background: white; padding: 1.5rem"
+        >
+          <p>
+            Select 'Show notification' under the knobs tab to view notification
+          </p>
+          <cdx-notification
+            aria-live="polite"
+            class="ng-tns-c2-0"
+            ng-reflect-content="Closing soon!"
+          >
+            <p
+              class="ng-tns-c2-0 ng-trigger ng-trigger-doAnimation"
+              style=""
+            >
+               Closing soon! 
+            </p>
+          </cdx-notification>
+        </div>
+      </div>
+    </div>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

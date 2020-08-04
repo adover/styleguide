@@ -1,0 +1,7 @@
+@import '../../modal';
+
+:host.modal {
+  .autoComplete {
+    @include modal-auto-complete();
+  }
+}

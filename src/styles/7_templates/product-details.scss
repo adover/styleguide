@@ -1,0 +1,5 @@
+@import '../2_tools/mixins/display-flex';
+
+@mixin product-details() {
+	@include display-flex(row, initial, initial);
+}

@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Templates|Login form default 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component>
+    <div
+      ng-reflect-ng-style="[object Object]"
+      style="position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px; display: flex; align-items: center; overflow: auto;"
+    >
+      <div
+        ng-reflect-ng-style="[object Object]"
+        style="margin: auto; max-height: 100%;"
+      >
+        <cdx-login>
+          <form
+            cdxform=""
+            class="ng-untouched ng-pristine ng-invalid"
+            ng-reflect-form="[object Object]"
+            ng-reflect-form-group="[object Object]"
+            novalidate=""
+          >
+
+            <fieldset
+              cdxfieldset=""
+              class="fieldset--narrow fieldset--withDivider"
+              divider="true"
+              hidelegend="true"
+              legend="Sign in"
+              ng-reflect-divider="true"
+              ng-reflect-hide-legend="true"
+              ng-reflect-i18n="@@login-emailAndPasswordLabel"
+              ng-reflect-legend="Sign in"
+            >
+              <legend
+                class="sr-only"
+              >
+                Sign in
+              </legend>
+              <form-email-password-input
+                ng-reflect-has-login-as-parent="true"
+                ng-reflect-page="login"
+                ng-reflect-show-password-help-text="false"
+                page="login"
+              >
+
+                <form-input
+                  autocomplete="email"
+                  class="ng-untouched ng-pristine ng-invalid"
+                  formcontrolname="email"
+                  ng-reflect-autocomplete="email"
+                  ng-reflect-form-control-name="email"
+                  ng-reflect-name="email"
+                  ng-reflect-required=""
+                  ng-reflect-size="full-width"
+                  required=""
+                  size="full-width"
+                >
+
+
+                  <label
+                    for="email"
+                    label=""
+                  >
+                     Email address
+                  </label>
+
+
+
+                  <input
+                    autocomplete="email"
+                    data-size="full-width"
+                    id="email"
+                    name="email"
+                    ng-reflect-ng-class="[object Object]"
+                    placeholder=""
+                    type="text"
+                  />
+
+
+
+
+
+                  <form-input-error
+                    control="email"
+                    ng-reflect-control="email"
+                    validation=""
+                  >
+                    <p
+                      class="form-errorText--hide"
+                      ng-reflect-type="*"
+                    >
+                       Please enter an email address
+                    </p>
+
+                  </form-input-error>
+
+
+                </form-input>
+                <form-password-input
+                  ng-reflect-password-label="Password"
+                  ng-reflect-show-password-help-text="false"
+                  ng-reflect-validation-message="Please enter a password"
+                >
+
+                  <form-input-with-button
+                    class="ng-untouched ng-pristine ng-invalid"
+                    formcontrolname="password"
+                    input=""
+                    maxlength="255"
+                    ng-reflect-form-control-name="password"
+                    ng-reflect-input-type="password"
+                    ng-reflect-maxlength="255"
+                    ng-reflect-name="password"
+                  >
+                    <label
+                      for="password"
+                      label=""
+                    >
+                       Password
+                    </label>
+                    <div
+                      class="inputContainer"
+                      ng-reflect-klass="inputContainer"
+                      ng-reflect-ng-class="[object Object]"
+                    >
+                      <input
+                        autocomplete="disabled"
+                        data-size="initial"
+                        id="password"
+                        maxlength="255"
+                        name="password"
+                        ng-reflect-ng-class="[object Object]"
+                        placeholder=""
+                        type="password"
+                      />
+                      <button
+                        aria-disabled="false"
+                        aria-label="Show password"
+                        btn=""
+                        cdxbutton=""
+                        fillstyle="flat"
+                        fullwidth="false"
+                        name="buttonLabel"
+                        ng-reflect-fill-style="flat"
+                        ng-reflect-ng-class="[object Object]"
+                        size="default"
+                        style="pointer-events: auto;"
+                        type="button"
+                      >
+
+
+
+
+
+
+
+                      </button>
+                    </div>
+                    <form-input-error
+                      control="password"
+                      ng-reflect-control="password"
+                      validation=""
+                    >
+                      <p
+                        class="form-errorText--hide"
+                        ng-reflect-type="*"
+                      >
+                         Please enter a password
+                      </p>
+                    </form-input-error>
+
+                  </form-input-with-button>
+                </form-password-input>
+                <a
+                  cdxlegacynoajax=""
+                  href="/shop/passwordreminder"
+                >
+                  Forgot password?
+                </a>
+              </form-email-password-input>
+            </fieldset>
+            <fieldset
+              cdxfieldset=""
+              class="fieldset--narrow"
+              hidelegend="true"
+              legend="remeber"
+              ng-reflect-hide-legend="true"
+              ng-reflect-i18n="@@login-screenOnlyrememberMeLe"
+              ng-reflect-legend="remeber"
+            >
+              <legend
+                class="sr-only"
+              >
+                remeber
+              </legend>
+              <form-input
+                class="ng-untouched ng-pristine ng-valid"
+                formcontrolname="rememberMe"
+                inputtype="checkbox"
+                ng-reflect-form-control-name="rememberMe"
+                ng-reflect-input-type="checkbox"
+                ng-reflect-name="rememberMe"
+              >
+
+
+
+                <input
+                  data-size="initial"
+                  id="rememberMe"
+                  name="rememberMe"
+                  ng-reflect-ng-class="[object Object]"
+                  placeholder=""
+                  type="checkbox"
+                  value="false"
+                />
+
+
+
+                <label
+                  for="rememberMe"
+                  label=""
+                >
+                  Remember me - No need to sign in each time you visit.
+                </label>
+
+
+
+
+
+
+              </form-input>
+              <button
+                aria-disabled="true"
+                attr.aria-label="Sign in button"
+                cdxbutton=""
+                fillstyle="primary"
+                fullwidth="false"
+                ng-reflect-disabled="true"
+                size="default"
+                style="pointer-events: auto;"
+                type="submit"
+              >
+
+
+                 Sign in
+
+
+
+
+              </button>
+            </fieldset>
+          </form>
+        </cdx-login>
+      </div>
+    </div>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

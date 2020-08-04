@@ -1,0 +1,8 @@
+<ul data-cy="navigationBar">
+    <li *ngFor="let item of _navItems">
+        <a [routerLink]="[item.url]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            item.exact}">
+			{{ item.text }}
+	        </a>
+    </li>
+</ul>

@@ -1,0 +1,138 @@
+@import '../1_settings/_config';
+@import '../4_atoms/paragraph';
+@import '../2_tools/functions/apply-scale';
+@import '../2_tools/functions/map-deep-get';
+@import '../2_tools/mixins/media-query';
+
+/// @group atoms
+
+$heading-1-margin-top: map-deep-get($config, spacings, default, v);
+
+$heading-main-margin: map-deep-get($config, spacings, medium, v);
+$heading-subtitle-negative-margin: -#{map-deep-get($config, spacings, default, v)};
+
+$heading-after-paragraph-margin-top: map-deep-get($config, spacings, default, v);
+
+$heading-font: map-deep-get($config, type, heading);
+
+$heading-underline-border-bottom: map-deep-get($config, borders, default);
+$heading-underline-padding-bottom: map-deep-get($config, spacings, default, v);
+
+$huge-heading-negative-top-margin: -#{map-deep-get($config, spacings, default, v)};
+
+/// Initialisation mixin for headings
+/// @name heading-init
+/// @param $size [1]
+@mixin heading-init($size: 1) {
+	color: map-deep-get($config, colors, heading, default);
+	font-family: if($size < 3, $heading-font, $paragraph-font);
+	font-weight: if($size < 3, 500, 600);
+	line-height: 1.2;
+	text-transform: none;
+}
+
+@mixin heading-large($heading: 1) {
+	font-size: apply-scale(desktop, 5 - get-size($heading));
+}
+
+/// apply sizing calculations based on the heading selector
+/// @name heading-sizing
+/// @param $size
+@mixin heading-sizing($size) {
+	$heading-sizing-sm: apply-scale(mobile, 5 - get-size($size));
+	$heading-sizing-md: apply-scale(tablet, 5 - get-size($size));
+	$heading-sizing-lg: apply-scale(desktop, 5 - get-size($size));
+
+	font-size: $heading-sizing-sm;
+
+	@include heading-margin();
+
+	@include media-query($size: mobile) {
+		font-size: $heading-sizing-md;
+	}
+
+	@include media-query($size: tablet) {
+		font-size: $heading-sizing-lg;
+	}
+
+	&.heading-#{$size}--mobile {
+		font-size: $heading-sizing-sm;
+	}
+
+	&.heading-#{$size}--tablet {
+		font-size: $heading-sizing-md;
+	}
+
+	&.heading-#{$size}--desktop {
+		font-size: $heading-sizing-lg;
+	}
+}
+
+/// A utility function to convert certain size strings to values
+/// @name get-size
+/// @param $size
+@function get-size($size) {
+	@if $size == 'huge' {
+		@return -1;
+	}
+
+ @else if $size == 'display' {
+		@return 0;
+	}
+
+ @else {
+		@return $size;
+	}
+}
+
+/// Adds margins to main headings, this should only be used for the first heading on a page.
+/// @name heading-main
+@mixin heading-main($top-margin: true) {
+	margin-top: if($top-margin, $heading-main-margin, 0);
+
+	@include media-query($size: tablet) {
+		margin-bottom: $heading-main-margin;
+	}
+}
+
+/// Apply a margin to the bottom of a heading
+/// @name heading-margin
+@mixin heading-margin() {
+	margin-bottom: map-deep-get($config, spacings, default, v);
+}
+
+/// Underlined heading
+/// @name heading-underlined
+@mixin heading-underlined() {
+	border-bottom: $heading-underline-border-bottom;
+	margin-bottom: $heading-underline-padding-bottom;
+	padding-bottom: $heading-underline-padding-bottom;
+}
+
+/// Apply a negative margin to an item following a heading
+/// @name heading-subtitle
+@mixin heading-subtitle() {
+	margin-top: $heading-subtitle-negative-margin;
+}
+
+/// For best results apply this to a span containing a <code>&nbsp;</code> and an SVG
+/// @name heading-icon
+@mixin heading-icon() {
+	@include icon-inline;
+}
+
+/// For large messages. Avoid using on listing pages
+/// @name heading-display
+@mixin heading-display() {
+	@include heading-init();
+	@include heading-main();
+	@include heading-sizing('display');
+}
+
+/// For massive messages. Useful at the top of contentful pages or inside masthead banners
+/// @name heading-huge
+@mixin heading-huge() {
+	@include heading-init();
+	@include heading-main();
+	@include heading-sizing('huge');
+}

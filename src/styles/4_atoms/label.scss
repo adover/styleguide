@@ -1,0 +1,28 @@
+@import '../1_settings/spacing';
+
+$label-margin-bottom: $spacing-1;
+$label-margin-right: $spacing-4;
+$label-inline-margin-right: $spacing-2;
+
+/// TODO
+/// @name label
+/// @group atoms
+@mixin label-init() {
+	display: block;
+	margin-bottom: $label-margin-bottom;
+	margin-right: $label-margin-right;
+}
+
+/// TODO
+/// @name label-hidden
+/// @group atoms
+@mixin label-hidden() {
+	left: -9999px;
+	position: absolute;
+}
+
+@mixin label-inline() {
+	display: inline;
+	margin-bottom: 0;
+	margin-right: $label-inline-margin-right;
+}

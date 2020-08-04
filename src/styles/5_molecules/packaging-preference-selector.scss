@@ -1,0 +1,113 @@
+@import '../1_settings/colors';
+
+/// @group organisms
+
+.reviewOrder-packagingPreferencesContainer {
+	border-bottom: 4px solid #007837;
+	margin-top: 30px;
+}
+
+.reviewOrder-packagingPreferencesContainer span {
+	font-size: map-deep-get($config, sizes, paragraph, small);
+}
+
+.packading-preference-headerText {
+	margin: 0px;
+}
+
+.packaging-preference-wrapper {
+	margin-bottom: 30px;
+}
+
+.packaging-preference-header {
+	@include section-margin($size: default);
+}
+
+.packaging-preference-items {
+	@include section-margin($size: default);
+
+	@include media-query(mobile) {
+		display: flex;
+	}
+}
+
+.packaging-preference-itemContent {
+	color: #39464e;
+	margin-right: $spacing-4;
+	width: 100%;
+
+	@include section-margin($size: default);
+
+	@include media-query(mobile) {
+		margin-bottom: 0;
+		width: 280px;
+	}
+
+	.selected {
+		background-color: #edf4db;
+		color: #076034;
+	}
+}
+
+.packaging-preference-ItemHeader h4 {
+	margin: 0px 0px 2px 0px;
+}
+
+.packaging-preference-itemWrapper {
+	border: 1px solid #b4b9bc;
+	border-radius: 0.25rem;
+	display: flex;
+	height: 90px;
+	margin-bottom: 5px;
+	padding: 5px 0px 5px 0px;
+}
+
+.packaging-preference-itemImage {
+	order: 1;
+}
+
+.packaging-preference-itemInformation {
+	flex-direction: column;
+	order: 2;
+	padding-top: 12px;
+	width: 100%;
+}
+
+.packading-preference-option-selected {
+	background-color: #edf4db;
+}
+
+.packaging-preference-itemFee {
+	display: flex;
+
+	h4 {
+		align-self: center;
+		margin: 0px 2px 2px 0px;
+	}
+
+	h2 {
+		margin: 0px;
+	}
+}
+
+.packaging-preference-itemFee-paidText {
+	align-self: flex-end;
+}
+
+.packaging-preference-itemFee-freeText {
+	margin-top: 10px;
+}
+
+.packaging-preference-radio {
+	align-self: flex-end;
+	order: 3;
+
+	label {
+		margin-right: 5px;
+		padding: 0px;
+	}
+}
+
+.packaging-preference-itemMessage {
+	line-height: 1.2;
+}

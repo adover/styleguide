@@ -1,0 +1,14 @@
+/// Find a list of keys buried deep in a nested map
+/// @name map-deep-keys
+/// @group functions
+/// @group core
+@function map-deep-keys($map, $keys...) {
+	@for $i from 1 through length($keys) + 1 {
+		@if $i == length($keys) + 1 {
+			@return map-keys($map);
+		}
+
+		$key: nth($keys, $i);
+		$map: map-get($map, $key);
+	}
+}

@@ -1,0 +1,44 @@
+@import '../../../1_settings/colors';
+@import '../../../2_tools/functions/svg.scss';
+@import '../../../2_tools/mixins/list-reset.scss';
+@import '../../../2_tools/mixins/display-flex.scss';
+@import '../../../2_tools/mixins/pseudo.scss';
+@import '../../../2_tools/mixins/center.scss';
+@import '../../../4_atoms/list.scss';
+@import '../../../4_atoms/link.scss';
+
+:host {
+	display: block;
+
+	.pagination {
+		@include list-reset();
+
+		li {
+			@include number-list-item();
+
+			vertical-align: middle;
+
+			.prev,
+			.next {
+				margin: 0;
+			}
+
+			a {
+				@include display-flex($align: center, $justify: center);
+
+				height: inherit;
+				padding: 0 $spacing-1;
+				text-align: center;
+			}
+
+			&.selected a {
+				background-color: map-get($colors, parsley);
+				color: white;
+
+				a {
+					@include link-dark();
+				}
+			}
+		}
+	}
+}

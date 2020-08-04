@@ -1,0 +1,64 @@
+﻿@import '../1_settings/_config';
+@import '../1_settings/accessibility';
+@import '../1_settings/colors';
+
+$radio-tick: svg(white, 'tick-sign');
+$radio-radius: $radius-half;
+
+/// Radio inherits all of the same styling for checkbox. It's best to reference that.
+/// @name radio
+/// @group atoms
+/// @todo Implement Radio
+@mixin radio-init() {
+	cursor: pointer;
+	height: 0;
+	opacity: 0;
+	position: absolute;
+	width: 0;
+
+	& ~ label {
+		@include radio-label();
+	}
+
+	&:hover ~ label {
+		@include radio-label(hover);
+	}
+
+	&:checked ~ label {
+		@include radio-label(checked);
+	}
+
+	&:checked:hover ~ label {
+		@include radio-label(checkedHover);
+	}
+
+	&:focus ~ label {
+		@include radio-label(focus);
+	}
+
+	&:active ~ label {
+		@include radio-label(active);
+	}
+
+	&:disabled ~ label {
+		@include radio-label(disabled);
+	}
+}
+
+/// This solves the use case of labels which are wrapped in multiple divs on legacy systems. Don't use this if you're using the standard checkbox-label mixin
+/// @name radio-label-init
+/// @group atoms
+@mixin radio-label-init() {
+	@include checkbox-label-init();
+}
+
+/// TODO
+/// @name radio-label
+/// @group atoms
+@mixin radio-label($checkboxState: false) {
+	@include checkbox-label($checkboxState);
+
+	&:after {
+		border-radius: $radio-radius;
+	}
+}

@@ -1,0 +1,110 @@
+@import '../1_settings/breakpoints';
+@import '../1_settings/spacing';
+@import '../2_tools/mixins/media-query';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/pseudo';
+@import '../2_tools/mixins/position';
+@import '../2_tools/mixins/center';
+
+$width: 100%;
+$ratio: 9 / 16;
+$height: $width * $ratio;
+$height-desktop: 30rem; // 480px
+$masthead-content-max-width: 80%;
+$masthead-overlay-mobile: $spacing-16;
+$masthead-overlay-desktop: $spacing-32;
+
+/// TODO
+/// @name masthead
+/// @group molecules
+@mixin masthead() {
+	@include display-flex($align: flex-end, $justify: center);
+
+	height: 0;
+	overflow: hidden;
+	padding-top: $height;
+	position: relative;
+	text-align: center;
+	width: 100%;
+
+	@include media-query($size: desktop) {
+		height: $height-desktop;
+		padding-top: 0;
+	}
+}
+
+/// TODO
+/// @name masthead-content
+/// @group molecules
+@mixin masthead-content() {
+	max-width: $masthead-content-max-width;
+	position: relative;
+}
+
+/// TODO
+/// @name masthead-hero
+/// @group molecules
+@mixin masthead-hero() {
+	height: 100%;
+	min-width: 100%;
+
+	@include position() {
+		@include absolute-center();
+
+		z-index: -1;
+	}
+
+	img {
+		min-width: 100%;
+		width: auto;
+	}
+}
+
+/// TODO
+/// @name masthead-overlay
+/// @group molecules
+@mixin masthead-overlay() {
+	@include pseudo() {
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+	height: $masthead-overlay-mobile;
+
+	@include media-query($size: desktop) {
+		height: $masthead-overlay-desktop;
+	}
+}
+
+.masthead {
+	@include masthead();
+
+	&-content {
+		@include masthead-content();
+	}
+
+	&-hero {
+		@include masthead-hero();
+	}
+
+	&:before {
+		@include masthead-overlay();
+	}
+}
+
+/* Rectangle */
+
+// position: absolute;
+// width: 1440px;
+// height: 120px;
+// left: 0px;
+// top: 464px;
+
+// background: linear-gradient(
+//   180deg,
+//   rgba(0, 0, 0, 5.5e-5) 0%,
+//   rgba(0, 0, 0, 0.55) 100%
+// );
+// background-blend-mode: multiply;

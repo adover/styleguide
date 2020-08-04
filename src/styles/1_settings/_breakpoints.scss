@@ -1,0 +1,29 @@
+/// Media queries breakpoints
+///
+/// All the breakpoints across the site. If another breakpoint is needed,
+/// speak to the designer and compromise as this is most likely a
+/// potential code smell. Also note the omission of max sizes;
+/// Everything is mobile first by design so these are
+/// unnecessary.
+
+/// Anything not in a list is to be deprecated once reskin is live
+$screen-sm: 640px;
+$screen-md: 970px;
+$screen-lg: 1200px;
+$screen-xl: 1440px;
+$screen-xxl: 1800px;
+
+$screen-xs-max: $screen-sm;
+$screen-sm-max: 768px;
+$screen-md-max: $screen-md;
+
+// $breakpoints: get('breakpoints');
+
+$breakpoints: (
+	mobile: 640px,
+	tablet-portrait: 768px,
+	tablet: 970px,
+	desktop: 1200px,
+	large: 1440px,
+	xlarge: 1800px,
+);

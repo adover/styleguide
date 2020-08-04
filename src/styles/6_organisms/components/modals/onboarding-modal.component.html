@@ -1,0 +1,39 @@
+<div>
+	<svg *ngIf="cutout" attr.width="{{ bgWidth }}px" attr.height="{{ bgHeight }}px">
+		<defs>
+			<mask id="mask" x="0" y="0">
+				<rect x="0" y="0" width="100%" height="100%" fill="#fff"></rect>
+				<circle
+					*ngIf="mode === 'circle'"
+					attr.cx="{{ cutoutLeft }}"
+					attr.cy="{{ cutoutTop }}"
+					attr.r="{{ radius }}"
+				></circle>
+				<rect
+					*ngIf="mode === 'rect'"
+					attr.x="{{ cutoutLeft }}"
+					attr.y="{{ cutoutTop }}"
+					attr.width="{{ cutoutWidth }}"
+					attr.height="{{ cutoutHeight }}"
+				></rect>
+			</mask>
+		</defs>
+		<rect
+			x="0"
+			y="0"
+			mask="url(#mask)"
+			fill-opacity="0.25"
+			fill="#000"
+			width="100%"
+			height="100%"
+			(click)="closeModal()"
+		></rect>
+	</svg>
+	<div class="onboardingModal" [style.top.px]="modalTop" [style.left.px]="modalLeft">
+		<div class="onboardingModal-pointer hidden-phone" [style.left.px]="pointerLeftPos"></div>
+		<cdx-modal [center]="false" [canDismiss]="false" padding="large" size="{{ size }}" [positioned]="true">
+			<ng-content></ng-content>
+			<button cdxButton cdkFocusInitial (click)="closeModal()">Got it</button>
+		</cdx-modal>
+	</div>
+</div>

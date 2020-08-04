@@ -1,0 +1,15 @@
+/// @group molecules
+
+/// A panel which slides open
+/// @name slide-panel-init
+/// @todo Use this to retire some accordion stuff
+@mixin slide-panel-init($open: false) {
+	@if not $open {
+		height: auto;
+		overflow: hidden;
+	}
+
+ @else {
+		// Ideally you would implement this in JS so you can work out the true height
+	}
+}

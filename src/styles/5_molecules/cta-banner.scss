@@ -1,0 +1,78 @@
+// Put all of your component SASS in here. It gets compiled and min'd.
+// Be mindful of what you import and where if you're making multiple
+// components for a single page. It may be worth excluding them
+// when you come to build.
+
+// @import '../../styles/variables';
+// @import '../../styles/base';
+// @import '../../styles/animations';
+// @import '../../styles/mixins';
+
+@import '../../1_settings/breakpoints';
+@import '../../1_settings/shadows';
+@import '../../1_settings/spacing';
+@import '../2_tools/mixins/media-query';
+
+/// TODO: Needs bringing in to new styles
+/// @name cta-banner
+/// @group molecules
+.wsoBanner {
+	align-items: center;
+	box-shadow: map-get($shadows, small);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding: 0 0 217px 0;
+	position: relative;
+
+	@include media-query($size: desktop) {
+		padding-bottom: 22.74%; // 100/950 * 216
+	}
+
+	&-content {
+		left: 50%;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		transform: translate(-50%, -50%);
+
+		h1 {
+			color: white;
+			margin-bottom: $spacing-8;
+		}
+	}
+
+	&-cta {
+		background-color: white;
+		color: $green-1;
+		display: block;
+		font-weight: 700;
+		padding: $spacing-2 $spacing-8;
+		text-transform: uppercase;
+		transition: all $transition-fast-in;
+		white-space: nowrap;
+
+		&:hover,
+		&active {
+			background-color: $green-1;
+			color: white;
+			transition: all $transition-fast-out;
+		}
+	}
+
+	& > img {
+		display: block;
+		left: 50%;
+		max-width: none;
+		min-height: 100%;
+		min-width: 100%;
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+
+		@include media-query($size: desktop) {
+			max-height: 100%;
+			min-height: 0;
+		}
+	}
+}

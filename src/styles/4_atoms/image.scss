@@ -1,0 +1,86 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/center';
+@import '../2_tools/mixins/media-query';
+
+/// @group atoms
+
+/// LEGACY
+/// @name image
+@mixin image-init() {
+	height: auto;
+	max-width: 100%;
+}
+
+/// @name img-width
+@mixin img-width() {
+	img {
+		height: auto;
+		max-width: 100%;
+	}
+}
+
+/// @name product-image
+@mixin product-image() {
+	height: map-deep-get($config, images, size, product, stamp, mobile);
+	max-width: map-deep-get($config, images, size, product, stamp, mobile);
+	width: 100%;
+
+	@include img-width();
+
+	@include media-query($size: mobile) {
+		height: map-deep-get($config, images, size, product, stamp, desktop);
+		max-width: map-deep-get($config, images, size, product, stamp, desktop);
+	}
+}
+
+/// @name product-image
+@mixin product-trolley-image() {
+	height: map-deep-get($config, images, size, product, stamp, mobile);
+	max-width: map-deep-get($config, images, size, product, stamp, mobile);
+	width: 100%;
+
+	@include img-width();
+}
+
+/// @name product-thumb-image
+@mixin product-thumb-image() {
+	display: none;
+
+	@include img-width();
+
+	@include media-query($size: mobile) {
+		display: block;
+		height: map-deep-get($config, images, size, product, thumb, desktop);
+		max-width: map-deep-get($config, images, size, product, thumb, desktop);
+	}
+}
+
+/// @name product-detail-image
+@mixin product-detail-image() {
+	max-width: map-deep-get($config, images, size, product, detail, mobile);
+	min-height: map-deep-get($config, images, size, product, detail, mobile);
+	width: 100%;
+
+	@include img-width();
+
+	@include media-query($size: mobile) {
+		max-width: map-deep-get($config, images, size, product, detail, desktop);
+		min-height: map-deep-get($config, images, size, product, detail, desktop) !important;
+	}
+}
+
+/// TODO
+/// @name image-centred
+@mixin image-centred() {
+	@include absolute-center();
+
+	width: 100%;
+}
+
+/// TODO
+/// @name image-container
+@mixin image-container($image-ratio: 2/3) {
+	overflow: hidden;
+	padding-top: (100% * $image-ratio);
+	position: relative;
+}

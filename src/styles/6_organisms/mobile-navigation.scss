@@ -1,0 +1,21 @@
+@import '../1_settings/borders';
+@import '../1_settings/colors';
+@import '../4_atoms/section';
+
+$mobile-nav-background-color: map-get($colors, limed-spruce);
+$mobile-nav-border-right: $borderWidth-2 solid white;
+/// @group organisms
+
+/// TODO
+/// @name mobile-nav-init
+/// @group display
+@mixin mobile-nav-init() {
+	@include position(fixed) {
+		bottom: 0;
+		top: 0;
+	}
+
+	@include section-init($size: default, $background-color: $mobile-nav-background-color);
+
+	color: white; // TODO: Fix
+}

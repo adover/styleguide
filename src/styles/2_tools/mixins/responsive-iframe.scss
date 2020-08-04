@@ -1,0 +1,20 @@
+/// TODO
+/// @name responsive-iframe
+/// @group mixins
+/// @param $ratio - The ratio of height:width
+@mixin responsive-iframe($ratio: 56.25%) {
+	& > .responsiveIframe-container {
+		overflow: hidden;
+		padding-top: $ratio;
+		position: relative;
+
+		& > .responsiveIframe {
+			border: 0;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+}

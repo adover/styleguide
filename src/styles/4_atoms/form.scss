@@ -1,0 +1,71 @@
+@import '../1_settings/_config';
+@import '../2_tools/functions/build-animation';
+@import '../4_atoms/heading';
+@import '../4_atoms/section';
+@import './paragraph';
+
+$form-error-text-color: map-get($colors, shiraz);
+$form-helper-text-color: map-get($colors, limed-spruce);
+
+/// TODO
+/// @name form-row
+/// @group atoms
+@mixin form-row() {
+	@include section-margin($size: default);
+
+	display: block;
+}
+
+/// TODO
+/// @name form-error-text
+/// @group atoms
+@mixin form-error-text() {
+	@include paragraph-init(smallest, $margins: false);
+
+	animation: build-animation($name: expand, $speed: long, $ease: ease-out, $direction: forwards);
+	animation-delay: map-get($transitionSpeed, long);
+	color: $form-error-text-color;
+	display: block;
+	flex: 1 0 100%;
+	height: auto;
+	margin-bottom: 0;
+	max-height: 0;
+	overflow: hidden;
+
+	a:link,
+	a:visited,
+	a:hover,
+	a:active {
+		color: $form-error-text-color;
+		text-decoration: underline;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+}
+
+@mixin form-error-text-hide() {
+	animation: build-animation($name: expand, $speed: long, $ease: ease-in, $direction: reverse);
+	display: none;
+}
+
+/// TODO
+/// @name form-helper-text
+/// @group atoms
+@mixin form-helper-text() {
+	@include paragraph-init(smallest, $margins: false);
+
+	color: $form-helper-text-color;
+	display: block;
+	flex: 1 0 100%;
+}
+
+/// TODO
+/// @name form-optional-text
+/// @group atoms
+@mixin form-optional-text() {
+	@include paragraph-init(small, $margins: false);
+
+	font-style: italic;
+}

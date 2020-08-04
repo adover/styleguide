@@ -1,0 +1,68 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/media-query';
+@import '../4_atoms/list';
+@import '../4_atoms/section';
+
+$feature-list: (
+	item: (
+		font-size: map-deep-get($config, sizes, paragraph, small),
+		horizontal-spacing: map-deep-get($config, spacings, default, h),
+		icon-size: $spacing-8,
+		svg-color: fun-green,
+	),
+);
+
+@mixin feature-list-init() {
+	@include list-init($reset: true, $inline: true);
+	@include display-flex($justify: center);
+	@include section-margin($size: large);
+}
+
+@mixin feature-list-item() {
+	display: none;
+
+	@include media-query($size: tablet-portrait) {
+		@include display-flex($direction: column, $align: center);
+
+		span {
+			font-size: map-deep-get($feature-list, item, font-size);
+			margin: 0 map-deep-get($feature-list, item, horizontal-spacing);
+
+			&[data-icon] {
+				@include section-margin($size: default);
+
+				background-position: center;
+				background-repeat: no-repeat;
+				display: block;
+				height: map-deep-get($feature-list, item, icon-size);
+				width: map-deep-get($feature-list, item, icon-size);
+			}
+
+			// TODO: Migrate this to it's own component or into the JS
+			&[data-icon='vintage-clock'] {
+				background-image: svg(
+					$fill-color: map-deep-get($feature-list, item, svg-color),
+					$path: vintage-clock,
+					$svg-size: map-deep-get($feature-list, item, icon-size)
+				);
+			}
+
+			&[data-icon='heart-lg'] {
+				background-image: svg(
+					$fill-color: map-deep-get($feature-list, item, svg-color),
+					$path: heart-lg,
+					$svg-size: map-deep-get($feature-list, item, icon-size)
+				);
+			}
+
+			&[data-icon='truck'] {
+				background-image: svg(
+					$fill-color: map-deep-get($feature-list, item, svg-color),
+					$path: truck,
+					$svg-size: map-deep-get($feature-list, item, icon-size)
+				);
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+@import '../1_settings/_config';
+@import '../1_settings/borders';
+@import '../1_settings/colors';
+
+$thumb: map-get($colors, silver-sand);
+$scrollbar: white;
+
+@mixin scrollbar($el: &) {
+	#{$el}::-webkit-scrollbar {
+		height: 1rem;
+		width: 1rem;
+	}
+
+	#{$el} {
+		scrollbar-color: $thumb $scrollbar;
+		scrollbar-width: thin;
+	}
+
+	#{$el}::-webkit-scrollbar-track {
+		background: $scrollbar;
+	}
+
+	#{$el}::-webkit-scrollbar-thumb {
+		background-clip: content-box;
+		background-color: $thumb;
+		border: map-get($borders, w2) solid $scrollbar;
+		border-radius: map-deep-get($config, radii, md);
+	}
+}

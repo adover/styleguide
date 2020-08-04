@@ -1,0 +1,23 @@
+@import '../1_settings/breakpoints';
+@import 'image';
+@import '../1_settings/spacing';
+
+$logo-padding: $spacing-4;
+
+/// TODO
+/// @name logo-init
+/// @group atoms
+@mixin logo-init() {
+	max-width: 212px; // This holds the logo to the baseline
+	padding: $logo-padding;
+	width: 100%;
+
+	&,
+	a {
+		display: block;
+	}
+
+	img {
+		@include image-init();
+	}
+}

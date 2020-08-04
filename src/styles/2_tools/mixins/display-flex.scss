@@ -1,0 +1,33 @@
+/// TODO
+/// @name display-flex
+/// @group mixins
+@mixin display-flex(
+	$direction: row,
+	$align: initial,
+	$justify: initial,
+	$flex: false,
+	$flex-wrap: nowrap,
+	$inline: false,
+	$flex-children: true,
+) {
+	align-items: $align;
+	-ms-display: flex;
+	display: if($inline, inline-flex, flex);
+	flex-direction: $direction;
+	flex-wrap: $flex-wrap;
+	justify-content: $justify;
+
+	@if ($flex-children) {
+		& > * {
+			@if $flex {
+				flex: $flex;
+				-ms-flex: $flex;
+			}
+
+			@else {
+				flex: 0 1 auto;
+				-ms-flex: 0 0 auto;
+			}
+		}
+	}
+}

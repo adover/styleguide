@@ -1,0 +1,11 @@
+/// Colors use the NameThatColor naming service to give proper names
+/// @name border
+/// @group mixins
+/// @param $width
+/// @param $border-color
+/// @param $which-border
+@mixin border($width: default, $border-color: transparent, $which-border: all) {
+	$border: if($which-border == all, border, border-#{$which-border});
+
+	#{$border}: map-get($borders, $width) solid $border-color;
+}

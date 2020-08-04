@@ -1,0 +1,13 @@
+/// Target :before and :after elements.
+/// Note this goes inside of the element
+/// @name pseudo
+/// @group mixins
+/// @param $position - The position property of the pseudo element
+/// @param  $content - The content property of the pseudo element
+@mixin pseudo($position: absolute, $content: '', $display: block) {
+	content: $content;
+	display: $display;
+	position: $position;
+
+	@content;
+}

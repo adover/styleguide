@@ -1,0 +1,52 @@
+@import '../1_settings/colors';
+@import '../1_settings/spacing';
+@import '../4_atoms/paragraph';
+
+$table: (
+	padding: (
+		default: $spacing-1,
+		large: $spacing-3,
+	),
+	margin-bottom: $spacing-4,
+	odd-row-background: map-get($colors, alabaster),
+);
+
+/// Standard layouts for tables
+/// @name table
+/// @group atoms
+@mixin table($margin: true) {
+	font-size: map-deep-get($config, sizes, paragraph, small);
+	margin-bottom: if($margin, map-get($table, margin-bottom), 0);
+
+	p,
+	label,
+	ul {
+		margin: 0 !important;
+	}
+}
+
+/// TODO
+/// @name table-row
+/// @group atoms
+@mixin table-row($alt: true) {
+	@if $alt {
+		&:nth-child(even) {
+			background-color: map-get($table, odd-row-background);
+		}
+	}
+}
+
+/// TODO
+/// @name table-cell
+/// @group atoms
+@mixin table-cell() {
+	padding: map-deep-get($table, padding, default);
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:last-child {
+		padding-right: 0;
+	}
+}

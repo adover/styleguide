@@ -1,0 +1,79 @@
+@import '../1_settings/_config';
+@import '../1_settings/layouts';
+@import '../2_tools/functions/map-deep-get';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/focus-ring';
+@import '../4_atoms/button';
+@import '../4_atoms/list';
+@import '../5_molecules/nav';
+
+/// @group organisms
+
+$tabs-max-width: map-deep-get($layout-configs, sub, medium-page, max-content-width);
+
+$tab-item-focus-background-colour: map-get($colors, porcelain);
+
+/// Main header which contains tab links
+/// @name tab-header
+@mixin tab-header() {
+	@include apply-spacing($axis: horizontal, $size: default);
+	@include display-flex($justify: center, $flex: 1);
+	@include list-init($reset: true, $margin-bottom: false, $inline: true);
+
+	margin: 0 auto;
+	max-width: $tabs-max-width;
+}
+
+/// Initialiser for tab item
+/// @name tab-item
+@mixin tab-item($active: false, $active-class: false) {
+	@include main-nav-border($active-class);
+
+	@if not $active {
+		& > a,
+		button {
+			@include button-init($inline: false, $rounded: false, $reset-bg: true, $wrap: true);
+			@include apply-spacing($size: medium);
+			@include link-init($hover-underline: false);
+			@include focus-inset();
+
+			@include media-query($size: tablet-portrait) {
+				white-space: nowrap;
+			}
+
+			border: none;
+			display: block;
+			text-decoration: none;
+			width: 100%;
+
+			&:focus {
+				background: $tab-item-focus-background-colour;
+			}
+		}
+	}
+}
+
+/// Initialiser for tab panel item
+/// @name tab-panel-item
+/// @todo implement animated page change
+/// @todo implement loader for nested routes
+@mixin tab-body() {
+	background-color: white;
+	border-top: map-deep-get($config, borders, default);
+	width: 100%;
+}
+
+/// Initialiser for tab panel item
+/// @name tab-panel-item
+/// @todo implement animated page change
+/// @todo implement loader for nested routes
+@mixin tab-panel-item() {
+	@include apply-spacing($size: large);
+
+	&[aria-hidden='true'] {
+		display: none;
+	}
+
+	margin: 0 auto;
+}

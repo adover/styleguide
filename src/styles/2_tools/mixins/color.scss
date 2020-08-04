@@ -1,0 +1,12 @@
+/// Colors use the NameThatColor naming service to give proper names
+/// @name color
+/// @group mixins
+/// @param $color - Colour which you want to apply from the map
+/// @param $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+@mixin color($color, $property: color) {
+	@if not index(map-keys($colors), $color) {
+		@error "[Mixin: Color] #{$color} does not exist in colors";
+	}
+
+	#{$property}: map-get($colors, $color);
+}

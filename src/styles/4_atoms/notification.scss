@@ -1,0 +1,61 @@
+@import '../1_settings/breakpoints';
+@import '../1_settings/colors';
+@import '../1_settings/spacing';
+@import '../2_tools/mixins/triangle';
+@import '../4_atoms/card';
+@import '../4_atoms/section';
+
+$notification-background-color: map-get($colors, porcelain);
+$notification-font-size: map-deep-get($config, sizes, paragraph, small);
+$notification-item-right-margin: $spacing-2;
+
+/// @group molecules
+
+/// LEGACY notification
+/// @name notification
+@mixin notification() {
+	@include display-flex($align: center, $justify: flex-start, $flex-wrap: wrap);
+	@include apply-spacing();
+
+	background-color: $notification-background-color;
+	font-size: $notification-font-size;
+
+	@include media-query($size: tablet) {
+		align-items: center;
+		justify-content: center;
+	}
+
+	& > * {
+		margin-right: $notification-item-right-margin;
+	}
+}
+
+/// Small notification, found on the product stamp
+/// @name notification-small
+@mixin notification-small($colour: false) {
+	font-size: map-deep-get($config, sizes, paragraph, smallest);
+
+	@if not $colour {
+		color: map-deep-get($config, alerts, warning, accent-color);
+	}
+
+ @else {
+		color: map-deep-get($config, colors, paragraph, $colour);
+	}
+}
+
+/// Floating notification
+/// @name notification-floating
+@mixin notification-floating() {
+	@include card-layout($padding: false);
+
+	padding: $spacing-1;
+	text-align: center;
+}
+
+/// TODO
+/// @name notification-triangle
+/// @group molecules
+@mixin notification-triangle($direction) {
+	@include triangle($direction);
+}

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms|Logo Logo 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component>
+    <div
+      class="myLogo"
+    >
+      <cdx-logo
+        ng-reflect-background="light"
+        ng-reflect-type="landscape"
+      >
+        
+        <img
+          alt=""
+          src="/logos/cd_logo_landscape.svg"
+        />
+        
+        
+      </cdx-logo>
+    </div>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

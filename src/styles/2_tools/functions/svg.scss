@@ -1,0 +1,56 @@
+@import '../../1_settings/_config';
+@import '../../1_settings/colors';
+@import '../../1_settings/svg';
+@import 'strip-unit';
+@import 'str-replace';
+
+/// Takes the colours and svg definitions and returns an encoded url to use in CSS
+/// @name svg
+/// @group functions
+/// @param $fill-color - A colour definition found in the colors.scss settings file
+/// @param $path - A key from $svg-definitions relating to the SVG you want to use
+/// @param $svg-size - The size of the SVG. Usually best left as default (set in the SVG atom)
+/// @example
+///   .my-svg-container {
+///     background-image: svg(fun-green, vintage-clock, 1rem
+///   }
+@function svg($fill-color: 'white', $path: 'cross', $svg-size: $svg-size) {
+	$viewbox-size: strip-unit($svg-size * 16);
+	$extra-params: '';
+
+	@if not $fill-color {
+		@error '[SVG]: Null fill color passed. It probably doesnt exist in your map';
+	}
+
+	@if not str-index(inspect($fill-color), '#') {
+		$fill-color: map-get($colors, $fill-color);
+	}
+
+	@if index($svg-even-odd, $path) {
+		$extra-params: 'fill-rule="evenodd" clip-rule="evenodd"';
+	}
+
+	@return url('data:image/svg+xml,'+PRIVATE-svg-encode(
+			'<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 #{$viewbox-size} #{$viewbox-size}" width="#{$viewbox-size}px" height="#{$viewbox-size}px" #{unquote($extra-params)}>#{PRIVATE-get-paths($fill-color, $path)}</svg>'
+		));
+}
+
+@function PRIVATE-get-paths($fill-color, $paths) {
+	$output: '';
+
+	@each $p in map-get($svg-definitions, $paths) {
+		$output: $output + '<path fill="#{$fill-color}" d="#{$p}"/>';
+	}
+
+	@return $output;
+}
+
+$PRIVATE-encoding-reference: (('<', '%3C'), ('>', '%3E'), ('"', "'"), ('#', '%23'), ('&', '%26'));
+
+@function PRIVATE-svg-encode($svg) {
+	@each $char, $encoded in $PRIVATE-encoding-reference {
+		$svg: str-replace($svg, $char, $encoded);
+	}
+
+	@return $svg;
+}

@@ -1,0 +1,31 @@
+@import '../1_settings/_config';
+@import '../1_settings/colors';
+@import '../1_settings/spacing';
+@import '../2_tools/mixins/pseudo';
+@import '../4_atoms/list';
+@import '../4_atoms/paragraph';
+@import '../4_atoms/section';
+@import '../5_molecules/nav';
+
+$sideNav-item-font-size: map-deep-get($config, sizes, paragraph, small);
+$sideNav-width: 240px;
+
+/// Simple navigation on the side of a page
+/// @name side-nav
+/// @group molecules
+@mixin side-nav() {
+	& > ul {
+		@include list-reset();
+
+		& > li {
+			position: relative;
+
+			a {
+				@include apply-spacing($axis: vertical, $size: default);
+				@include link-init();
+
+				font-size: $sideNav-item-font-size;
+			}
+		}
+	}
+}

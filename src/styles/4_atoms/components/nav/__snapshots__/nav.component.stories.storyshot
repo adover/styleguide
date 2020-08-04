@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms|Navigation Main Nav 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component>
+    <cdx-nav
+      ng-reflect-routes="[object Object],[object Object"
+      role="navigation"
+    >
+      
+      
+      <ul>
+        
+        
+        
+        <li>
+          <a
+            href="/foo"
+            ng-reflect-router-link="foo"
+            ng-reflect-router-link-active="link--active"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlinkactive="link--active"
+          >
+            HOME
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a
+            href="/foo"
+            ng-reflect-router-link="foo"
+            ng-reflect-router-link-active="link--active"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlinkactive="link--active"
+          >
+            BROWSE
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a
+            href="/foo"
+            ng-reflect-router-link="foo"
+            ng-reflect-router-link-active="link--active"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlinkactive="link--active"
+          >
+            SPECIALS
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a
+            href="/foo"
+            ng-reflect-router-link="foo"
+            ng-reflect-router-link-active="link--active"
+            ng-reflect-router-link-active-options="[object Object]"
+            routerlinkactive="link--active"
+          >
+            RECIPES
+          </a>
+        </li>
+        
+      </ul>
+    </cdx-nav>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

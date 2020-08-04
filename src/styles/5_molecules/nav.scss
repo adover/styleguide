@@ -1,0 +1,88 @@
+@import '../1_settings/colors';
+@import '../1_settings/spacing';
+@import '../1_settings/transitions';
+@import '../2_tools/functions/build-transition';
+@import '../2_tools/mixins/center';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/pseudo';
+@import '../2_tools/mixins/position';
+@import '../4_atoms/list';
+@import '../4_atoms/paragraph';
+@import '../4_atoms/section';
+
+$nav-item-font-size: map-deep-get($config, sizes, paragraph, small);
+$nav-item-active-background-color: map-get($colors, fun-green);
+$nav-item-active-height: $spacing-1;
+
+$nav-item-border-padding: $spacing-3;
+
+/// TODO
+/// @name main-nav
+/// @group molecules
+@mixin main-nav() {
+	& > ul {
+		@include display-flex();
+		@include list-reset();
+
+		& > li {
+			@include list-item-inline();
+
+			position: relative;
+
+			img {
+				left: $nav-item-border-padding;
+				position: relative;
+			}
+
+			a {
+				@include link-init($hover-underline: false);
+				@include apply-spacing($axis: false, $size: default);
+
+				align-items: center;
+				display: inline-flex;
+				font-size: $nav-item-font-size;
+				font-weight: 700;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+/// TODO
+/// @name main-nav-border
+/// @group molecules
+@mixin main-nav-border($active-class: 'active') {
+	position: relative;
+
+	&:after {
+		@include pseudo($position: absolute) {
+			background: $nav-item-active-background-color;
+			height: $nav-item-active-height;
+
+			@include position(absolute) {
+				bottom: 0;
+				left: 51%;
+				right: 51%;
+			}
+		}
+
+		transition: build-transition($speed: short, $ease: ease-in, $property: all);
+	}
+
+	&:hover,
+	&.#{$active-class} {
+		&:after {
+			left: 0;
+			right: 0;
+			transition: build-transition($speed: short, $ease: ease-out, $property: all);
+		}
+	}
+}
+
+.nav {
+	@include main-nav();
+
+	li {
+		@include main-nav-border('nav-activeItem');
+	}
+}

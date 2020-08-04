@@ -1,0 +1,17 @@
+/// Constructs animations from preset configurations
+/// Check out the transitions.scss file for easings
+/// which can be used
+/// @name build-transition
+/// @group functions
+/// @group animations
+/// @todo handle lists of properties
+/// @todo Add delay
+@function build-transition($speed, $ease, $property) {
+	@if map-get($transitionEase, $ease) {
+		@return map-get($transitionSpeed, $speed) unquote(map-get($transitionEase, $ease)) $property;
+	}
+
+ @else {
+		@error '[Function: Build Transition] Easing property does not exist: #{$ease}, speed: #{$speed}, property: #{$property}';
+	}
+}

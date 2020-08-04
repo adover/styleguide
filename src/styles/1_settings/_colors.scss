@@ -1,0 +1,35 @@
+/**
+ * @sass-export-section="colours"
+ */
+/// Base colour definitions. Do you need to get the colour directly,
+/// or is it something configurable? If so check __config.scss
+// $colors: get('colors');
+
+$colors: (
+	white: white,
+	black: black,
+	bottle-green: #0d3b22,
+	parsley: #125430,
+	fun-green: #007837,
+	green-haze: #00ab4e,
+	sushi: #80c342,
+	frost: #edf4db,
+	shark: #1d2327,
+	outer-space: #283137,
+	limed-spruce: #39464e,
+	shuttle-gray: #535e65,
+	regent-gray: #949b9f,
+	silver-sand: #b4b9bc,
+	porcelain: #e7e9ea,
+	alabaster: #f1f2f3,
+	school-bus-yellow: #ffdd00,
+	tango: #f47920,
+	bridesmaid: #feefe4,
+	shiraz: #c20e1a,
+	we-peep: #f8e2e4,
+	rose: #e6007e,
+	havelock-blue: #4a90e2,
+	selago: #e9f2fc,
+	ford-cortina-blue: #0066b2,
+);
+// @end-sass-export-section

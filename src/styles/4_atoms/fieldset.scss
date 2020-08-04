@@ -1,0 +1,59 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/apply-spacing';
+@import '../4_atoms/heading';
+
+$fieldset-spacing-size-mobile: map-deep-get($config, spacings, default, v);
+$fieldset-spacing-size: map-deep-get($config, spacings, medium, v);
+
+/// TODO
+/// @name fieldset
+/// @group atoms
+@mixin fieldset($margin-bottom: true) {
+	border: none;
+
+	@include fieldset-margin($margin-bottom);
+}
+
+/// Abstraction for the fieldset margins so they can
+/// be used in elements which wrap fieldsets but
+/// need the same spacing
+/// @name fieldset-margin
+/// @group atoms
+@mixin fieldset-margin($margin-bottom: true) {
+	margin: 0 auto if($margin-bottom, $fieldset-spacing-size-mobile, 0);
+
+	@include media-query($size: tablet) {
+		margin: 0 auto if($margin-bottom, $fieldset-spacing-size, 0);
+	}
+}
+
+@mixin fieldset-divider() {
+	padding-bottom: $fieldset-spacing-size-mobile;
+
+	@include media-query($size: tablet) {
+		padding-bottom: $fieldset-spacing-size;
+	}
+
+	&:after {
+		border-bottom: map-deep-get($config, borders, default);
+		bottom: -#{$fieldset-spacing-size-mobile};
+		content: '';
+		display: block;
+		position: relative;
+		width: 100%;
+
+		@include media-query($size: tablet) {
+			bottom: -#{$fieldset-spacing-size};
+		}
+	}
+}
+
+/// TODO
+/// @name fieldset-legend
+/// @group atoms
+@mixin fieldset-legend() {
+	@include heading-sizing(4);
+
+	border: none;
+	font-family: map-deep-get($config, type, heading);
+}

@@ -1,0 +1,48 @@
+@import '../../../1_settings/_config';
+@import '../../../1_settings/z-index';
+@import '../../../2_tools/mixins/media-query';
+@import '../../../4_atoms/button';
+
+:host {
+	bottom: 0;
+	display: block;
+	position: fixed;
+	right: $spacing-2;
+
+	@include z-index(1000);
+
+	@include media-query($size: tablet) {
+		right: $spacing-4;
+	}
+}
+
+.olive {
+	&-openButton {
+		background: transparent;
+		padding: 0;
+		position: relative;
+
+		img {
+			@include z-index(100);
+
+			position: relative;
+		}
+
+		&Callout {
+			@include button-init();
+			@include button-state($colour: secondary);
+
+			display: block;
+			padding-right: $spacing-8;
+			white-space: nowrap;
+
+			&AnimationWrapper {
+				display: inline-block;
+				overflow: hidden;
+				position: absolute;
+				right: 2.75rem;
+				top: $spacing-3;
+			}
+		}
+	}
+}

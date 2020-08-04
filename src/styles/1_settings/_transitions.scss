@@ -1,0 +1,22 @@
+/**
+ * @sass-export-section="transitions"
+ */
+
+$transitionSpeed: (
+	longest: 3000ms,
+	long: 1000ms,
+	medium: 600ms,
+	default: 300ms,
+	short: 150ms,
+);
+
+$transitionEase: (
+	linear: 'linear',
+	default: 'ease',
+	ease-in: 'ease-in',
+	ease-out: 'ease-out',
+	out-quart: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+	in-quart: 'cubic-bezier(0.895, 0.03, 0.685, 0.22)',
+);
+
+// @end-sass-export-section

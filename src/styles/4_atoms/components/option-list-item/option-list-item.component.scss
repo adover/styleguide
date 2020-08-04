@@ -1,0 +1,25 @@
+@import '../../list';
+
+// @include list-item-init();
+
+:host {
+	li {
+		@include list-item-selectable();
+
+		&.noPadding {
+			padding: 0;
+		}
+	}
+
+	&.active {
+		li {
+			background-color: map-get($colors, selago);
+		}
+	}
+
+	&::ng-deep {
+		button {
+			padding: map-deep-get($config, spacings, inputs, h) !important;
+		}
+	}
+}

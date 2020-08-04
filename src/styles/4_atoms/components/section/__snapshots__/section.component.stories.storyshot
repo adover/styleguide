@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms|Section Section 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component>
+    <cdx-section
+      class=" section--alignLeft section--bgWhite section--fixed section--paddingDefault section"
+      ng-reflect-alignment="left"
+      ng-reflect-background="white"
+      ng-reflect-fixed="true"
+      ng-reflect-padding="default"
+    >
+      <div>
+        1. Place prawns in large shallow bowl with haloumi and oregano. Toss gently to coat.
+      </div>
+      <div>
+        2. Thread 3 prawns, 2 chunks of haloumi and 2 pieces of bay leaf on each skewer, alternating each ingredient as you go.
+      </div>
+      <div>
+        3. Cook on a heated oiled grill plate or barbecue on high until prawns change colour. Serve immediately with lemon wedges on the side.
+      </div>
+    </cdx-section>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

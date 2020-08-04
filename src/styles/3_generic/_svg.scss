@@ -1,0 +1,10 @@
+// This generates a heavy set of SVG definitions, try not to use it if possible
+@each $key, $d in $svg-definitions {
+	*[data-icon='#{$key}'] {
+		@each $c, $k in map-deep-get($config, colors, icon) {
+			&[data-icon-color='#{$c}'] {
+				background-image: svg($fill-color: $k, $path: $key);
+			}
+		}
+	}
+}

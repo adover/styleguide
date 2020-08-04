@@ -1,0 +1,40 @@
+@import '../1_settings/_config';
+
+/// TODO
+/// @name hr
+/// @group atoms
+@mixin hr {
+	border-bottom: map-deep-get($config, borders, default);
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	margin-left: $spacing-4;
+	margin-right: $spacing-4;
+}
+
+@mixin hr-text {
+	border: 0;
+	color: black;
+	height: $spacing-6;
+	outline: 0;
+	position: relative;
+	text-align: center;
+
+	&:before {
+		background: map-get($colors, silver-sand);
+		content: '';
+		height: 1px;
+		left: 0;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+	}
+
+	&:after {
+		background-color: white;
+		content: attr(data-content);
+		display: inline-block;
+		padding: 0 $spacing-2;
+		position: relative;
+	}
+}

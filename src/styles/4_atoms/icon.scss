@@ -1,0 +1,14 @@
+@import '../1_settings/svg';
+///
+/// @name icon-init
+
+@mixin icon-init($center: false) {
+	display: block;
+	height: $svg-size;
+	width: $svg-size;
+
+	@if $center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

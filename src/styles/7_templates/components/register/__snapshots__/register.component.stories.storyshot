@@ -1,0 +1,912 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Templates|Registration form default 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <cdx-register
+    class="ng-star-inserted"
+  >
+    <form
+      cdxform=""
+      class="ng-untouched ng-pristine ng-invalid"
+      ng-reflect-form="[object Object]"
+      ng-reflect-form-group="[object Object]"
+      ng-reflect-transformer="formValue => {
+        /* istanb"
+      novalidate=""
+    >
+
+      <fieldset
+        cdxfieldset=""
+        class="fieldset--narrow fieldset--withDivider"
+        legend="Create an account"
+        ng-reflect-divider="true"
+        ng-reflect-i18n="@@register-emailAndPasswordLab"
+        ng-reflect-legend="Create an account"
+      >
+        <legend>
+          Create an account
+        </legend>
+        <form-email-password-input
+          ng-reflect-page="register"
+          ng-reflect-password-label="Choose a password"
+          page="register"
+          passwordlabel="Choose a password"
+        >
+
+          <form-input
+            autocomplete="email"
+            class="ng-untouched ng-pristine ng-invalid"
+            formcontrolname="email"
+            ng-reflect-autocomplete="email"
+            ng-reflect-form-control-name="email"
+            ng-reflect-name="email"
+            ng-reflect-required=""
+            ng-reflect-size="full-width"
+            required=""
+            size="full-width"
+          >
+
+
+            <label
+              class="ng-star-inserted"
+              for="email"
+              label=""
+            >
+               Email address
+            </label>
+
+
+
+            <input
+              autocomplete="email"
+              class="ng-star-inserted"
+              data-size="full-width"
+              id="email"
+              name="email"
+              ng-reflect-ng-class="[object Object]"
+              placeholder=""
+              type="text"
+            />
+
+
+
+
+
+            <form-input-error
+              control="email"
+              ng-reflect-control="email"
+              validation=""
+            >
+              <p
+                class="form-errorText--hide"
+                ng-reflect-type="*"
+              >
+                 Please enter a valid email address
+              </p>
+
+            </form-input-error>
+
+
+          </form-input>
+          <form-password-input
+            ng-reflect-password-label="Choose a password"
+            ng-reflect-show-password-help-text="true"
+            ng-reflect-validation-message="Please enter a valid password"
+          >
+
+            <form-input-with-button
+              class="ng-untouched ng-pristine ng-invalid"
+              formcontrolname="password"
+              input=""
+              maxlength="255"
+              ng-reflect-form-control-name="password"
+              ng-reflect-input-type="password"
+              ng-reflect-maxlength="255"
+              ng-reflect-name="password"
+            >
+              <label
+                for="password"
+                label=""
+              >
+                 Choose a password
+              </label>
+              <div
+                class="inputContainer"
+                ng-reflect-klass="inputContainer"
+                ng-reflect-ng-class="[object Object]"
+              >
+                <input
+                  autocomplete="disabled"
+                  data-size="initial"
+                  id="password"
+                  maxlength="255"
+                  name="password"
+                  ng-reflect-ng-class="[object Object]"
+                  placeholder=""
+                  type="password"
+                />
+                <button
+                  aria-disabled="false"
+                  aria-label="Show password"
+                  btn=""
+                  cdxbutton=""
+                  fillstyle="flat"
+                  fullwidth="false"
+                  name="buttonLabel"
+                  ng-reflect-fill-style="flat"
+                  ng-reflect-ng-class="[object Object]"
+                  size="default"
+                  style="pointer-events: auto;"
+                  type="button"
+                >
+
+
+
+
+
+
+
+                </button>
+              </div>
+              <form-input-error
+                control="password"
+                ng-reflect-control="password"
+                validation=""
+              >
+                <p
+                  class="form-errorText--hide"
+                  ng-reflect-type="*"
+                >
+                   Please enter a valid password
+                </p>
+              </form-input-error>
+
+              <p
+                cdxformhelptext=""
+                class="ng-star-inserted"
+              >
+                 Must contain at least 8 characters and contain at least 2 of either uppercase, lowercase, numeric or special characters.
+              </p>
+            </form-input-with-button>
+          </form-password-input>
+        </form-email-password-input>
+      </fieldset>
+      <fieldset
+        cdxfieldset=""
+        class="fieldset--narrow"
+        legend="Account information"
+        ng-reflect-i18n="@@register-accountInformation"
+        ng-reflect-legend="Account information"
+      >
+        <legend>
+          Account information
+        </legend>
+        <div
+          cdxgridcontainer="2"
+        >
+          <form-input
+            autocomplete="given-name"
+            autofocus=""
+            class="ng-untouched ng-pristine ng-invalid"
+            formcontrolname="firstName"
+            maxlength="32"
+            ng-reflect-autocomplete="given-name"
+            ng-reflect-form-control-name="firstName"
+            ng-reflect-maxlength="32"
+            ng-reflect-name="firstName"
+            ng-reflect-required=""
+            ng-reflect-size="medium"
+            required=""
+            size="medium"
+          >
+
+
+            <label
+              class="ng-star-inserted"
+              for="firstName"
+              label=""
+            >
+               First name
+            </label>
+
+
+
+            <input
+              autocomplete="given-name"
+              class="ng-star-inserted"
+              data-size="medium"
+              id="firstName"
+              maxlength="32"
+              name="firstName"
+              ng-reflect-ng-class="[object Object]"
+              placeholder=""
+              type="text"
+            />
+
+
+
+
+
+            <form-input-error
+              control="firstName"
+              ng-reflect-control="firstName"
+              validation=""
+            >
+              <p
+                class="form-errorText--hide"
+                ng-reflect-type="required"
+              >
+                 Please enter your first name
+              </p>
+            </form-input-error>
+
+
+          </form-input>
+          <form-input
+            autocomplete="family-name"
+            class="ng-untouched ng-pristine ng-invalid"
+            formcontrolname="lastName"
+            maxlength="32"
+            ng-reflect-autocomplete="family-name"
+            ng-reflect-form-control-name="lastName"
+            ng-reflect-maxlength="32"
+            ng-reflect-name="lastName"
+            ng-reflect-size="medium"
+            size="medium"
+          >
+
+
+            <label
+              class="ng-star-inserted"
+              for="lastName"
+              label=""
+            >
+               Last name
+            </label>
+
+
+
+            <input
+              autocomplete="family-name"
+              class="ng-star-inserted"
+              data-size="medium"
+              id="lastName"
+              maxlength="32"
+              name="lastName"
+              ng-reflect-ng-class="[object Object]"
+              placeholder=""
+              type="text"
+            />
+
+
+
+
+
+            <form-input-error
+              control="lastName"
+              ng-reflect-control="lastName"
+              validation=""
+            >
+              <p
+                class="form-errorText--hide"
+                ng-reflect-type="required"
+              >
+                 Please enter your last name
+              </p>
+            </form-input-error>
+
+
+          </form-input>
+        </div>
+        <form-input
+          class="ng-untouched ng-pristine ng-valid"
+          formcontrolname="isCompany"
+          inputtype="checkbox"
+          ng-reflect-form-control-name="isCompany"
+          ng-reflect-input-type="checkbox"
+          ng-reflect-name="isCompany"
+        >
+
+
+
+          <input
+            class="ng-star-inserted"
+            data-size="initial"
+            id="isCompany"
+            name="isCompany"
+            ng-reflect-ng-class="[object Object]"
+            placeholder=""
+            type="checkbox"
+            value=""
+          />
+
+
+
+          <label
+            class="ng-star-inserted"
+            for="isCompany"
+            label=""
+          >
+            I'm shopping on behalf of a business
+          </label>
+
+
+
+
+
+
+        </form-input>
+        <cdx-slide-panel
+          class="ng-tns-c21-0 ng-trigger ng-trigger-slideInOut ng-star-inserted ng-animating"
+          ng-reflect-show-panel="false"
+          style="animation: 300ms linear 0ms 1 normal forwards gen_css_kf_0; animation-play-state: running;"
+        >
+          <div
+            class="ng-tns-c21-0"
+          >
+            <form-input
+              autocomplete="organization"
+              class="ng-untouched ng-pristine ng-valid"
+              formcontrolname="companyName"
+              maxlength="65"
+              ng-reflect-autocomplete="organization"
+              ng-reflect-form-control-name="companyName"
+              ng-reflect-maxlength="65"
+              ng-reflect-name="companyName"
+              ng-reflect-tabindex="-1"
+            >
+
+
+              <label
+                class="ng-star-inserted"
+                for="companyName"
+                label=""
+                style=""
+              >
+                 Business name
+              </label>
+
+
+
+              <input
+                autocomplete="organization"
+                class="ng-star-inserted"
+                data-size="initial"
+                id="companyName"
+                maxlength="65"
+                name="companyName"
+                ng-reflect-ng-class="[object Object]"
+                placeholder=""
+                style=""
+                tabindex="-1"
+                type="text"
+              />
+
+
+
+
+
+              <form-input-error
+                control="companyName"
+                ng-reflect-control="companyName"
+                validation=""
+              >
+                <p
+                  class="form-errorText--hide"
+                  ng-reflect-type="required"
+                >
+                   Please enter your business name.
+                </p>
+              </form-input-error>
+
+
+            </form-input>
+          </div>
+        </cdx-slide-panel>
+        <form-suburb-autocomplete>
+          <form-autocomplete
+            class="ng-untouched ng-pristine ng-invalid"
+            displaykey="text"
+            ng-reflect-display-key="text"
+            ng-reflect-form="[object Object]"
+            ng-reflect-form-group="[object Object]"
+            ng-reflect-search-results=""
+            ng-reflect-value-key="id"
+            valuekey="id"
+          >
+            <form-input
+              autocomplete="disabled"
+              class="ng-untouched ng-pristine ng-invalid"
+              formcontrolname="suburb"
+              input=""
+              maxlength="255"
+              ng-reflect-autocomplete="disabled"
+              ng-reflect-form-control-name="suburb"
+              ng-reflect-maxlength="255"
+              ng-reflect-name="suburb"
+              ng-reflect-size="medium"
+              ng-reflect-success-icon="true"
+              size="medium"
+            >
+
+
+              <label
+                class="ng-star-inserted"
+                for="suburb"
+                label=""
+              >
+                 Suburb/town
+              </label>
+
+
+
+              <input
+                autocomplete="disabled"
+                class="successIcon ng-star-inserted"
+                data-size="medium"
+                id="suburb"
+                maxlength="255"
+                name="suburb"
+                ng-reflect-ng-class="[object Object]"
+                placeholder=""
+                type="text"
+              />
+
+
+
+
+
+              <form-input-error
+                control="suburb"
+                ng-reflect-control="suburb"
+                validation=""
+              >
+                <p
+                  class="form-errorText--hide"
+                  ng-reflect-type="suburbNotSelected"
+                >
+                   Please enter your suburb.
+                </p>
+              </form-input-error>
+              <p
+                cdxformhelptext=""
+              >
+                 This ensures we show you products from the correct store.
+              </p>
+
+
+            </form-input>
+
+          </form-autocomplete>
+        </form-suburb-autocomplete>
+        <form-address-autocomplete>
+
+
+
+          <form-input
+            autocomplete="street-address"
+            class="ng-untouched ng-pristine ng-invalid ng-star-inserted"
+            formcontrolname="addressStreet1"
+            input=""
+            maxlength="255"
+            ng-reflect-autocomplete="street-address"
+            ng-reflect-form-control-name="addressStreet1"
+            ng-reflect-maxlength="255"
+            ng-reflect-name="addressStreet1"
+            ng-reflect-required=""
+            ng-reflect-size="full-width"
+            required=""
+            size="full-width"
+          >
+
+
+            <label
+              class="ng-star-inserted"
+              for="addressStreet1"
+              label=""
+            >
+               Street1
+            </label>
+
+
+
+            <input
+              autocomplete="street-address"
+              class="ng-star-inserted"
+              data-size="full-width"
+              id="addressStreet1"
+              maxlength="255"
+              name="addressStreet1"
+              ng-reflect-ng-class="[object Object]"
+              placeholder=""
+              type="text"
+            />
+
+
+
+
+
+            <form-input-error
+              control="addressStreet1"
+              ng-reflect-control="addressStreet1"
+              validation=""
+            >
+              <p
+                class="form-errorText--hide"
+                ng-reflect-type="required"
+              >
+                 Please enter your address.
+              </p>
+            </form-input-error>
+
+
+          </form-input>
+          <form-input
+            autocomplete="street-address"
+            class="ng-untouched ng-pristine ng-valid ng-star-inserted"
+            formcontrolname="addressStreet2"
+            input=""
+            maxlength="255"
+            ng-reflect-autocomplete="street-address"
+            ng-reflect-form-control-name="addressStreet2"
+            ng-reflect-maxlength="255"
+            ng-reflect-name="addressStreet2"
+            ng-reflect-size="full-width"
+            size="full-width"
+          >
+
+
+            <label
+              class="ng-star-inserted"
+              for="address"
+              label=""
+            >
+               Street2
+              <span
+                cdxoptionaltext=""
+              />
+            </label>
+
+
+
+            <input
+              autocomplete="street-address"
+              class="ng-star-inserted"
+              data-size="full-width"
+              id="addressStreet2"
+              maxlength="255"
+              name="addressStreet2"
+              ng-reflect-ng-class="[object Object]"
+              placeholder=""
+              type="text"
+            />
+
+
+
+
+
+            <p
+              cdxformhelptext=""
+            >
+               If you are still unable to enter the correct address, please contact us at 0800 40 40 40.
+            </p>
+
+
+          </form-input>
+
+
+        </form-address-autocomplete>
+        <form-input
+          autocomplete="tel-national"
+          class="ng-untouched ng-pristine ng-invalid"
+          formcontrolname="phoneNumber"
+          inputtype="tel"
+          maxlength="16"
+          minlength="8"
+          ng-reflect-autocomplete="tel-national"
+          ng-reflect-form-control-name="phoneNumber"
+          ng-reflect-input-type="tel"
+          ng-reflect-maxlength="16"
+          ng-reflect-minlength="8"
+          ng-reflect-name="phoneNumber"
+          ng-reflect-size="medium"
+          size="medium"
+        >
+
+
+          <label
+            class="ng-star-inserted"
+            for="phoneNumber"
+            label=""
+          >
+            Phone number
+          </label>
+
+
+
+          <input
+            autocomplete="tel-national"
+            class="ng-star-inserted"
+            data-size="medium"
+            id="phoneNumber"
+            maxlength="16"
+            name="phoneNumber"
+            ng-reflect-ng-class="[object Object]"
+            placeholder=""
+            type="tel"
+          />
+
+
+
+
+
+          <form-input-error
+            control="phoneNumber"
+            ng-reflect-control="phoneNumber"
+            validation=""
+          >
+            <p
+              class="form-errorText--hide"
+              ng-reflect-type="*"
+            >
+               Please enter a valid New Zealand landline or mobile number.
+            </p>
+          </form-input-error>
+          <p
+            cdxformhelptext=""
+          >
+             We'll use this if we need to contact you about your order.
+          </p>
+
+
+        </form-input>
+        <form-dob-input
+          class="ng-untouched ng-pristine ng-invalid"
+          formcontrolname="dob"
+          ng-reflect-name="dob"
+        >
+          <section
+            class="ng-untouched ng-pristine ng-invalid"
+            ng-reflect-form="[object Object]"
+          >
+            <label
+              label=""
+            >
+               Date of birth
+            </label>
+            <input
+              aria-label="Date of birth Day"
+              autocomplete="bday-day"
+              cdxnumeric=""
+              class="ng-untouched ng-pristine ng-invalid"
+              id="dobDay"
+              maxlength="2"
+              name="dobDay"
+              ng-reflect-name="dobDay"
+              placeholder="DD"
+              type="tel"
+            />
+            <input
+              aria-label="Date of birth Month input"
+              autocomplete="bday-month"
+              cdxnumeric=""
+              class="ng-untouched ng-pristine ng-invalid"
+              id="dobMonth"
+              maxlength="2"
+              name="dobMonth"
+              ng-reflect-name="dobMonth"
+              placeholder="MM"
+              type="tel"
+            />
+            <input
+              aria-label="Date of birth Year input"
+              autocomplete="bday-year"
+              cdxnumeric=""
+              class="ng-untouched ng-pristine ng-invalid"
+              id="dobYear"
+              maxlength="4"
+              name="dobYear"
+              ng-reflect-name="dobYear"
+              placeholder="YYYY"
+              type="tel"
+            />
+            <form-input-error
+              control="dob"
+              ng-reflect-control="dob"
+              validation=""
+            >
+              <p
+                class="form-errorText--hide"
+                ng-reflect-type="underage"
+              >
+                 You must be  years of age or older to register.
+              </p>
+              <p
+                class="form-errorText--hide"
+                ng-reflect-type="dateInvalid"
+              >
+                 The entered date of birth is not a valid date of birth.
+              </p>
+            </form-input-error>
+            <p
+              cdxformhelptext=""
+            >
+               Some product ranges require age verification.
+            </p>
+          </section>
+        </form-dob-input>
+      </fieldset>
+      <form-add-onecard
+        ng-reflect-group="[object Object]"
+      >
+        <fieldset
+          cdxfieldset=""
+          class="ng-untouched ng-pristine ng-invalid fieldset--narrow"
+          ng-reflect-form="[object Object]"
+          ng-reflect-i18n="@@register-onecardAdvertisemen"
+          ng-reflect-legend="Shop faster with Onecard"
+        >
+          <legend>
+            Shop faster with Onecard
+          </legend>
+          <p>
+             See everything you've bought before and earn rewards.
+          </p>
+          <form-input
+            autocomplete="off"
+            class="ng-untouched ng-pristine ng-valid"
+            formcontrolname="loyaltyCard"
+            inputtype="tel"
+            ng-reflect-autocomplete="off"
+            ng-reflect-form-control-name="loyaltyCard"
+            ng-reflect-input-type="tel"
+            ng-reflect-name="loyaltyCard"
+            ng-reflect-placeholder="9480 - 5678 - 90123"
+            placeholder="9480 - 5678 - 90123"
+          >
+
+
+            <label
+              class="ng-star-inserted"
+              for="loyaltyCard"
+              label=""
+            >
+               Your Onecard
+              <span
+                cdxoptionaltext=""
+              />
+            </label>
+
+
+
+            <input
+              autocomplete="off"
+              class="ng-star-inserted"
+              data-size="initial"
+              id="loyaltyCard"
+              name="loyaltyCard"
+              ng-reflect-ng-class="[object Object]"
+              placeholder="9480 - 5678 - 90123"
+              type="tel"
+            />
+
+
+
+
+
+            <form-input-error
+              control="loyaltyCard"
+              ng-reflect-control="loyaltyCard"
+              validation=""
+            >
+              <p
+                class="form-errorText--hide"
+                ng-reflect-type="*"
+              >
+                 Please enter a valid Onecard Number.
+              </p>
+            </form-input-error>
+
+
+          </form-input>
+        </fieldset>
+      </form-add-onecard>
+      <fieldset
+        cdxfieldset=""
+        class="fieldset--narrow"
+        hidelegend="true"
+        legend="Latest Offers"
+        ng-reflect-hide-legend="true"
+        ng-reflect-i18n="@@register-latestOffersLabel"
+        ng-reflect-legend="Latest Offers"
+      >
+        <legend
+          class="sr-only"
+        >
+          Latest Offers
+        </legend>
+        <form-input
+          class="ng-untouched ng-pristine ng-valid"
+          formcontrolname="doesWishToReceiveOffers"
+          inputtype="checkbox"
+          ng-reflect-form-control-name="doesWishToReceiveOffers"
+          ng-reflect-input-type="checkbox"
+          ng-reflect-name="doesWishToReceiveOffers"
+        >
+
+
+
+          <input
+            class="ng-star-inserted"
+            data-size="initial"
+            id="doesWishToReceiveOffers"
+            name="doesWishToReceiveOffers"
+            ng-reflect-ng-class="[object Object]"
+            placeholder=""
+            type="checkbox"
+            value="false"
+          />
+
+
+
+          <label
+            class="ng-star-inserted"
+            for="doesWishToReceiveOffers"
+            label=""
+          >
+            Yes, I wish to receive offers by email.
+          </label>
+
+
+
+
+
+
+        </form-input>
+        <p>
+           By registering you agree to our
+          <a
+            href="/shop/termsandconditions"
+            ng-reflect-router-link="/shop/termsandconditions"
+            ng-reflect-target="_blank"
+            routerlink="/shop/termsandconditions"
+            target="_blank"
+          >
+             Terms & Conditions
+            <span
+              class="sr-only"
+            >
+              (Opens in a new window)
+            </span>
+          </a>
+        </p>
+        <button
+          aria-disabled="true"
+          attr.aria-label="Register button"
+          cdxbutton=""
+          class="submitButton"
+          fillstyle="primary"
+          fullwidth="false"
+          ng-reflect-class="submitButton"
+          ng-reflect-disabled="true"
+          size="default"
+          style="pointer-events: auto;"
+          type="submit"
+        >
+
+
+           Register
+
+
+
+
+        </button>
+      </fieldset>
+    </form>
+  </cdx-register>
+</storybook-dynamic-app-root>
+`;

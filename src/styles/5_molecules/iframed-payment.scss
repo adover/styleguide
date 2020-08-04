@@ -1,0 +1,150 @@
+@import '../1_settings/_config';
+
+.initCardCapture {
+	&-iframeContent {
+		@include display-flex($align: center, $direction: column, $inline: true);
+		@include section-margin($size: default);
+
+		max-width: 300px;
+	}
+
+	&-iframeContainer,
+	button #{&}-paymentSpinner,
+	&-iframeErrorList:empty,
+	input[type='button']#{&}-reload {
+		display: none;
+	}
+
+	&-iframe {
+		height: 125px;
+		width: 100%;
+	}
+
+	&-paymentSpinner {
+		margin-left: $spacing-2;
+
+		.circle {
+			background-color: white;
+		}
+	}
+
+	&-iframeErrorList {
+		@include list-reset();
+	}
+
+	&-saveCardCheckBox label {
+		@include checkbox-label-init();
+	}
+}
+
+.editInstrument {
+	@include apply-spacing($size: default);
+
+	&-iframe {
+		height: 48px;
+		width: 300px;
+	}
+
+	&-errorList {
+		margin-left: 0;
+	}
+
+	&-editContainer {
+		display: flex;
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	&-editButton {
+		margin-right: 5px;
+	}
+
+	&-submit {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	// &-paymentSpinner {
+	//   display: none;
+	//   margin-left: 5px;
+	// }
+
+	&-paymentSpinner .spinner .spinner-container .circle {
+		background-color: white;
+	}
+
+	&-edit {
+		.buttons {
+			grid-column: span 12;
+		}
+	}
+}
+
+button .editInstrument-paymentSpinner {
+	display: none;
+}
+
+.savedInstrument {
+	@include media-query($size: tablet) {
+		@include display-flex($align: center, $justify: space-between);
+	}
+
+	&-iframeContent {
+		@include display-flex($align: center, $direction: column);
+
+		@include media-query($size: mobile) {
+			align-items: flex-start;
+		}
+	}
+
+	&-field {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-errorList {
+		margin: 0;
+	}
+
+	&-cvvContainer {
+		align-items: center;
+		display: flex;
+	}
+
+	&-iframe {
+		height: 52px;
+		margin-left: 5px;
+		width: 55px;
+	}
+
+	&-submit {
+		display: flex;
+		justify-content: center;
+
+		@include media-query($size: mobile, $max: true) {
+			align-self: center;
+			width: 100%;
+		}
+	}
+
+	// &-submitButton {
+	//   @media (max-width: @screen-xs-max) {
+	//     font-size: 19.2px;
+	//     margin-top: 20px;
+	//     padding: 8px 9px;
+	//   }
+	// }
+
+	// &-submitButton:disabled {
+	//   background-color: @gray-darker;
+	// }
+
+	// &-paymentSpinner {
+	//   display: none;
+	//   margin-left: 5px;
+	// }
+
+	// &-paymentSpinner .spinner .spinner-container .circle {
+	//   background-color: white;
+	// }
+}

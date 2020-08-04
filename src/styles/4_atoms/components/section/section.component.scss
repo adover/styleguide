@@ -1,0 +1,9 @@
+@import '../../../4_atoms/section';
+
+:host {
+	@include section-init();
+
+	&:not(.u-grid) {
+		display: block;
+	}
+}

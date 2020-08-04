@@ -1,0 +1,65 @@
+// @import '../../styles/variables';
+// @import '../../styles/base';
+// @import '../../styles/animations';
+// @import '../../styles/mixins';
+
+@import '../1_settings/breakpoints';
+@import '../1_settings/spacing';
+@import '../2_tools/mixins/media-query';
+
+/// Quotes taken from the 'why shop online' section
+/// @name quotes
+/// @group molecules
+.wsoQuoteSection {
+	box-sizing: border-box;
+	margin-bottom: $spacing-8;
+	min-height: 144px;
+	padding: 0 $spacing-16;
+	position: relative;
+	width: auto;
+
+	@include media-query($size: tablet, $max: true) {
+		margin-bottom: 0;
+		padding: 0;
+		width: 300%;
+	}
+
+	& * {
+		box-sizing: border-box;
+	}
+}
+
+.wsoQuotes {
+	animation: scroller-3 10s linear infinite;
+	display: table;
+	font-size: 1.2rem;
+	left: -100%;
+	line-height: 1.5;
+	position: absolute;
+	table-layout: fixed;
+	text-align: center;
+	width: 100%;
+
+	@include media-query($size: desktop) {
+		animation: unset;
+		display: flex;
+		justify-content: space-between;
+		position: static;
+	}
+
+	&-testimonial {
+		background: url('/content/f19_quote.svg') no-repeat top center;
+		border: none;
+		display: table-cell;
+		font-size: 1rem;
+		font-weight: 700;
+		margin: 0;
+		padding: $spacing-12 $spacing-10 0;
+
+		@include media-query($size: desktop) {
+			display: block;
+			max-width: 250px;
+			padding: $spacing-12 0 0;
+		}
+	}
+}

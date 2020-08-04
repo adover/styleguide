@@ -1,0 +1,20 @@
+@import './colors';
+
+$focus-shadow-color: map-get($colors, selago);
+$default-shadow-color-faded: rgba(black, 0.35);
+$default-shadow-color: black;
+$shadow-focus: 0 0 0 4px $focus-shadow-color;
+$shadow-focus-inset: inset 0px 0px 2px 0px map-get($colors, fun-green);
+
+/**
+ * @sass-export-section="shadows"
+ */
+$shadows: (
+	small: 0px 2px 5px 0px $default-shadow-color-faded,
+	medium: 0px 6px 20px 0px $default-shadow-color-faded,
+	large: 0px 9px 30px 0px $default-shadow-color-faded,
+	focus: 0 0 0 4px $focus-shadow-color,
+	focus-inset: $shadow-focus-inset,
+	underlay: linear-gradient(to top, $default-shadow-color-faded 40%, rgba($default-shadow-color, 0) 100%),
+);
+// @end-sass-export-section

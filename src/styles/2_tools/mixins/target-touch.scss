@@ -1,0 +1,17 @@
+///Touch specific events. Note: doesnt work in IE
+/// @name target-touch
+/// @group mixins
+@mixin target-touch() {
+	@media (pointer: coarse) {
+		@content;
+	}
+}
+
+/// Mouse specific events. Note: doesnt work in IE
+/// @name target-mouse
+/// @group mixins
+@mixin target-mouse() {
+	@media (hover) {
+		@content;
+	}
+}

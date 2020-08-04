@@ -1,0 +1,47 @@
+<ul class="pagination" aria-label="pagination">
+  <li class="prev" [class.disabled]="previousDisabled()">
+    <a
+      aria-label="Previous"
+      i18n-aria-label="@@pagination-previousLabel"
+      href
+      (click)="selectPage(currentPage - 1); $event.preventDefault()"
+      [attr.tabindex]="hasPrevious() ? null : '-1'"
+    >
+      <cdx-svg-icon
+        name="chevron-left"
+        fill="dark"
+        size="extra-small"
+      ></cdx-svg-icon>
+    </a>
+  </li>
+  <li
+    *ngFor="let pageNumber of pages; let i = index"
+    [class.selected]="pageNumber == currentPage"
+    [class.disabled]="isEllipsis(pageNumber)"
+  >
+    <a aria-label="Ellipsis" *ngIf="isEllipsis(pageNumber)">...</a>
+    <a
+      aria-label="Page Number"
+      *ngIf="!isEllipsis(pageNumber)"
+      href
+      (click)="selectPage(pageNumber); $event.preventDefault()"
+    >
+      {{ pageNumber }}
+    </a>
+  </li>
+  <li class="next" [class.disabled]="nextDisabled()">
+    <a
+      aria-label="Next"
+      i18n-aria-label="@@pagination-nextLabel"
+      href
+      (click)="selectPage(currentPage + 1); $event.preventDefault()"
+      [attr.tabindex]="hasNext() ? null : '-1'"
+    >
+      <cdx-svg-icon
+        name="chevron-right"
+        fill="dark"
+        size="extra-small"
+      ></cdx-svg-icon>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,47 @@
+@import '../../loading-spinner';
+@import '../../../2_tools/functions/build-animation';
+@import '../../../1_settings/transitions';
+
+:host {
+	display: block;
+	height: map-deep-get($config, icons, size, small);
+	width: map-deep-get($config, icons, size, small);
+
+	&[data-vertical-center='true'] {
+		@include loading-init();
+	}
+
+	&[data-vertical-center='false'] {
+		@include loading-init($vertical-center: false);
+	}
+
+	&[data-fill='light'] {
+		rect {
+			fill: white;
+		}
+	}
+
+	&[data-fill='highlight'] {
+		rect {
+			fill: map-deep-get($config, colors, background, highlight);
+		}
+	}
+
+	&[data-fill='mid'] {
+		rect {
+			fill: map-deep-get($config, colors, background, mid);
+		}
+	}
+
+	&[data-fill='dark'] {
+		rect {
+			fill: map-deep-get($config, colors, background, dark);
+		}
+	}
+
+	&[data-fill='green'] {
+		rect {
+			fill: map-deep-get($config, colors, background, green);
+		}
+	}
+}

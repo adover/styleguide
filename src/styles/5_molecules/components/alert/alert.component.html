@@ -1,0 +1,21 @@
+<p class="cdAlert"
+  [ngClass]="'cdAlert--' + alertType"
+  *ngIf="shouldDisplayAlert">
+  <!--
+  <mat-icon [svgIcon]="icon"
+    class="cdAlert-icon"></mat-icon>
+-->
+  <span class="cdAlert-message"
+    role="alert">
+    <ng-content></ng-content>
+  </span>
+
+  <button aria-label="Dismiss alert"
+    class="cdAlert-dismissButton"
+    *ngIf="canDismiss"
+    (click)="closeAlert()">
+<!--    <mat-icon svgIcon="cross-ui"
+      [inline]="true"></mat-icon>
+  -->
+  </button>
+</p>

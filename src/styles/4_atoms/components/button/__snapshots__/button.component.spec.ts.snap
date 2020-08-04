@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonComponent should render as active 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render as default 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render as disabled 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled={[Function Boolean]}
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render as flat 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render as large 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render as outline 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render as primary 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render as secondary 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render full width 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth={[Function Boolean]}
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render with busy loader 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;
+
+exports[`ButtonComponent should render without busy loader 1`] = `
+<cdx-button
+  __ngContext__={[Function LRootView]}
+  align={[Function String]}
+  animationCompletedEmitter={[Function EventEmitter]}
+  cdr={[Function ViewRef]}
+  disabled="false"
+  el={[Function ElementRef]}
+  endSlotSize={[Function String]}
+  fillStyle={[Function String]}
+  footerButton="false"
+  fullWidth="false"
+  inline="false"
+  size={[Function String]}
+  slotEnd={[Function ElementRef]}
+  slotStart={[Function ElementRef]}
+  startSlotSize={[Function String]}
+  startTimer="0"
+  state={[Function String]}
+>
+  <i
+    class="button-icon--start"
+  /><i
+    class="button-icon--end"
+  >
+    
+    
+  </i>
+</cdx-button>
+`;

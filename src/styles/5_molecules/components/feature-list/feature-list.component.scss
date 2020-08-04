@@ -1,0 +1,5 @@
+@import '../../feature-list';
+
+:host {
+	@include feature-list-init();
+}

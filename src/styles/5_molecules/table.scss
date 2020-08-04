@@ -1,0 +1,51 @@
+@import '../1_settings/colors';
+@import '../1_settings/spacing';
+@import '../4_atoms/paragraph';
+
+$table-padding: $spacing-1;
+$table-odd-row-background-color: map-get($colors, alabaster);
+$table-margin-bottom: $spacing-4;
+
+@mixin table() {
+	font-size: map-deep-get($config, sizes, paragraph, small);
+	margin-bottom: $table-margin-bottom;
+}
+
+@mixin table-header() {
+}
+
+@mixin table-row($alt: true) {
+	@if $alt {
+		&:nth-child(even) {
+			background-color: $table-odd-row-background-color;
+		}
+	}
+}
+
+@mixin table-cell() {
+	padding: $table-padding;
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:last-child {
+		padding-right: 0;
+	}
+}
+
+table {
+	@include table();
+
+	th {
+		@include table-header();
+	}
+
+	tr {
+		@include table-row();
+
+		td {
+			@include table-cell();
+		}
+	}
+}

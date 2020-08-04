@@ -1,0 +1,102 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/display-flex';
+@import '../4_atoms/icon';
+@import '../4_atoms/section';
+@import '../5_molecules/modal';
+@import '../5_molecules/slide-panel';
+
+/// @group molecules
+
+$alert-font-size: map-deep-get($config, sizes, paragraph, small);
+$alert-max-height: 40rem;
+
+$border-highlight-width: $spacing-2;
+
+$alert-icon: (
+	size: $spacing-8,
+	margin-right: $spacing-2,
+);
+
+///
+/// @name alert-init
+/// @group initialiser
+@mixin alert-init($iconClass: alert-icon, $animation: true, $fullWidth: false) {
+	@include apply-spacing($size: default);
+	@include section-margin($size: medium);
+	@include slide-panel-init();
+	@include display-flex($direction: row, $flex: 0, $flex-wrap: wrap);
+
+	@include media-query($size: mobile) {
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	@if $animation {
+		animation: shakeAndShow map-get($transitionSpeed, medium) cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+	}
+
+	@if $fullWidth {
+		width: 100%;
+	}
+
+	// Use this delay to animate the container height
+	animation-delay: map-get($transitionSpeed, default);
+	backface-visibility: hidden;
+	border: 1px solid transparent;
+	border-left: $border-highlight-width solid;
+	border-radius: $radius-default;
+	font-size: $alert-font-size;
+	margin-left: auto;
+	margin-right: auto;
+	max-height: $alert-max-height;
+	max-width: if($fullWidth, none, map-deep-get($config, page, medium-width));
+	position: relative;
+	transform: translate3d(0, 0, 0);
+
+	@each $alert-type, $type-list in map-deep-get($config, alerts) {
+		&[data-type='#{$alert-type}'] {
+			background: map-get($type-list, background-color);
+
+			@if map-get($type-list, border) == 'all' {
+				border-color: map-get($type-list, accent-color);
+			}
+
+ @else {
+				border-left-color: map-get($type-list, accent-color);
+			}
+		}
+	}
+
+	span {
+		display: block;
+	}
+}
+
+@mixin alert-can-close() {
+	padding-right: ($modal-close-size * 2) !important;
+}
+
+@mixin alert-content() {
+	flex: 1;
+	margin: auto;
+}
+
+@mixin alert-close() {
+	@include modal-close();
+}
+
+@mixin alert-label() {
+	font-weight: 700;
+}
+
+@mixin alert-icon() {
+	@include icon-init();
+
+	flex: 0 0 $svg-size;
+	margin-right: map-get($alert-icon, margin-right);
+
+	@include media-query($size: tablet-portrait) {
+		margin-left: -#{map-get($alert-icon, margin-right)};
+	}
+}

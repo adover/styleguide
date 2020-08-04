@@ -1,0 +1,34 @@
+@import '../../../1_settings/_config';
+@import '../../notification';
+
+:host {
+	display: block;
+	overflow: hidden;
+
+	& > * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&[data-floating='true'] {
+		@include notification-floating();
+	}
+
+	cdx-svg-icon {
+		margin-bottom: 0 !important;
+		margin-right: $spacing-1;
+	}
+
+	p {
+		@include notification-small();
+
+		margin: 0;
+		text-align: left;
+	}
+
+	&[data-colour='green'] {
+		p {
+			@include notification-small($colour: green);
+		}
+	}
+}

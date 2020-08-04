@@ -1,0 +1,31 @@
+@import '../1_settings/_config';
+@import '../1_settings/animations';
+@import '../1_settings/transitions';
+@import '../2_tools/mixins/display-flex';
+
+/// @group molecules
+
+$quantity-selector: (
+	background: map-deep-get($config, colors, background, light),
+	label: (
+		color: white,
+		background: map-deep-get($config, colors, background, mid),
+	),
+);
+
+/// Initial styles for the quantity selector as seen on the product stamp
+/// @name quantity-selector-init
+@mixin quantity-selector-init() {
+	@include display-flex($justify: space-between);
+}
+
+/// @name quantity-selector-label
+@mixin quantity-selector-label() {
+	@include display-flex($align: center, $justify: center);
+
+	background-color: map-deep-get($quantity-selector, label, background);
+	color: map-deep-get($quantity-selector, label, color);
+	flex: 1;
+	font-size: map-deep-get($config, sizes, paragraph, small);
+	text-align: center;
+}

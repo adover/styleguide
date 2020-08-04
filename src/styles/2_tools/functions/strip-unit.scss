@@ -1,0 +1,14 @@
+/// Remove the unit of a length. Useful when you need
+/// to convert px to rem on the fly
+/// @name strip-unit
+/// @group functions
+/// @group string
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}

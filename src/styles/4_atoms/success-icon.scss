@@ -1,0 +1,16 @@
+@import '../1_settings/_config';
+@import '../1_settings/svg';
+@import '../2_tools/functions/build-animation';
+@import '../2_tools/mixins/center';
+@import '../2_tools/mixins/position';
+
+$success-icon: (
+	width: $svg-size,
+	height: $svg-size,
+	right: $spacing-4,
+);
+
+@mixin success-icon-init() {
+	height: map-get($success-icon, height);
+	width: map-get($success-icon, width);
+}

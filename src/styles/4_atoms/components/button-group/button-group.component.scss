@@ -1,0 +1,10 @@
+@import '../../button-group';
+
+:host {
+	display: block;
+	width: 100%;
+
+	& ::ng-deep {
+		@include button-group-init();
+	}
+}

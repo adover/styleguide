@@ -1,0 +1,71 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/display-flex';
+
+$card-content-margin-bottom: $spacing-2;
+
+/// A white background, square padding and a drop shadow.
+/// Initially appeared on the product stamp but can be used in multiple locations.
+/// @param $background-color [white]
+/// @param {Bool} $border [false] - Add a 1px solid porcelain border
+/// @param {Bool | default | medium | large} $padding [default] - Apply default, medium, large or no (false) spacing
+/// @param {Bool} $shadow [map-get($shadows, small)] - Apply a box-shadow
+/// @param {Bool | default | medium | large} $rounded-corners [false] - Apply a variety of border-radius sizes
+/// @name card-layout
+/// @group atoms
+@mixin card-layout(
+	$background-color: white,
+	$border: false,
+	$padding: default,
+	$shadow: map-get($shadows, small),
+	$rounded-corners: false
+) {
+	background-color: $background-color;
+	border: if($border, map-deep-get($config, borders, divider), none);
+	box-shadow: if($shadow, $shadow, none);
+	overflow: hidden;
+	position: relative;
+
+	@if $rounded-corners == large {
+		border-radius: map-get($radii, lg);
+	}
+
+	@else if $rounded-corners == medium {
+		border-radius: map-get($radii, md);
+	}
+
+	@else if $rounded-corners == default {
+		border-radius: map-get($radii, default);
+	}
+
+	@else {
+		border-radius: if($rounded-corners, $radius-default, 0);
+	}
+
+	@if $padding == large {
+		@include apply-spacing($size: large);
+	}
+
+	@else if $padding == medium {
+		@include apply-spacing($size: $padding, $square: true);
+	}
+
+	@else if $padding == default {
+		@include apply-spacing($size: $padding, $square: true);
+	}
+
+	@else {
+		padding: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/// @name card-center-content
+@mixin card-center-content() {
+	@include display-flex($align: center, $justify: center);
+
+	text-align: center;
+}

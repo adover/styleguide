@@ -1,0 +1,19 @@
+/// Ensure this only gets imported once
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+@font-face {
+	font-display: swap;
+	font-family: 'Fresh';
+	font-style: normal;
+	font-weight: 500;
+	src: url('~/fonts/FreshSans-Medium_web.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Fresh';
+	font-style: normal;
+	font-weight: 700;
+	src: url('~/fonts/FreshSans-Bold_web.woff2') format('woff2');
+}

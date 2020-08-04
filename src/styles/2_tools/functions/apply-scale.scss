@@ -1,0 +1,16 @@
+@import '../../1_settings/_config';
+@import 'pow';
+/// Apply scale relative to the base, depending on breakpoint.
+/// This is used mainly for setting type size, not much else.
+/// Uses the exponential function 'pow'
+/// @group functions
+/// @name apply-scale
+@function apply-scale($breakpoint: false, $size: 1) {
+	@if $breakpoint != false {
+		@return pow(map-deep-get($config, type, scale, $breakpoint), $size);
+	}
+
+ @else {
+		@error '[Function: Apply Scale] Invalid parameters passed to apply-scale';
+	}
+}

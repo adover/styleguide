@@ -1,0 +1,21 @@
+/// TODO
+/// @name position
+/// @group mixins
+/// @param $position - Position property
+@mixin position($position: absolute) {
+	position: $position;
+	@content;
+}
+
+/// Add styling to an element for it to completely
+/// cover what it is relatively positioned
+/// against. Useful for <a> tags on
+/// card items.
+/// @name absolute-cover
+/// @group mixins
+@mixin absolute-cover() {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+}

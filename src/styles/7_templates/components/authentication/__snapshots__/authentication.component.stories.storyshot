@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Templates|Authentication page default 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <cdx-authentication>
+    <cdx-page-heading
+      aria-level="1"
+      class="pageHeading"
+      role="heading"
+    >
+      <h1
+        class="heading--huge"
+      >
+         Sign in or register 
+      </h1>
+    </cdx-page-heading>
+    <cdx-tabs
+      ng-reflect-routed="true"
+      routed="true"
+    >
+      <ul
+        class="tabs-header"
+        role="tablist"
+      >
+        
+        <li
+          class="tabs-headerItem"
+          role="presentation"
+        >
+          
+          <a
+            aria-controls="already-have-an-account?-tab"
+            aria-selected="false"
+            href="/securelogin"
+            id="already-have-an-account?-tab"
+            ng-reflect-router-link="securelogin"
+            role="tab"
+          >
+             Already have an account? 
+          </a>
+          
+          
+        </li>
+        <li
+          class="tabs-headerItem"
+          role="presentation"
+        >
+          
+          <a
+            aria-controls="new-to-countdown?-tab"
+            aria-selected="false"
+            href="/register"
+            id="new-to-countdown?-tab"
+            ng-reflect-router-link="register"
+            role="tab"
+          >
+             New to Countdown? 
+          </a>
+          
+          
+        </li>
+      </ul>
+      <div
+        class="tabs-body"
+      >
+        <cdx-tab
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="Label"
+          aria-labelledby="labelledBy"
+          heading="Already have an account?"
+          id=""
+          ng-reflect-heading="Already have an account?"
+          ng-reflect-href="securelogin"
+          role="tabpanel"
+        >
+          
+          <div
+            id="securelogin"
+          />
+        </cdx-tab>
+        <cdx-tab
+          aria-disabled="false"
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="Label"
+          aria-labelledby="labelledBy"
+          heading="New to Countdown?"
+          id=""
+          ng-reflect-heading="New to Countdown?"
+          ng-reflect-href="register"
+          role="tabpanel"
+        >
+          
+          <div
+            id="register"
+          />
+        </cdx-tab>
+        
+      </div>
+    </cdx-tabs>
+  </cdx-authentication>
+</storybook-dynamic-app-root>
+`;

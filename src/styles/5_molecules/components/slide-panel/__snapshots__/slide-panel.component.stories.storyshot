@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules|Slide Panel Slide panel 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component
+    class="ng-star-inserted"
+  >
+    <div
+      ng-reflect-ng-style="[object Object]"
+      style="position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px; display: flex; align-items: center; overflow: auto;"
+    >
+      <div
+        ng-reflect-ng-style="[object Object]"
+        style="margin: auto; max-height: 100%;"
+      >
+        <div
+          class="ng-untouched ng-pristine ng-invalid"
+          ng-reflect-form="[object Object]"
+        >
+          <cdx-slide-panel
+            class="ng-tns-c10-0 ng-trigger ng-trigger-slideInOut"
+            ng-reflect-show-panel="true"
+            style=""
+          >
+            <div
+              class="ng-tns-c10-0"
+            >
+              <form-input
+                autocomplete="organization"
+                class="ng-untouched ng-pristine ng-invalid"
+                formcontrolname="companyName"
+                maxlength="65"
+                ng-reflect-autocomplete="organization"
+                ng-reflect-form-control-name="companyName"
+                ng-reflect-maxlength="65"
+                ng-reflect-name="companyName"
+                ng-reflect-required=""
+                ng-reflect-tabindex="0"
+                required=""
+              >
+                
+                
+                <label
+                  class="ng-star-inserted"
+                  for="companyName"
+                  label=""
+                  style=""
+                >
+                   Business name 
+                </label>
+                
+                
+                
+                <input
+                  autocomplete="organization"
+                  class="ng-star-inserted"
+                  data-size="initial"
+                  id="companyName"
+                  maxlength="65"
+                  name="companyName"
+                  ng-reflect-ng-class="[object Object]"
+                  placeholder=""
+                  style=""
+                  tabindex="0"
+                  type="text"
+                />
+                
+                
+                
+                
+                
+                <form-input-error
+                  control="companyName"
+                  ng-reflect-control="companyName"
+                  validation=""
+                >
+                  <p
+                    class="form-errorText--hide"
+                    ng-reflect-type="required"
+                  >
+                     Please enter your business name. 
+                  </p>
+                </form-input-error>
+                
+                
+              </form-input>
+            </div>
+          </cdx-slide-panel>
+        </div>
+      </div>
+    </div>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

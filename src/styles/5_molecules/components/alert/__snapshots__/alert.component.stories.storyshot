@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules| Alert default 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component>
+    <cdx-alert
+      ng-reflect-alert-type="error"
+      ng-reflect-can-dismiss="true"
+    >
+      <div
+        class="alert alert--canDismiss"
+        data-type="error"
+        labelledby="alertLabel"
+        role="alertdialog"
+      >
+        <i
+          class="alert-icon"
+        />
+        <div
+          class="alert-content"
+        >
+          <span
+            class="alert-label"
+            id="alertLabel"
+          >
+              
+            
+            
+            Sorry an error has occurred. If you continue to receive these errors please contact our Customer Service Team on 0800 40 40 40
+          </span>
+          
+        </div>
+        
+        <button
+          aria-label="Dismiss alert"
+          class="alert-closeBtn"
+        />
+      </div>
+    </cdx-alert>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;

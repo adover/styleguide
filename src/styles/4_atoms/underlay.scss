@@ -1,0 +1,18 @@
+@import '../1_settings/_config';
+@import '../1_settings/z-index';
+@import '../2_tools/functions/build-animation';
+
+@mixin underlay() {
+	@include z-index(100);
+
+	animation: build-animation(opacity, default, default, forwards);
+	background: map-deep-get($config, overlay, dark);
+	bottom: 0;
+	display: none;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translate3d(0, 0, 0);
+	will-change: opacity;
+}

@@ -1,0 +1,110 @@
+@import '../../../1_settings/z-index';
+@import '../../../2_tools/mixins/apply-spacing';
+@import '../../../2_tools/mixins/display-flex';
+@import '../../../2_tools/mixins/media-query';
+@import '../../../2_tools/mixins/position';
+@import '../../../5_molecules/modal';
+
+:host {
+  .modal {
+    &-backdrop {
+      @include modal-backdrop();
+    }
+
+    // Below is the same modal styling as used in other modals but built mobile first
+    &-contentContainer {
+      @include display-flex($align: center, $justify: center);
+
+      @include position(fixed) {
+        left: 0;
+        top: 0;
+      }
+
+      height: 100%;
+      pointer-events: none;
+      width: 100%;
+      z-index: $modal-zindex;
+
+      .card {
+        @include apply-spacing($axis: vertical, $size: large, $scale: false);
+
+        @include position() {
+          bottom: 0;
+          left: 0;
+        }
+
+        max-height: map-deep-get($config, modal, height, large);
+        max-width: map-get($breakpoints, tablet-portrait);
+        pointer-events: auto;
+        width: 100%;
+
+        @include media-query($size: tablet-portrait) {
+          @include position(relative);
+
+          width: auto;
+
+          @include modal-width();
+        }
+
+        @include media-query($size: tablet-portrait, $max: true) {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &[data-mobile-full-height='true'] {
+          height: map-deep-get($config, modal, height, full);
+          max-height: map-deep-get($config, modal, height, full);
+
+          @include media-query($size: tablet-portrait) {
+            height: 100%;
+            max-height: map-deep-get($config, modal, height, large);
+          }
+        }
+      }
+    }
+
+    &-closeBtn {
+      @include modal-close-newUi();
+    }
+
+    &-loading {
+      // Gives the loading container a larger size so the modal size jumps around less when animating in
+      min-height: 10rem;
+
+      @include display-flex($justify: center, $align: center)
+    }
+
+    &-slotContainer {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    &-headerSlot, &-footerSlot {
+      flex: 0 0 auto;
+    }
+
+    &-footerSlot {
+      @include display-flex($direction: column);
+
+      @include media-query($size: tablet-portrait) {
+        @include display-flex();
+      }
+    }
+
+    &-contentSlot {
+      flex: 1 1 auto;
+      overflow-y: auto;
+
+      @include section-margin($size: default);
+    }
+  }
+
+  // IE11 fix
+  &::ng-deep {
+    h5,
+    p {
+      width: 100%;
+    }
+  }
+}

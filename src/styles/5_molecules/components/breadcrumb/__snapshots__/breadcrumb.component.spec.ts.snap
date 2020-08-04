@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbComponent should match snapshot 1`] = `
+<cdx-breadcrumb
+  __ngContext__={[Function LRootView]}
+  items={[Function Array]}
+  navigate={[Function Function]}
+  router={[Function Router]}
+>
+  <ul>
+    <li>
+      <a
+        aria-label="Home"
+        class="_noajax"
+        href="/"
+        routerlink="/"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="home"
+          size="small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#home"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+    </li>
+    <li>
+      <a
+        href="/"
+      >
+        Groceries
+      </a>
+      
+      
+      
+      <div
+        class="separator"
+      />
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+      
+    </li>
+    <li>
+      <a
+        href="/shop/browse/foo?search=milk&page=1&size=24&dasFilter=foo;1;Foo;false"
+      >
+        Foo
+      </a>
+      
+      
+      
+      <div
+        class="separator"
+      />
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+      
+    </li>
+    <li>
+      <a
+        href="/shop/browse/foo/bar?search=milk&page=1&size=24&dasFilter=bar;1;Bar;false"
+      >
+        Bar
+      </a>
+      
+      
+      
+      <div
+        class="separator"
+      />
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+      
+    </li>
+    <li>
+      <a
+        href="/shop/browse/foo/bar/baz?search=milk&page=1&size=24&dasFilter=baz;1;Baz;false"
+      >
+        Baz
+      </a>
+      
+      
+      
+      <div
+        class="separator"
+      />
+      
+    </li>
+    
+  </ul>
+</cdx-breadcrumb>
+`;
+
+exports[`BreadcrumbComponent should match snapshot with item not having route url 1`] = `
+<cdx-breadcrumb
+  __ngContext__={[Function LRootView]}
+  items={[Function Array]}
+  navigate={[Function Function]}
+  router={[Function Router]}
+>
+  <ul>
+    <li>
+      <a
+        aria-label="Home"
+        class="_noajax"
+        href="/"
+        routerlink="/"
+      >
+        <cdx-svg-icon
+          display="block"
+          fill="dark"
+          name="home"
+          size="small"
+        >
+          <svg
+            version="1.1"
+            viewbox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use
+              xlink:href="#home"
+            />
+          </svg>
+        </cdx-svg-icon>
+      </a>
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+    </li>
+    <li>
+      <a
+        href="/"
+      >
+        Groceries
+      </a>
+      
+      
+      
+      <div
+        class="separator"
+      />
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+      
+    </li>
+    <li>
+      <a
+        href="/shop/browse/foo?search=milk&page=1&size=24&dasFilter=foo;1;Foo;false"
+      >
+        Foo
+      </a>
+      
+      
+      
+      <div
+        class="separator"
+      />
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+      
+    </li>
+    <li>
+      <a
+        href="/shop/browse/foo/bar?search=milk&page=1&size=24&dasFilter=bar;1;Bar;false"
+      >
+        Bar
+      </a>
+      
+      
+      
+      <div
+        class="separator"
+      />
+      <cdx-svg-icon
+        display="block"
+        fill="dark"
+        name="chevron-right"
+        size="extra-small"
+      >
+        <svg
+          version="1.1"
+          viewbox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <use
+            xlink:href="#chevron-right"
+          />
+        </svg>
+      </cdx-svg-icon>
+      
+    </li>
+    <li>
+      
+      <span>
+        Baz
+      </span>
+      
+      
+      <div
+        class="separator"
+      />
+      
+    </li>
+    
+  </ul>
+</cdx-breadcrumb>
+`;

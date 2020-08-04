@@ -1,0 +1,9 @@
+// Main Molecule Definitions. Useful for component defs that are better
+// as something generically accessible rather than in a mixin or a
+// component
+
+// When surfacing an error message above a title we want to
+// remove it's top padding. Otherwise it looks loose
+cdx-alert + cdx-page-heading {
+	padding-top: 0 !important;
+}

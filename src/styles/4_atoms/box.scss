@@ -1,0 +1,11 @@
+@import '../1_settings/borders';
+@import '../1_settings/colors';
+@import './section';
+
+@mixin box-init() {
+	@include apply-spacing($size: default);
+	@include section-margin($size: default);
+
+	background-color: map-deep-get($config, colors, background, light-green);
+	border-radius: map-deep-get($config, radii, default);
+}

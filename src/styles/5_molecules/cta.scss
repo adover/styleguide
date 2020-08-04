@@ -1,0 +1,87 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/apply-spacing';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/target-ie';
+
+@mixin cta-init() {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	figure {
+		margin-bottom: 0;
+		overflow: hidden;
+		position: relative;
+	}
+
+	img {
+		height: 100%;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: scale3d(1, 1, 1) translate(-50%, -50%);
+		width: auto;
+	}
+}
+
+@mixin cta-floating-figure() {
+	height: 100%;
+	width: 100%;
+}
+
+@mixin cta-floating-caption() {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	width: 100%;
+
+	@include apply-spacing($size: default);
+
+	& > * {
+		max-width: 100%;
+		white-space: normal;
+	}
+}
+
+@mixin cta-flex-figure() {
+	padding-top: 100%;
+	width: 100%;
+
+	@include target-edge {
+		min-height: 224px;
+		padding-top: 0;
+	}
+
+	img {
+		transform-origin: 0 0;
+		transition: map-deep-get($config, transitions, hoverRise, out);
+	}
+}
+
+@mixin cta-flex-figure-hover() {
+	img {
+		transform: scale3d(1.05, 1.05, 1.05) translate(-50%, -50%);
+		transition: map-deep-get($config, transitions, hoverRise, over);
+	}
+}
+
+@mixin cta-flex-caption() {
+	background: white;
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+
+	@include apply-spacing($size: default);
+
+	& > * {
+		max-width: 100%;
+		white-space: normal;
+	}
+}
+
+@mixin cta-caption-underlay() {
+	background: map-deep-get($config, shadows, underlay);
+}

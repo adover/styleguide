@@ -1,0 +1,23 @@
+@import '../1_settings/borders';
+@import '../1_settings/colors';
+@import './section';
+
+/// Layout for a standard article or lead in piece of content
+/// @name article
+/// @group atoms
+@mixin article-init($margin: large) {
+	@include apply-spacing($size: medium, $square: true);
+
+	@if $margin {
+		@include section-margin($size: $margin);
+	}
+
+	border: map-deep-get($config, borders, default);
+	border-radius: $radius-default;
+	position: relative;
+}
+
+@mixin article-with-cta($margin: large) {
+	@include article-init($margin);
+	@include display-flex($direction: column);
+}

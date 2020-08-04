@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SlottedModalComponent should put content in slots 1`] = `
+<ng-component
+  __ngContext__={[Function LRootView]}
+>
+  <cdx-slotted-modal>
+    <div
+      class="modal-backdrop overlay--opaque"
+    />
+    <div
+      class="modal-contentContainer"
+    >
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+        tabindex="0"
+      />
+      <cdx-card
+        card-center="false"
+        card-padding="medium"
+        card-rounded="medium"
+        cdktrapfocus=""
+        class="card"
+        data-mobile-full-height="false"
+        data-size="full"
+        roundedcorners="medium"
+      >
+        <button
+          aria-label="Dismiss modal"
+          cdkfocusinitial=""
+          class="modal-closeBtn"
+        >
+          <cdx-svg-icon
+            fill="dark"
+            name="cross"
+            size="small"
+          />
+        </button>
+        
+        <div
+          class="modal-slotContainer"
+        >
+          <div
+            class="modal-headerSlot"
+          >
+            <h1
+              modal-header=""
+            >
+              Header
+            </h1>
+          </div>
+          <div
+            class="modal-contentSlot"
+          >
+            <div
+              modal-content=""
+            >
+              <p>
+                Some content
+              </p>
+            </div>
+          </div>
+          <div
+            class="modal-footerSlot"
+          >
+            <span
+              modal-footer-primary=""
+            >
+              Footer
+            </span>
+          </div>
+        </div>
+      </cdx-card>
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+        tabindex="0"
+      />
+    </div>
+  </cdx-slotted-modal>
+</ng-component>
+`;

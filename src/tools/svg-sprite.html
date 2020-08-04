@@ -1,0 +1,24 @@
+
+<svg width="0" height="0" style="position:absolute">
+{{#shapes}}		{{{svg}}}
+{{/shapes}}
+</svg>
+
+			<ul>
+
+{{#shapes}}				<li title="{{name}}">
+					<div class="icon-box">
+
+						<!-- {{name}} -->
+						<svg class="{{#selector.dimensions}}{{#last}}{{#classname}}{{raw}}{{/classname}}{{/last}}{{/selector.dimensions}}">
+							<use xlink:href="#{{name}}"></use>
+						</svg>
+
+					</div>
+					<h2>{{name}}</h2>
+				</li>
+{{/shapes}}			</ul>
+
+
+		</section>
+

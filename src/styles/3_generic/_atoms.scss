@@ -1,0 +1,503 @@
+@import '../1_settings/_config';
+@import '../2_tools/functions/map-deep-get';
+@import '../2_tools/mixins/media-query';
+@import '../4_atoms/index';
+
+// Main Atomic Definitions. Useful for component defs that are better
+// as something generically accessible rather than in a mixin or a
+// component
+
+// Body
+body {
+	background-color: map-deep-get($config, colors, background, light);
+	color: map-deep-get($config, colors, paragraph, dark);
+	font-family: map-deep-get($config, type, body);
+}
+
+// Button
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+button,
+.btn {
+	@include button-init();
+}
+
+.btn {
+	&--primary {
+		@include button-primary();
+	}
+
+	&--flat {
+		@include button-primary-flat($hover: false);
+	}
+
+	&--outline {
+		@include button-primary-outline();
+	}
+
+	&--primaryFlatInverse {
+		@include button-primary-flat-inverse($hover: false);
+	}
+
+	&--secondary {
+		@include button-secondary();
+	}
+
+	&--secondaryFlat {
+		@include button-secondary-flat($hover: false);
+	}
+
+	&--secondaryOutline {
+		@include button-secondary-outline();
+	}
+
+	&--tertiary {
+		@include button-tertiary();
+	}
+
+	&--tertiaryFlat {
+		@include button-tertiary-flat($hover: false);
+	}
+}
+
+// Card
+.card {
+	@include card-layout();
+}
+
+// Checkbox
+input[type='checkbox'],
+:not(td).checkbox {
+	@include checkbox();
+}
+
+// Radio
+input[type='radio'],
+.radio {
+	@include radio-init();
+}
+
+// Form
+fieldset {
+	@include fieldset();
+
+	&.fieldset {
+		&--withDivider {
+			@include fieldset-divider();
+		}
+
+		&--noMargin {
+			margin-bottom: 0;
+		}
+	}
+}
+
+legend:not(.sr-only) {
+	@include fieldset-legend();
+}
+
+.form {
+	&-errorText {
+		@include form-error-text();
+	}
+
+	&-helperText {
+		@include form-helper-text();
+	}
+}
+
+// Heading
+@for $i from 1 to 6 {
+	h#{$i},
+	.heading--#{$i} {
+		@include heading-init($i);
+		@include heading-sizing($i);
+
+		&.heading--light {
+			font-weight: 300;
+		}
+
+		& + .heading--2,
+		& + h#{$i + 1} {
+			@include heading-subtitle();
+		}
+
+		p + &,
+		pre + & {
+			margin-top: $heading-after-paragraph-margin-top;
+		}
+	}
+}
+
+.heading {
+	&--display {
+		@include heading-display();
+	}
+
+	&--largeMargin {
+		@include section-margin($size: large);
+	}
+
+	&--huge {
+		@include heading-huge();
+	}
+
+	&--main {
+		@include heading-main();
+	}
+
+	&--subtitle {
+		@include heading-subtitle();
+	}
+
+	&--black {
+		color: black;
+	}
+
+	&--white {
+		color: white;
+	}
+
+	&--withChild {
+		@include display-flex($align: center);
+
+		display: flex !important;
+
+		& > *:not(:first-child) {
+			flex-shrink: 0 !important;
+			margin-left: $spacing-2;
+			width: auto !important;
+		}
+	}
+}
+
+.pageHeading {
+	text-align: center;
+}
+
+.contentContainer {
+	width: 100%;
+
+	@include media-query($size: mobile) {
+		@include display-flex();
+		@include apply-spacing();
+	}
+
+	&-main {
+		flex: 1 0 0%;
+		width: 100%;
+
+		@include media-query($size: mobile, $max: true) {
+			@include apply-spacing();
+		}
+
+		// TODO: Add more modifiers depending on page size
+		&--narrow {
+			margin: 0 auto;
+			max-width: map-deep-get($config, page, narrow-width);
+		}
+	}
+}
+
+// HR
+hr,
+.hr {
+	@include hr();
+
+	&.withSpacing {
+		margin-bottom: map-deep-get($config, spacings, large, v) !important;
+		margin-top: map-deep-get($config, spacings, large, v);
+	}
+}
+
+// Input
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input:-ms-input-placeholder {
+	color: $input-placeholder-color;
+}
+
+::-ms-clear {
+	display: none;
+}
+
+input[type='search'] {
+	-webkit-appearance: none;
+}
+
+input[type='submit'],
+input[type='button'] {
+	-webkit-appearance: none;
+}
+
+input::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+
+input:-moz-ui-invalid {
+	box-shadow: none;
+}
+
+textarea,
+// input,
+input:not([type='button']):not([type='checkbox']):not([type='submit']):not([type='reset']):not([type='image']):not([type='radio']),
+.input,
+.textarea {
+	@include input-init();
+}
+
+textarea {
+	min-height: $textarea-min-height;
+	padding: $input-padding;
+}
+
+select {
+	appearance: menulist;
+}
+
+// Label
+label,
+.label {
+	@include label-init();
+
+	&--hidden {
+		@include label-hidden();
+	}
+}
+
+// Link
+
+a,
+.link {
+	@include link-init();
+	@include link-external();
+
+	&._jumpTop {
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.link {
+	&--active {
+		@include link-active();
+	}
+
+	&--secondary {
+		@include link-init($type: secondary);
+	}
+
+	&--cover {
+		@include link-cover();
+	}
+
+	&--noUnderline {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&--underline {
+		text-decoration: underline;
+	}
+}
+
+// Lists
+// TODO: Next and prev on number list
+ul,
+ol,
+.list {
+	@include list-init();
+
+	&--reset {
+		@include list-reset();
+	}
+
+	&--inline {
+		@include list-item-inline();
+	}
+
+	&--counter {
+		&:before {
+			content: counter(list-counter);
+			counter-increment: list-counter;
+		}
+	}
+}
+
+.numberList {
+	@include list-reset();
+
+	&-item {
+		@include number-list-item();
+
+		&--prev {
+			@include pseudo($position: absolute, $content: svg(limed-spruce, $path: 'chevron-left')) {
+				@include absolute-center();
+
+				color: white;
+				height: $spacing-3;
+				width: $spacing-3;
+			}
+		}
+
+		.next a {
+			@include pseudo($position: absolute, $content: svg(limed-spruce, $path: 'chevron-right')) {
+				@include absolute-center();
+
+				color: white;
+				height: $spacing-3;
+				width: $spacing-3;
+			}
+		}
+
+		&--selected {
+			a {
+				@include link-dark();
+			}
+		}
+	}
+
+	&-link {
+		display: block;
+		height: inherit;
+		text-align: center;
+		width: inherit;
+	}
+}
+
+// Paragraph
+p,
+.text {
+	@include paragraph-init();
+}
+
+.text {
+	&--large {
+		font-size: map-deep-get($config, sizes, paragraph, large);
+	}
+
+	&--small {
+		font-size: map-deep-get($config, sizes, paragraph, small);
+	}
+
+	&--smallest {
+		font-size: map-deep-get($config, sizes, paragraph, smallest);
+	}
+
+	&--main {
+		@include paragraph-main();
+	}
+
+	&--capitalise {
+		text-transform: capitalize;
+	}
+
+	&--uppercase {
+		text-transform: uppercase;
+	}
+
+	&--center {
+		text-align: center;
+	}
+
+	&--red {
+		color: $color-red;
+	}
+
+	&--strike {
+		@include paragraph-strike();
+	}
+}
+
+// Sections
+.section {
+	@include section-init();
+
+	&--align {
+		&Centre {
+			text-align: center;
+		}
+	}
+
+	&--fixed > * {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: $section-max-width;
+		width: 100%;
+	}
+
+	&--bg {
+		&White {
+			background-color: white;
+		}
+	}
+
+	&--padding {
+		&None {
+			@include apply-spacing($size: none);
+		}
+
+		&Default {
+			@include apply-spacing($size: default);
+		}
+
+		&Medium {
+			@include apply-spacing($size: medium);
+		}
+
+		&Large {
+			@include apply-spacing($size: large);
+		}
+	}
+}
+
+// Selects
+.select {
+	@include select-init();
+
+	&Container {
+		@include select-container();
+	}
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+// Tables
+table {
+	@include table();
+
+	tr {
+		@include table-row();
+
+		td {
+			@include table-cell();
+
+			margin: 0 !important;
+		}
+	}
+}
+
+// Layout
+.layout {
+	&--wide {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: map-deep-get($config, page, max-width);
+	}
+
+	&--mb {
+		@include section-margin($size: default);
+	}
+
+	&--mbLarge {
+		@include section-margin($size: large);
+	}
+}

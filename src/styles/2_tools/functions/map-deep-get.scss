@@ -1,0 +1,18 @@
+/// Recursively loop through SASS Maps. Use this to
+/// access config variables
+/// @name map-deep-get
+/// @group functions
+/// @group core
+/// @example map-deep-get($map, key, nestedKey);
+@function map-deep-get($map, $keys...) {
+	$_map: $map;
+
+	@each $key in $keys {
+		@if type-of($map) != 'map' {
+			@error '[Function: Map Deep Get]: Failed to use map value #{$map} using #{$keys};';
+		}
+		$map: map-get($map, $key);
+	}
+
+	@return $map;
+}

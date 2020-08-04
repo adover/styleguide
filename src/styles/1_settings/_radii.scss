@@ -1,0 +1,17 @@
+@import 'spacing';
+
+$radius-default: $spacing-1;
+$radius-md: $spacing-2;
+$radius-lg: $spacing-4;
+$radius-half: 50%;
+
+/**
+ * @sass-export-section="radii"
+ */
+$radii: (
+	default: $radius-default,
+	md: $radius-md,
+	lg: $radius-lg,
+	circle: $radius-half,
+);
+// @end-sass-export-section

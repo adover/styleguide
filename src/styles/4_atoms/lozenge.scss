@@ -1,0 +1,35 @@
+@import '../1_settings/colors';
+@import '../1_settings/radii';
+@import '../1_settings/spacing';
+@import '../1_settings/shadows';
+@import '../4_atoms/paragraph';
+
+$lozenge-background-color: map-get($colors, fun-green);
+$lozenge-border-radius: map-get($radii, lg);
+$lozenge-box-shadow: map-get($shadows, small);
+$lozenge-min-width: $spacing-6;
+$lozenge-padding: 0 $spacing-2;
+$lozenge-right: 80%;
+
+/// TODO
+/// @name lozenge-init
+/// @group atoms
+@mixin lozenge-init($absolute-position: true) {
+	align-items: center;
+	background-color: $lozenge-background-color;
+	border-radius: $lozenge-border-radius;
+	color: white;
+	display: flex;
+	font-size: map-deep-get($config, sizes, paragraph, smallest);
+	min-height: $lozenge-min-width;
+	min-width: $lozenge-min-width;
+	padding: $lozenge-padding;
+	text-align: center;
+
+	@if $absolute-position {
+		position: absolute;
+		right: $lozenge-right;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}

@@ -1,0 +1,190 @@
+@import '../1_settings/accessibility';
+@import '../1_settings/borders';
+@import '../1_settings/colors';
+@import '../1_settings/spacing';
+@import '../2_tools/mixins/borders';
+@import '../2_tools/functions/svg';
+
+$checkbox-background-color: white;
+$checkbox-border-color: map-get($colors, silver-sand);
+
+$checkbox-focus-border-color: map-get($colors, limed-spruce);
+
+$checkbox-hover-background-color: white;
+$checkbox-hover-border-color: map-get($colors, limed-spruce);
+
+$checkbox-disabled-background-color: map-get($colors, alabaster);
+$checkbox-disabled-border-color: map-get($colors, alabaster);
+
+$checkbox-active-background-color: map-get($colors, porcelain);
+$checkbox-active-border-color: map-get($colors, limed-spruce);
+
+$checkbox-checked-background-color: map-get($colors, fun-green);
+$checkbox-checked-border-color: map-get($colors, fun-green);
+
+$checkbox-checked-hover-background-color: map-get($colors, green-haze);
+$checkbox-checked-hover-border-color: map-get($colors, green-haze);
+
+$checkbox-left-spacing: $spacing-8;
+
+$checkbox-size: $spacing-6;
+
+$checkbox-checked-icon: svg(white, 'tick-sign');
+$checkbox-disabled-icon: svg(silver-sand, 'tick-sign');
+
+/// Apply styling to a pseudo element of a label adjacent to a checkbox input
+/// @name checkbox
+/// @group atoms
+@mixin checkbox() {
+	cursor: pointer;
+	height: 0;
+	opacity: 0;
+	position: absolute;
+	width: 0;
+
+	& ~ label {
+		@include checkbox-label();
+	}
+
+	&:hover ~ label {
+		@include checkbox-label(hover);
+	}
+
+	&:checked ~ label {
+		@include checkbox-label(checked);
+	}
+
+	&:checked:hover ~ label {
+		@include checkbox-label(checkedHover);
+	}
+
+	&:focus ~ label {
+		@include checkbox-label(focus);
+	}
+
+	&:active ~ label {
+		@include checkbox-label(active);
+	}
+
+	&:disabled ~ label {
+		@include checkbox-label(disabled);
+	}
+
+	&:disabled:checked ~ label {
+		@include checkbox-label(disabledChecked);
+	}
+}
+
+/// On legacy systems we may need to unset the checkbox styling
+/// @name checkbox-reset
+/// @group atoms
+@mixin checkbox-reset() {
+	height: auto;
+	opacity: 1;
+	position: static;
+	width: auto;
+
+	& ~ label {
+		&:after {
+			display: none;
+		}
+	}
+}
+
+/// This solves the use case of labels which are wrapped in multiple divs on legacy systems. Don't use this if you're using the standard checkbox-label mixin
+/// @name checkbox-label-init
+/// @group atoms
+@mixin checkbox-label-init() {
+	cursor: pointer;
+	display: inline-block;
+	min-height: $checkbox-size;
+	padding: 0 0 0 $checkbox-left-spacing;
+	position: relative;
+	user-select: none;
+	width: 100%;
+}
+
+/// TODO
+/// @name checkbox-label
+/// @group atoms
+@mixin checkbox-label($checkboxState: false) {
+	@if $checkboxState == active {
+		&::after {
+			background-color: $checkbox-active-background-color;
+			border-color: $checkbox-active-border-color;
+		}
+	}
+
+ @else if $checkboxState == disabled {
+		background-color: transparent;
+		border-color: $checkbox-disabled-border-color;
+		opacity: 0.5;
+		background-image: none;
+		background-repeat: no-repeat;
+		pointer-events: none;
+
+		&::after {
+			background-color: $checkbox-disabled-background-color;
+			border-color: $checkbox-border-color;
+		}
+	}
+
+ @else if $checkboxState == disabledChecked {
+		&::after {
+			background-image: $checkbox-disabled-icon;
+			border-color: $checkbox-disabled-border-color;
+		}
+	}
+
+ @else if $checkboxState == focus {
+		&::after {
+			box-shadow: $shadow-focus;
+		}
+	}
+
+ @else if $checkboxState == hover {
+		&::after {
+			border-color: $checkbox-focus-border-color;
+		}
+	}
+
+ @else if $checkboxState == checked {
+		&::after {
+			background-color: $checkbox-checked-background-color;
+			background-image: $checkbox-checked-icon;
+			background-position: 50%;
+			background-repeat: no-repeat;
+			background-size: 90%;
+			border-color: $checkbox-checked-border-color;
+			color: white;
+			text-align: center;
+		}
+	}
+
+ @else if $checkboxState == checkedHover {
+		&::after {
+			background-color: $checkbox-checked-hover-background-color;
+			border-color: $checkbox-checked-hover-border-color;
+		}
+	}
+
+ @else {
+		@include checkbox-label-init();
+
+		&::after {
+			background-color: $checkbox-background-color;
+			content: '';
+			display: inline-block;
+			height: $checkbox-size;
+			left: 0;
+			margin-top: -#{$checkbox-size / 2};
+			position: absolute;
+			top: 50%;
+			// TODO: Build transition
+			transition: background-color 150ms ease, box-shadow 150ms ease, border 150ms ease;
+			width: $checkbox-size;
+
+			@include border(default, $checkbox-border-color);
+		}
+	}
+}

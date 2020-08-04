@@ -1,0 +1,24 @@
+@import '../1_settings/colors';
+@import '../4_atoms/grid';
+@import '../4_atoms/list';
+
+$header-background-color: white;
+$footer-colophon-color: map-get($colors, fun-green);
+/// @group organisms
+
+/// TODO
+/// @name header-init
+/// @group display
+@mixin header-init() {
+	background-color: $header-background-color;
+
+	@include grid-init();
+
+	ul {
+		@include list-reset();
+	}
+}
+
+.header {
+	@include header-init();
+}

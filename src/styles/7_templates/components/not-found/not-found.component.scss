@@ -1,0 +1,17 @@
+@import '../../../1_settings/_config';
+@import '../../../2_tools/mixins/center';
+
+:host {
+	display: block;
+	margin: 0 auto;
+	min-height: 100vh;
+	position: relative;
+
+	cdx-loading {
+		@include absolute-center();
+
+		height: map-deep-get($config, icons, size, large);
+		position: absolute;
+		width: map-deep-get($config, icons, size, large);
+	}
+}

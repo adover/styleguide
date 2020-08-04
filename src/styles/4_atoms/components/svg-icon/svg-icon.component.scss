@@ -1,0 +1,106 @@
+@import '../../../1_settings/_config';
+
+:host {
+	height: map-deep-get($config, icons, size, default);
+	overflow: hidden;
+	position: relative;
+	width: map-deep-get($config, icons, size, default);
+
+	&[display='inline'] {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+	&[display='block'] {
+		display: block;
+	}
+
+	&[size='extra-small'] {
+		height: map-deep-get($config, icons, size, extra-small);
+		width: map-deep-get($config, icons, size, extra-small);
+	}
+
+	&[size='small'] {
+		height: map-deep-get($config, icons, size, small);
+		width: map-deep-get($config, icons, size, small);
+	}
+
+	&[size='large'] {
+		height: map-deep-get($config, icons, size, large);
+		width: map-deep-get($config, icons, size, large);
+	}
+
+	&[fill='light'] {
+		svg {
+			use {
+				fill: white;
+			}
+		}
+	}
+
+	&[fill='dark'] {
+		svg {
+			use {
+				fill: map-deep-get($config, colors, background, dark);
+			}
+		}
+	}
+
+	&[fill='green'] {
+		svg {
+			use {
+				fill: map-deep-get($config, colors, background, green);
+			}
+		}
+	}
+
+	&[fill='alert'],
+	&[fill='error'] {
+		svg {
+			use {
+				fill: map-deep-get($config, alerts, error, accent-color);
+			}
+		}
+	}
+
+	&[fill='warning'] {
+		svg {
+			use {
+				fill: map-deep-get($config, alerts, warning, accent-color);
+			}
+		}
+	}
+
+	&[fill='success'] {
+		svg {
+			use {
+				fill: map-deep-get($config, alerts, success, accent-color);
+			}
+		}
+	}
+
+	&[fill='info'] {
+		svg {
+			use {
+				fill: map-deep-get($config, alerts, info, accent-color);
+			}
+		}
+	}
+
+	&[fill='currentColor'] {
+		svg {
+			use {
+				fill: currentColor;
+			}
+		}
+	}
+
+	svg {
+		height: inherit;
+		width: inherit;
+
+		use {
+			fill: white;
+		}
+	}
+}

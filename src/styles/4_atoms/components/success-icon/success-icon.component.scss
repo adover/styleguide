@@ -1,0 +1,5 @@
+@import '../../success-icon';
+
+:host {
+	@include success-icon-init();
+}

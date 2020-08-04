@@ -1,0 +1,57 @@
+@import '../1_settings/_config';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/media-query';
+
+$banner: (
+	sizes: (
+		default: (
+			device: 13.33%,
+			desktop: 8.3%,
+		),
+		shelf: (
+			device: 26.33%,
+			desktop: 17.3%,
+		),
+	),
+);
+
+@mixin banner($aspectRatioSizing: true) {
+	display: block;
+	height: 100%;
+	width: 100%;
+
+	@if ($aspectRatioSizing) {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	a {
+		display: block;
+	}
+
+	img {
+		height: auto;
+		width: 100%;
+	}
+}
+
+@mixin banner-container() {
+	display: block;
+	height: 0;
+	margin: 0 auto;
+	max-width: 940px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+@mixin banner-sizing($size: default) {
+	padding-top: map-deep-get($banner, sizes, $size, device);
+
+	@include media-query($size: desktop) {
+		padding-top: map-deep-get($banner, sizes, $size, desktop);
+	}
+}

@@ -1,0 +1,117 @@
+@import '../../../1_settings/_config';
+@import '../../../1_settings/svg';
+@import '../../../2_tools/functions/build-transition';
+@import '../../../2_tools/mixins/apply-spacing';
+@import '../../../2_tools/mixins/list-reset';
+@import '../../../2_tools/mixins/media-query';
+@import '../../../4_atoms/button';
+@import '../../../4_atoms/paragraph';
+
+$persuasionBar-background-color: map-get($colors, limed-spruce);
+$persuasionBar-hover-background-color: map-get($colors, outer-space);
+$persuasionBar-break: tablet;
+$persuasionBar-height: 44px;
+$persuasionBar-itemImage-margin: $spacing-4;
+$persuasionBar-size: $svg-size;
+
+:host {
+	@include section-margin($size: large);
+
+	background-color: $persuasionBar-background-color;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+}
+
+// TODO: Swap itemImage for SVG
+
+.persuasionBar {
+	overflow: hidden;
+	width: 100%;
+
+	&-track {
+		display: block;
+		margin: 0 auto;
+		min-height: $persuasionBar-height;
+		overflow: hidden;
+		position: relative;
+
+		@for $i from 1 to 4 {
+			&[data-items='#{$i}'] {
+				width: #{$i * 100%};
+
+				@include media-query($size: $persuasionBar-break) {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	&-list {
+		@include list-reset();
+
+		display: table;
+		left: -100%;
+		min-height: inherit;
+		position: absolute;
+		table-layout: fixed;
+		width: 100%;
+
+		@for $i from 1 to 4 {
+			@at-root .persuasionBar-track[data-items='#{$i}'] & {
+				animation: scrollerHorizontal#{$i}Items 10s linear infinite;
+
+				@include media-query($size: $persuasionBar-break) {
+					animation: unset !important;
+					position: static;
+				}
+			}
+		}
+	}
+
+	&-item {
+		display: table-cell;
+		margin: 0;
+		min-height: inherit;
+		text-align: center;
+		transition: build-transition(long, ease-out, background-color);
+		vertical-align: top;
+
+		@include media-query($size: $persuasionBar-break) {
+			flex: 1;
+			width: auto;
+		}
+
+		&:hover {
+			background-color: $persuasionBar-hover-background-color;
+		}
+
+		& > a {
+			@include button-secondary();
+
+			align-items: center;
+			display: flex;
+			font-size: map-deep-get($config, sizes, paragraph, small);
+			justify-content: center;
+			min-height: inherit;
+			padding: $spacing-2;
+			width: 100%;
+
+			@include media-query($size: $persuasionBar-break) {
+				padding: $spacing-2 $spacing-4;
+			}
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: white !important;
+				text-decoration: none;
+			}
+		}
+
+		img {
+			margin-right: $persuasionBar-itemImage-margin;
+			vertical-align: middle !important;
+		}
+	}
+}

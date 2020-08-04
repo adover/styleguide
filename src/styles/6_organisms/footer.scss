@@ -1,0 +1,67 @@
+@import '../1_settings/breakpoints';
+@import '../1_settings/colors';
+@import '../2_tools/mixins/display-flex';
+@import '../2_tools/mixins/media-query';
+@import '../4_atoms/list';
+@import '../4_atoms/paragraph';
+@import '../4_atoms/section';
+
+$footer-background-color: white;
+$footer-colophon-color: map-get($colors, fun-green);
+$footer-font-size: map-deep-get($config, sizes, paragraph, small);
+/// @group molecules
+
+/// TODO
+/// @name footer-init
+/// @group display
+@mixin footer-init() {
+	background-color: $footer-background-color;
+	font-size: $footer-font-size;
+}
+
+/// TODO
+/// @name footer-content
+@mixin footer-content() {
+	@include media-query($size: tablet) {
+		@include display-flex($justify: space-between, $flex-wrap: wrap);
+		@include footer-column();
+	}
+}
+
+/// TODO
+/// @name footer-column
+@mixin footer-column() {
+	@include apply-spacing($axis: false, $size: large);
+}
+
+/// TODO
+/// @name footer-column
+@mixin footer-heading() {
+	@include heading-sizing(4);
+
+	border-bottom: map-deep-get($config, borders, default);
+
+	a {
+		color: map-deep-get($config, colors, link, secondary);
+		font-weight: 700;
+		text-decoration: none;
+	}
+}
+
+/// TODO
+/// @name footer-colophon
+@mixin footer-colophon() {
+	display: block;
+
+	@include media-query($size: tablet) {
+		@include display-flex($align: center, $justify: center);
+	}
+
+	@include section-init($padding-size: default, $background-color: $footer-colophon-color);
+
+	&,
+	a,
+	a:hover {
+		color: white;
+	}
+}

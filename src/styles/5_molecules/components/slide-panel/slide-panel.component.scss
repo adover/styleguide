@@ -1,0 +1,10 @@
+@import '../../slide-panel';
+@import '../../../4_atoms/form';
+
+:host {
+	@include form-row();
+	@include slide-panel-init();
+
+	display: block;
+	overflow: hidden;
+}

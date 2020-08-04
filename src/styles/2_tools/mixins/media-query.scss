@@ -1,0 +1,24 @@
+@import '../../1_settings/breakpoints';
+
+/// Takes a value contained inside the breakpoints map and applies it as a mixin
+/// @name media-query
+/// @group mixins
+/// @param $size - breakpoint value from breakpoints.scss
+/// @param $max - defines whether the breakpoint targets larger or smaller. Ideally usage of this is avoided
+@mixin media-query($size, $max: false) {
+	@if not index(map-keys($breakpoints), $size) {
+		@error "[Mixin: Media Query] #{$size} does not exist in breakpoints";
+	}
+
+	@if $max {
+		@media screen and(max-width: (map-get($breakpoints, $size) - 1)) {
+			@content;
+		}
+	}
+
+ @else {
+		@media screen and(min-width: map-get($breakpoints, $size)) {
+			@content;
+		}
+	}
+}

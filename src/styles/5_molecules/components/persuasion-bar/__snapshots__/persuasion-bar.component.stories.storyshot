@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules| Persuasion Bar Persuasion Bar 1`] = `
+<storybook-dynamic-app-root
+  cfr={[Function CodegenComponentFactoryResolver]}
+  data={[Function Object]}
+  target={[Function ViewContainerRef_]}
+>
+  <ng-component>
+    <cdx-persuasion-bar
+      ng-reflect-items="[object Object],[object Object"
+    >
+      
+      <div
+        class="persuasionBar-track"
+        data-items="3"
+      >
+        <ul
+          class="persuasionBar-list"
+        >
+          
+          <li
+            class="persuasionBar-item"
+          >
+            <a
+              cdxlegacynoajax=""
+              href="#url"
+            >
+              <span
+                class="persuasionBar-itemImage"
+                data-icon="M2.31 9.31a1.06 1.06 0 0 1 1.49 0l8.2 8.16 8.2-8.16a1.06 1.06 0 0 1 1.49 0 1 1 0 0 1 0 1.48l-9 8.9a1 1 0 0 1-1.48 0l-8.95-8.9a1 1 0 0 1-.26-.74 1 1 0 0 1 .31-.74z"
+                data-icon-color="light"
+                role="img"
+              />
+               Feature 1 
+            </a>
+          </li>
+          <li
+            class="persuasionBar-item"
+          >
+            <a
+              cdxlegacynoajax=""
+              href="#url"
+            >
+              <span
+                class="persuasionBar-itemImage"
+                data-icon="M2.31 9.31a1.06 1.06 0 0 1 1.49 0l8.2 8.16 8.2-8.16a1.06 1.06 0 0 1 1.49 0 1 1 0 0 1 0 1.48l-9 8.9a1 1 0 0 1-1.48 0l-8.95-8.9a1 1 0 0 1-.26-.74 1 1 0 0 1 .31-.74z"
+                data-icon-color="light"
+                role="img"
+              />
+               Feature 2 
+            </a>
+          </li>
+          <li
+            class="persuasionBar-item"
+          >
+            <a
+              cdxlegacynoajax=""
+              href="#url2"
+            >
+              <span
+                class="persuasionBar-itemImage"
+                data-icon="M2.31 9.31a1.06 1.06 0 0 1 1.49 0l8.2 8.16 8.2-8.16a1.06 1.06 0 0 1 1.49 0 1 1 0 0 1 0 1.48l-9 8.9a1 1 0 0 1-1.48 0l-8.95-8.9a1 1 0 0 1-.26-.74 1 1 0 0 1 .31-.74z"
+                data-icon-color="light"
+                role="img"
+              />
+               Feature 3 
+            </a>
+          </li>
+        </ul>
+      </div>
+    </cdx-persuasion-bar>
+  </ng-component>
+</storybook-dynamic-app-root>
+`;
