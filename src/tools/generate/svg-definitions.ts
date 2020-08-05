@@ -1,7 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const SVGSpriter = require('svg-sprite');
+import fs from 'fs';
+import mkdirp from 'mkdirp';
+import path from 'path';
+import SVGSpriter from 'svg-sprite';
+
 const svgDir = 'libs/styleguide/src/assets/icons';
 const outDir = 'libs/styleguide/src/lib/4_atoms/components/svg-definitions';
 const outFile = 'svg-definitions.component.html';
@@ -14,9 +15,11 @@ console.log('Ensure all items use a fill instead of a stroke, get the designers 
 console.log(
 	'Test all the icons once you are done! all items use a fill instead of a stroke, get the designers to export the outlines only \r\n'
 );
+// tslint:disable-next-line: no-console
 console.log('-------------------------------------------');
 
-const fullPath = (p) => {
+const fullPath = (p: string) => {
+	// tslint:disable-next-line: no-console
 	console.log(path.join(process.cwd(), p));
 	return path.join(process.cwd(), p);
 };
@@ -27,34 +30,31 @@ const config = {
 		symbol: {
 			bust: false,
 			dest: fullPath(outDir),
-			inline: true,
 			example: {
 				template: './tools/svg-sprite.html',
 			},
+			inline: true,
 		},
 	},
 };
 
-const pascalCase = (str) =>
+const pascalCase = (str: string) =>
 	str
-		.replace(/([-_][a-z])/gi, ($1) =>
-			$1
-				.toUpperCase()
-				.replace('-', '')
-				.replace('_', '')
-		)
+		.replace(/([-_][a-z])/gi, ($1: string) => $1.toUpperCase().replace('-', '').replace('_', ''))
 		.split(' ')
-		.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+		.map((s: string) => s.charAt(0).toUpperCase() + s.substring(1))
 		.join(' ');
 
-let promises = [];
-let svgNames = [];
+const promises: any[] = [];
+const svgNames: any[] = [];
 
 const m = (module.exports = {
-	processFile: (dir, filepath, name) =>
+	processFile: (dir: any, filepath: any, name: any) =>
 		new Promise((resolve, reject) => {
-			fs.readFile(filepath, (error, content) => {
-				if (error) reject(error);
+			fs.readFile(filepath, (error: any, content: { toString: () => string }) => {
+				if (error) {
+					reject(error);
+				}
 
 				// Remove junk placeholders designers use to export from Sketch
 				spriter.add(
@@ -74,21 +74,26 @@ const m = (module.exports = {
 				resolve(`${name} added`);
 			});
 		}),
-	readFiles: (dir) => {
-		fs.unlink(fullPath(outSVG), (error) => {
-			fs.readdir(dir, (error, fileNames) => {
-				if (error) throw error;
+	readFiles: (dir: any) => {
+		fs.unlink(fullPath(outSVG), (error: any) => {
+			fs.readdir(dir, (err: any, fileNames: any[]) => {
+				if (err) {
+					throw err;
+				}
+				// tslint:disable-next-line: no-console
 				console.log(fileNames);
 
 				// TODO replace all instances of <rect id="bounds" x="0" y="0" width="32" height="32"></rect>
 
-				fileNames.forEach((filename, i) => {
+				fileNames.forEach((filename: any, i: number) => {
 					const name = path.parse(filename).name;
 					const ext = path.parse(filename).ext;
 					const filepath = path.resolve(dir, filename);
 
-					fs.stat(filepath, function(error, stat) {
-						if (error) throw error;
+					fs.stat(filepath, (err: any, stat: { isFile: () => any }) => {
+						if (err) {
+							throw err;
+						}
 
 						const isFile = stat.isFile();
 
@@ -130,12 +135,12 @@ const m = (module.exports = {
 
 		index.end();
 	},
-	generate: (_) => {
-		spriter.compile(function(error, result) {
+	generate: (_: any) => {
+		spriter.compile((error: any, result: { [x: string]: { [x: string]: { contents: any } } }) => {
 			// mkdirp.sync(path.dirname(result[mode][resource].path));
-			for (var mode in result) {
+			for (let mode in result) {
 				console.log(mode);
-				for (var resource in result[mode]) {
+				for (let resource in result[mode]) {
 					if (resource === 'sprite') {
 						mkdirp.sync(path.resolve(fullPath(outDir)));
 						console.log(`Generated file: ${result[mode][resource].path}`);
@@ -149,4 +154,4 @@ const m = (module.exports = {
 
 m.readFiles(fullPath(svgDir));
 
-var spriter = new SVGSpriter(config);
+const spriter = new SVGSpriter(config);

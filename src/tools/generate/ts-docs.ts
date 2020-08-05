@@ -1,6 +1,6 @@
 // Copyright https://github.com/ng-bootstrap
-import * as glob from 'glob';
 import { ensureFileSync, writeFileSync } from 'fs-extra';
+import * as glob from 'glob';
 import { parseOutApiDocs } from './api-doc';
 
 /**
@@ -8,12 +8,12 @@ import { parseOutApiDocs } from './api-doc';
  * used by the demo application
  */
 
-const file = 'api-docs.ts';
-const fileNames = glob.sync('libs/styleguide/src/**/*.ts', {
-	ignore: ['libs/styleguide/src/**/*.spec.ts'],
+const file: string = 'api-docs.ts';
+const fileNames: string[] = glob.sync('styleguide/src/**/*.ts', {
+	ignore: ['styleguide/src/**/*.spec.ts'],
 });
 
-const json = JSON.stringify(parseOutApiDocs(fileNames), null, 2);
+const json: string = JSON.stringify(parseOutApiDocs(fileNames), null, 2);
 
 ensureFileSync(file);
 writeFileSync(file, `const API_DOCS = ${json};\n\nexport default API_DOCS;`);
